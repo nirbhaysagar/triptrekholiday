@@ -11,6 +11,8 @@ import valleyofflower from "@/assets/uttarakhand-usp/valleyofflower.jpg";
 import auli from "@/assets/uttarakhand-usp/auli.jpg";
 import rishikesh from "@/assets/uttarakhand-usp/rishikesh.jpg";
 import nainital from "@/assets/uttarakhand-usp/nainital.jpg";
+import mussorie from "@/assets/mussorie.jpg";
+import jimcorbett from "@/assets/jimcorbett.jpg";
 
 const packages = [
   {
@@ -25,7 +27,7 @@ const packages = [
   },
   {
     id: 2,
-    image: kedarnath,
+    image: jimcorbett,
     name: "Jim Corbett Wildlife Safari",
     price: "₹18,500",
     rating: 4.8,
@@ -61,7 +63,7 @@ const packages = [
   },
   {
     id: 6,
-    image: nainital,
+    image: mussorie,
     name: "Mussoorie & Dhanaulti",
     price: "₹16,500",
     rating: 4.6,
