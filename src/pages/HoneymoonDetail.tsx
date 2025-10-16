@@ -8,11 +8,19 @@ import {
 } from "@/components/ui/accordion";
 import Navigation from "@/components/Navigation";
 
+// Import images from honeymoon folder
+import kashmir from "@/assets/honeymoon/kashmir.jpg";
+import goa from "@/assets/honeymoon/goa.jpg";
+import kerala from "@/assets/honeymoon/kerala.jpg";
+import shimla from "@/assets/honeymoon/shimla.jpg";
+import andaman from "@/assets/honeymoon/andaman.jpg";
+import lehladakh from "@/assets/honeymoon/lehladakh.jpg";
+
 const mockHoneymoon = [
   { 
     id: 1, 
     name: "Kashmir Honeymoon", 
-    image: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=400&h=300&fit=crop", 
+    image: kashmir, 
     rating: 4.9, 
     bestTime: "Apr – Oct", 
     duration: "6 Days 5 Nights",
@@ -34,7 +42,7 @@ const mockHoneymoon = [
   { 
     id: 2, 
     name: "Goa Beach Romance", 
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop", 
+    image: goa, 
     rating: 4.8, 
     bestTime: "Nov – Feb", 
     duration: "5 Days 4 Nights",
@@ -55,7 +63,7 @@ const mockHoneymoon = [
   { 
     id: 3, 
     name: "Kerala Backwaters", 
-    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&h=300&fit=crop", 
+    image: kerala, 
     rating: 4.9, 
     bestTime: "Sep – Mar", 
     duration: "6 Days 5 Nights",
@@ -77,7 +85,7 @@ const mockHoneymoon = [
   { 
     id: 4, 
     name: "Shimla Manali Romance", 
-    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&h=300&fit=crop", 
+    image: shimla, 
     rating: 4.7, 
     bestTime: "Oct – Jun", 
     duration: "6 Days 5 Nights",
@@ -99,7 +107,7 @@ const mockHoneymoon = [
   { 
     id: 5, 
     name: "Andaman Islands", 
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop", 
+    image: andaman, 
     rating: 5.0, 
     bestTime: "Oct – May", 
     duration: "7 Days 6 Nights",
@@ -121,8 +129,8 @@ const mockHoneymoon = [
   },
   { 
     id: 6, 
-    name: "Udaipur Romance", 
-    image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=400&h=300&fit=crop", 
+    name: "Leh Ladakh Adventure", 
+    image: lehladakh, 
     rating: 4.8, 
     bestTime: "Oct – Mar", 
     duration: "4 Days 3 Nights",

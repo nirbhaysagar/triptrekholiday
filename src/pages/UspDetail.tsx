@@ -9,11 +9,19 @@ import {
 import Navigation from "@/components/Navigation";
 import { useState } from "react";
 
+// Import banner images
+import chardhamBanner from "@/assets/banner-chardham.jpg";
+import kedarnathBanner from "@/assets/kedarnath-banner.jpg";
+import valleyofflowerBanner from "@/assets/valleyofflower-banner.jpg";
+import auliBanner from "@/assets/auli-banner.jpg";
+import nainitalBanner from "@/assets/nainital-banner.jpg";
+import rishikeshBanner from "@/assets/rishikesh-banner.jpg";
+
 const mockUsp = [
   { 
     id: 1, 
     name: "Chardham Yatra", 
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop", 
+    image: chardhamBanner, 
     rating: 4.9, 
     bestTime: "May – Oct", 
     altitude: "3,133 m", 
@@ -65,7 +73,7 @@ const mockUsp = [
   { 
     id: 2, 
     name: "DoDham Yatra", 
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop", 
+    image: kedarnathBanner, 
     rating: 4.7, 
     bestTime: "May – Oct", 
     altitude: "3,133 m", 
@@ -111,7 +119,7 @@ const mockUsp = [
   { 
     id: 3, 
     name: "Kedarnath Special", 
-    image: "https://images.unsplash.com/photo-1564769628229-d3b6c5c3e8b7?w=400&h=300&fit=crop", 
+    image: kedarnathBanner, 
     rating: 4.9, 
     bestTime: "May – Oct", 
     altitude: "3,583 m", 
@@ -152,7 +160,7 @@ const mockUsp = [
   { 
     id: 4, 
     name: "Nainital", 
-    image: "https://images.unsplash.com/photo-1551524164-6cf5a5c8b6a8?w=400&h=300&fit=crop", 
+    image: nainitalBanner, 
     rating: 4.8, 
     bestTime: "Mar – Jun", 
     altitude: "2,084 m", 
@@ -172,7 +180,7 @@ const mockUsp = [
   { 
     id: 5, 
     name: "Valley of Flowers", 
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop", 
+    image: valleyofflowerBanner, 
     rating: 4.9, 
     bestTime: "Jul – Sep", 
     altitude: "3,500 m", 
@@ -195,7 +203,7 @@ const mockUsp = [
   { 
     id: 6, 
     name: "Auli Skiing", 
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop", 
+    image: auliBanner, 
     rating: 4.7, 
     bestTime: "Dec – Mar", 
     altitude: "2,800 m", 
@@ -216,7 +224,7 @@ const mockUsp = [
   { 
     id: 7, 
     name: "Rishikesh Adventure", 
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop", 
+    image: rishikeshBanner, 
     rating: 4.8, 
     bestTime: "Oct – Mar", 
     altitude: "372 m", 

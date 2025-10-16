@@ -8,11 +8,17 @@ import {
 } from "@/components/ui/accordion";
 import Navigation from "@/components/Navigation";
 
+// Import images from hillyarea folder
+import shimla from "@/assets/hillyarea/shimla.jpg";
+import darjeeling from "@/assets/hillyarea/darjeeling.jpg";
+import mussorie from "@/assets/hillyarea/mussorie.jpg";
+import ooty from "@/assets/hillyarea/ooty.jpg";
+
 const mockHilly = [
   { 
     id: 1, 
     name: "Shimla Manali", 
-    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&h=300&fit=crop", 
+    image: shimla, 
     rating: 4.8, 
     bestTime: "Oct – Jun", 
     altitude: "2,276 m", 
@@ -35,7 +41,7 @@ const mockHilly = [
   { 
     id: 2, 
     name: "Darjeeling Gangtok", 
-    image: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=400&h=300&fit=crop", 
+    image: darjeeling, 
     rating: 4.9, 
     bestTime: "Mar – May", 
     altitude: "1,650 m", 
@@ -59,7 +65,7 @@ const mockHilly = [
   { 
     id: 3, 
     name: "Mussoorie Dhanaulti", 
-    image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=400&h=300&fit=crop", 
+    image: mussorie, 
     rating: 4.7, 
     bestTime: "Apr – Jun", 
     altitude: "2,005 m", 
@@ -80,7 +86,7 @@ const mockHilly = [
   { 
     id: 4, 
     name: "Ooty Coonoor", 
-    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&h=300&fit=crop", 
+    image: ooty, 
     rating: 4.8, 
     bestTime: "Oct – Mar", 
     altitude: "2,240 m", 

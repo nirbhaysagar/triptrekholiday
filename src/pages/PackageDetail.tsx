@@ -9,6 +9,13 @@ import {
 } from "@/components/ui/accordion";
 import Navigation from "@/components/Navigation";
 
+// Import banner images
+import chardhamBanner from "@/assets/banner-chardham.jpg";
+import kedarnathBanner from "@/assets/kedarnath-banner.jpg";
+import valleyofflowerBanner from "@/assets/valleyofflower-banner.jpg";
+import auliBanner from "@/assets/auli-banner.jpg";
+import rishikeshBanner from "@/assets/rishikesh-banner.jpg";
+
 // Temporary mock - reuse the same structure as in TourPackages
 const mockPackages = [
   { 
@@ -18,7 +25,7 @@ const mockPackages = [
     rating: 5.0, 
     duration: "10 Days 9 Nights", 
     features: ["All Meals", "AC Transport", "Hotel Stay", "Pilgrimage Guide"], 
-    image: "/src/assets/destination-1.jpg", 
+    image: chardhamBanner, 
     overview: "Embark on a sacred journey to the four holy shrines of Uttarakhand - Yamunotri, Gangotri, Kedarnath, and Badrinath. This spiritual pilgrimage offers divine blessings, breathtaking mountain views, and profound spiritual experiences.",
     departurePoints: ["Delhi", "Haridwar"],
     departureInfo: {
@@ -56,8 +63,8 @@ const mockPackages = [
       }
     }
   },
-  { id: 2, name: "Jim Corbett Wildlife Safari", price: "₹18,500", rating: 4.8, duration: "3 Days 2 Nights", features: ["Jungle Safari", "Accommodation", "All Meals", "Naturalist Guide"], image: "/src/assets/destination-2.jpg", overview: "Experience the thrill of spotting tigers, elephants, and diverse wildlife in India's first national park.", itinerary: ["Arrival and check-in", "Evening safari", "Morning safari", "Departure"], includes: ["Accommodation", "All meals", "Safari tickets", "Naturalist guide"], notIncludes: ["Transportation", "Personal expenses", "Camera charges"] },
-  { id: 3, name: "Valley of Flowers Trek", price: "₹28,000", rating: 4.9, duration: "6 Days 5 Nights", features: ["Trekking Guide", "Camping", "Meals", "Transportation"], image: "/src/assets/destination-3.jpg", overview: "Discover the enchanting Valley of Flowers, a UNESCO World Heritage Site with rare Himalayan flora.", itinerary: ["Arrival in Haridwar", "Drive to Joshimath", "Trek to Ghangaria", "Valley of Flowers exploration", "Return trek", "Departure"], includes: ["Accommodation", "All meals", "Trekking guide", "Transportation"], notIncludes: ["Personal trekking gear", "Personal expenses", "Travel insurance"] },
+  { id: 2, name: "Jim Corbett Wildlife Safari", price: "₹18,500", rating: 4.8, duration: "3 Days 2 Nights", features: ["Jungle Safari", "Accommodation", "All Meals", "Naturalist Guide"], image: kedarnathBanner, overview: "Experience the thrill of spotting tigers, elephants, and diverse wildlife in India's first national park.", itinerary: ["Arrival and check-in", "Evening safari", "Morning safari", "Departure"], includes: ["Accommodation", "All meals", "Safari tickets", "Naturalist guide"], notIncludes: ["Transportation", "Personal expenses", "Camera charges"] },
+  { id: 3, name: "Valley of Flowers Trek", price: "₹28,000", rating: 4.9, duration: "6 Days 5 Nights", features: ["Trekking Guide", "Camping", "Meals", "Transportation"], image: valleyofflowerBanner, overview: "Discover the enchanting Valley of Flowers, a UNESCO World Heritage Site with rare Himalayan flora.", itinerary: ["Arrival in Haridwar", "Drive to Joshimath", "Trek to Ghangaria", "Valley of Flowers exploration", "Return trek", "Departure"], includes: ["Accommodation", "All meals", "Trekking guide", "Transportation"], notIncludes: ["Personal trekking gear", "Personal expenses", "Travel insurance"] },
 ];
 
 const PackageDetail = () => {
