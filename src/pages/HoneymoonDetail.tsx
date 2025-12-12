@@ -17,14 +17,14 @@ import andaman from "@/assets/honeymoon/andaman.jpg";
 import lehladakh from "@/assets/honeymoon/lehladakh.jpg";
 
 const mockHoneymoon = [
-  { 
-    id: 1, 
-    name: "Kashmir Honeymoon", 
-    image: kashmir, 
-    rating: 4.9, 
-    bestTime: "Apr – Oct", 
+  {
+    id: 1,
+    name: "Kashmir Honeymoon",
+    image: kashmir,
+    rating: 4.9,
+    bestTime: "Apr – Oct",
     duration: "6 Days 5 Nights",
-    region: "Jammu & Kashmir", 
+    region: "Jammu & Kashmir",
     summary: "Experience paradise on earth with your loved one. Enjoy romantic shikara rides on Dal Lake, explore the stunning meadows of Gulmarg, and create magical memories in the valley of Kashmir.",
     highlights: ["Private Shikara Ride", "Gulmarg Gondola", "Pahalgam Valley", "Mughal Gardens", "Romantic Houseboat Stay", "Candlelight Dinner"],
     price: "₹35,000",
@@ -39,14 +39,14 @@ const mockHoneymoon = [
     includes: ["Houseboat and hotel accommodation", "All meals", "Private AC vehicle", "Shikara ride", "Gondola tickets", "Candlelight dinner", "Room decoration"],
     excludes: ["Flights", "Pony rides in Pahalgam", "Adventure activities", "Personal expenses", "Tips"]
   },
-  { 
-    id: 2, 
-    name: "Goa Beach Romance", 
-    image: goa, 
-    rating: 4.8, 
-    bestTime: "Nov – Feb", 
+  {
+    id: 2,
+    name: "Goa Beach Romance",
+    image: goa,
+    rating: 4.8,
+    bestTime: "Nov – Feb",
     duration: "5 Days 4 Nights",
-    region: "Goa", 
+    region: "Goa",
     summary: "Sun-kissed beaches, candlelight dinners by the sea, and vibrant nightlife. Perfect blend of relaxation and romance in India's favorite beach destination.",
     highlights: ["Beach Resort Stay", "Sunset Cruise", "Candlelight Beach Dinner", "Water Sports", "Beach Shacks", "Nightlife"],
     price: "₹28,000",
@@ -60,14 +60,14 @@ const mockHoneymoon = [
     includes: ["Beach resort accommodation", "Daily breakfast", "Sunset cruise", "Candlelight dinner", "Airport transfers", "Room decoration"],
     excludes: ["Flights", "Lunch and dinner (except candlelight)", "Water sports fees", "Spa charges", "Personal expenses"]
   },
-  { 
-    id: 3, 
-    name: "Kerala Backwaters", 
-    image: kerala, 
-    rating: 4.9, 
-    bestTime: "Sep – Mar", 
+  {
+    id: 3,
+    name: "Kerala Backwaters",
+    image: kerala,
+    rating: 4.9,
+    bestTime: "Sep – Mar",
     duration: "6 Days 5 Nights",
-    region: "Kerala", 
+    region: "Kerala",
     summary: "Drift through serene backwaters in a luxury houseboat, enjoy Ayurvedic couple spa, and explore the misty hills of Munnar in God's Own Country.",
     highlights: ["Luxury Houseboat", "Munnar Tea Gardens", "Ayurvedic Couple Spa", "Alleppey Backwaters", "Kathakali Dance", "Sunset Views"],
     price: "₹32,000",
@@ -82,14 +82,14 @@ const mockHoneymoon = [
     includes: ["Resort and houseboat accommodation", "All meals on houseboat", "Breakfast at resorts", "Couple spa session", "All transfers", "Sightseeing"],
     excludes: ["Flights to Cochin", "Lunch and dinner at resorts", "Additional spa treatments", "Personal expenses", "Tips"]
   },
-  { 
-    id: 4, 
-    name: "Shimla Manali Romance", 
-    image: shimla, 
-    rating: 4.7, 
-    bestTime: "Oct – Jun", 
+  {
+    id: 4,
+    name: "Shimla Manali Romance",
+    image: shimla,
+    rating: 4.7,
+    bestTime: "Oct – Jun",
     duration: "6 Days 5 Nights",
-    region: "Himachal Pradesh", 
+    region: "Himachal Pradesh",
     summary: "Snow-capped mountains, cozy cafes, and romantic walks on Mall Road. Perfect for couples seeking mountain romance and adventure.",
     highlights: ["Mall Road Shimla", "Rohtang Pass", "Solang Valley", "Private Igloo Stay", "Snow Activities", "Cozy Mountain Resorts"],
     price: "₹25,000",
@@ -104,14 +104,14 @@ const mockHoneymoon = [
     includes: ["Hotel accommodation", "Daily breakfast and dinner", "All transfers", "Rohtang Pass permit", "Room decoration", "Honeymoon cake"],
     excludes: ["Flights", "Lunch", "Snow activity fees", "Personal expenses", "Tips"]
   },
-  { 
-    id: 5, 
-    name: "Andaman Islands", 
-    image: andaman, 
-    rating: 5.0, 
-    bestTime: "Oct – May", 
+  {
+    id: 5,
+    name: "Andaman Islands",
+    image: andaman,
+    rating: 5.0,
+    bestTime: "Oct – May",
     duration: "7 Days 6 Nights",
-    region: "Andaman & Nicobar", 
+    region: "Andaman & Nicobar",
     summary: "Pristine beaches, crystal-clear waters, and secluded islands. Perfect tropical paradise for couples seeking privacy and adventure.",
     highlights: ["Radhanagar Beach", "Scuba Diving", "Private Beach Dinner", "Island Hopping", "Coral Reefs", "Sunset Views"],
     price: "₹45,000",
@@ -127,14 +127,14 @@ const mockHoneymoon = [
     includes: ["Beach resort accommodation", "All meals", "Ferry tickets", "Scuba diving session", "Private beach dinner", "All transfers"],
     excludes: ["Flights to Port Blair", "Additional water sports", "Extra diving sessions", "Personal expenses", "Tips"]
   },
-  { 
-    id: 6, 
-    name: "Leh Ladakh Adventure", 
-    image: lehladakh, 
-    rating: 4.8, 
-    bestTime: "Oct – Mar", 
+  {
+    id: 6,
+    name: "Leh Ladakh Adventure",
+    image: lehladakh,
+    rating: 4.8,
+    bestTime: "Oct – Mar",
     duration: "4 Days 3 Nights",
-    region: "Rajasthan", 
+    region: "Rajasthan",
     summary: "Royal romance in the City of Lakes. Stay in heritage hotels, enjoy boat rides on Lake Pichola, and dine like royalty with stunning palace views.",
     highlights: ["Lake Palace View", "Pichola Boat Ride", "City Palace", "Rooftop Dining", "Bagore Ki Haveli", "Heritage Hotels"],
     price: "₹30,000",
@@ -147,14 +147,14 @@ const mockHoneymoon = [
     includes: ["Heritage hotel accommodation", "Daily breakfast", "Boat ride on Lake Pichola", "Candlelight dinner", "All transfers", "Cultural show tickets"],
     excludes: ["Flights", "Lunch and dinner (except candlelight)", "Palace entry fees", "Personal expenses", "Shopping"]
   },
-  { 
-    id: 7, 
-    name: "Coorg Honeymoon", 
-    image: "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=400&h=300&fit=crop", 
-    rating: 4.7, 
-    bestTime: "Oct – Mar", 
+  {
+    id: 7,
+    name: "Coorg Honeymoon",
+    image: "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=400&h=300&fit=crop",
+    rating: 4.7,
+    bestTime: "Oct – Mar",
     duration: "5 Days 4 Nights",
-    region: "Karnataka", 
+    region: "Karnataka",
     summary: "Romantic escape to coffee country. Stay in private villas amidst coffee estates, enjoy nature walks, and experience the tranquility of the Western Ghats.",
     highlights: ["Private Villa Stay", "Coffee Estate Walks", "Abbey Falls", "Raja's Seat Sunset", "Dubare Elephant Camp", "Romantic Dinners"],
     price: "₹22,000",
@@ -168,14 +168,14 @@ const mockHoneymoon = [
     includes: ["Private villa accommodation", "All meals", "Coffee plantation tour", "All transfers", "Bonfire evening", "Room decoration"],
     excludes: ["Flights", "Elephant activities fees", "Rafting charges", "Personal expenses", "Tips"]
   },
-  { 
-    id: 8, 
-    name: "Leh Ladakh Adventure", 
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop", 
-    rating: 4.9, 
-    bestTime: "May – Sep", 
+  {
+    id: 8,
+    name: "Leh Ladakh Adventure",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+    rating: 4.9,
+    bestTime: "May – Sep",
     duration: "7 Days 6 Nights",
-    region: "Ladakh", 
+    region: "Ladakh",
     summary: "For adventurous couples! Experience the raw beauty of high-altitude landscapes, camp under starry skies at Pangong Lake, and create unique memories in the land of passes.",
     highlights: ["Pangong Lake Camping", "Nubra Valley", "Khardung La Pass", "Monasteries", "Stargazing", "Magnetic Hill"],
     price: "₹42,000",
@@ -215,25 +215,25 @@ const HoneymoonDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section with Full-Width Image */}
       <div className="relative h-[50vh] sm:h-[60vh] min-h-[400px] sm:min-h-[500px] w-full">
-        <img 
-          src={item.image} 
-          alt={item.name} 
+        <img
+          src={item.image}
+          alt={item.name}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-        
+
         {/* Heart Icon */}
         <div className="absolute top-8 right-8 bg-pink-100/90 backdrop-blur-sm rounded-full p-3">
           <Heart className="w-6 h-6 text-pink-600 fill-pink-600" />
         </div>
 
         {/* Back Button */}
-        <button 
-          onClick={() => navigate(-1)} 
-          className="absolute top-8 left-8 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute top-32 left-6 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
@@ -248,15 +248,15 @@ const HoneymoonDetail = () => {
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 tracking-tight">{item.name}</h1>
             <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-white/90">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" /> 
+                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 <span className="font-medium">{item.rating}</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Clock className="w-4 h-4" /> 
+                <Clock className="w-4 h-4" />
                 <span>{item.duration}</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <MapPin className="w-4 h-4" /> 
+                <MapPin className="w-4 h-4" />
                 <span>{item.region}</span>
               </div>
             </div>
@@ -382,8 +382,8 @@ const HoneymoonDetail = () => {
                 <Heart className="w-5 h-5" />
                 <span className="text-sm">Honeymoon Special</span>
               </div>
-              <h3 className="text-4xl font-bold mb-2">{item.price}</h3>
-              <p className="text-white/80 text-lg">Starting price per couple</p>
+              <h3 className="text-3xl font-bold mb-2">Price: On Demand</h3>
+              <p className="text-white/80 text-lg">Get a quote for personalized pricing</p>
               <p className="text-white/60 text-sm mt-2">Inclusive of romantic experiences, accommodation, and meals</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">

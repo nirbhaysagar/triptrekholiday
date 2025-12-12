@@ -1,13 +1,15 @@
 import { ArrowRight, MapPin, Calendar, Users, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-mountain.jpg";
+import heroImage1 from "@/assets/carouseel-image/Gemini_Generated_Image_6tqpir6tqpir6tqp.png";
+import heroImage2 from "@/assets/carouseel-image/Gemini_Generated_Image_sfcilgsfcilgsfci.png";
+import heroImage3 from "@/assets/carouseel-image/Gemini_Generated_Image_uagxlauagxlauagx.png";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const destinations = [
   "Uttarakhand",
-  "Kashmir", 
+  "Kashmir",
   "Kerala",
   "Himachal Pradesh",
   "Rajasthan",
@@ -16,21 +18,29 @@ const destinations = [
   "Ladakh",
 ];
 
+const heroImages = [
+  heroImage1,
+  heroImage2,
+  heroImage3
+];
+
 const Hero = () => {
   const navigate = useNavigate();
   const [currentDestination, setCurrentDestination] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   // Filter states
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDestination, setSelectedDestination] = useState("");
   const [selectedDuration, setSelectedDuration] = useState("");
   const [selectedBudget, setSelectedBudget] = useState("");
 
+  // Text rotation effect
   useEffect(() => {
     const interval = setInterval(() => {
       setIsVisible(false);
-      
+
       setTimeout(() => {
         setCurrentDestination((prev) => (prev + 1) % destinations.length);
         setIsVisible(true);
@@ -40,19 +50,28 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Image rotation effect (4 seconds)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Handle search
   const handleSearch = () => {
     // Navigate to tour packages section
     const params = new URLSearchParams();
-    
+
     if (searchQuery) params.set('search', searchQuery);
     if (selectedDestination) params.set('destination', selectedDestination);
     if (selectedDuration) params.set('duration', selectedDuration);
     if (selectedBudget) params.set('budget', selectedBudget);
-    
+
     // Scroll to tour packages section
     navigate(`/#tour${params.toString() ? '?' + params.toString() : ''}`);
-    
+
     // Scroll to section after navigation
     setTimeout(() => {
       const element = document.getElementById('tour');
@@ -75,28 +94,36 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center">
-      {/* Hero Image with Subtle Overlay */}
+    <section id="home" className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      {/* Hero Image Carousel */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Majestic mountain landscape with turquoise lake"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/20" />
+        {heroImages.map((img, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+              }`}
+          >
+            <img
+              src={img}
+              alt={`Hero background ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
+        ))}
       </div>
 
-      {/* Content */}
-      <div className="container relative z-10 px-4 sm:px-6 lg:px-8">
+      {/* Content hidden temporarily as per user request */}
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 hidden">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white mb-6 sm:mb-8 leading-[0.9] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold text-white mb-6 sm:mb-8 leading-tight tracking-tight">
             Your Next<br />
             <span className="text-white/80">Adventure Awaits</span>
           </h1>
-          
+
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/70 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/70 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
             Discover extraordinary destinations and create memories that last a lifetime.
           </p>
 
@@ -104,10 +131,9 @@ const Hero = () => {
           <div className="mb-8 sm:mb-12 text-center">
             <p className="text-white/60 text-sm mb-2">Explore</p>
             <div className="h-12 flex items-center justify-center overflow-hidden">
-              <h3 
-                className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white transition-all duration-500 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-                }`}
+              <h3
+                className={`text-2xl sm:text-3xl md:text-4xl font-bold text-white transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+                  }`}
               >
                 {destinations[currentDestination]}
               </h3>
@@ -115,27 +141,27 @@ const Hero = () => {
           </div>
 
           {/* Tour Search Card - Compact Transparent Design */}
-          <div className="mt-8 sm:mt-12 max-w-5xl mx-auto px-4">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20 p-5 md:p-6">
+          <div className="mt-6 sm:mt-10 max-w-4xl mx-auto px-4">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 p-4">
               {/* First Row - Search Bar and Filters */}
-              <div className="flex flex-col md:flex-row gap-3">
+              <div className="flex flex-col md:flex-row gap-2">
                 {/* Search Input - Larger */}
                 <div className="relative md:flex-[2]">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/70" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/70" />
                   <input
                     type="text"
                     placeholder="Search destinations, packages, or activities..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                    className="w-full pl-12 pr-4 py-3 text-base rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 text-sm rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
                   />
                 </div>
 
                 {/* Destination */}
                 <div className="md:flex-1">
                   <Select value={selectedDestination} onValueChange={setSelectedDestination}>
-                    <SelectTrigger className="w-full py-3 text-sm rounded-xl bg-white/20 backdrop-blur-sm border-white/30 text-white focus:ring-white/50 h-auto">
+                    <SelectTrigger className="w-full py-2.5 text-sm rounded-lg bg-white/20 backdrop-blur-sm border-white/30 text-white focus:ring-white/50 h-auto">
                       <MapPin className="w-4 h-4 mr-2 text-white/70" />
                       <SelectValue placeholder="Destination" className="text-white" />
                     </SelectTrigger>
@@ -153,7 +179,7 @@ const Hero = () => {
                 {/* Duration */}
                 <div className="md:flex-1">
                   <Select value={selectedDuration} onValueChange={setSelectedDuration}>
-                    <SelectTrigger className="w-full py-3 text-sm rounded-xl bg-white/20 backdrop-blur-sm border-white/30 text-white focus:ring-white/50 h-auto">
+                    <SelectTrigger className="w-full py-2.5 text-sm rounded-lg bg-white/20 backdrop-blur-sm border-white/30 text-white focus:ring-white/50 h-auto">
                       <Calendar className="w-4 h-4 mr-2 text-white/70" />
                       <SelectValue placeholder="Duration" className="text-white" />
                     </SelectTrigger>
@@ -169,7 +195,7 @@ const Hero = () => {
                 {/* Budget */}
                 <div className="md:flex-1">
                   <Select value={selectedBudget} onValueChange={setSelectedBudget}>
-                    <SelectTrigger className="w-full py-3 text-sm rounded-xl bg-white/20 backdrop-blur-sm border-white/30 text-white focus:ring-white/50 h-auto">
+                    <SelectTrigger className="w-full py-2.5 text-sm rounded-lg bg-white/20 backdrop-blur-sm border-white/30 text-white focus:ring-white/50 h-auto">
                       <Users className="w-4 h-4 mr-2 text-white/70" />
                       <SelectValue placeholder="Budget" className="text-white" />
                     </SelectTrigger>
@@ -184,24 +210,24 @@ const Hero = () => {
               </div>
 
               {/* Popular Searches with Search Button */}
-              <div className="mt-4 pt-4 border-t border-white/20">
-                <div className="flex flex-wrap items-center gap-3">
+              <div className="mt-3 pt-3 border-t border-white/20">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="text-white/60 text-xs font-medium">Popular:</span>
                   {["Chardham", "Nainital", "Rishikesh", "Auli"].map((item) => (
                     <button
                       key={item}
                       onClick={() => handlePopularSearch(item)}
-                      className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs rounded-full border border-white/20 transition-all cursor-pointer"
+                      className="px-3 py-1 bg-white/10 hover:bg-white/20 text-white text-xs rounded-full border border-white/20 transition-all cursor-pointer"
                     >
                       {item}
                     </button>
                   ))}
                   <div className="flex-1"></div>
-                  <Button 
+                  <Button
                     onClick={handleSearch}
-                    className="bg-white hover:bg-white/90 text-blue-600 font-semibold py-2 px-6 text-sm rounded-xl transition-all shadow-lg hover:shadow-xl h-auto"
+                    className="bg-white hover:bg-white/90 text-blue-600 font-semibold py-2 px-5 text-sm rounded-lg transition-all shadow-lg hover:shadow-xl h-auto"
                   >
-                    <Search className="h-4 w-4 mr-2" /> Search
+                    <Search className="h-3.5 w-3.5 mr-2" /> Search
                   </Button>
                 </div>
               </div>

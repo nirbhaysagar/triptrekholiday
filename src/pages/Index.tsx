@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import AgencyCTA from "@/components/AgencyCTA";
 import MajorDestinations from "@/components/MajorDestinations";
+import WeekendGateway from "@/components/WeekendGateway";
 import About from "@/components/About";
 import UttarakhandUSP from "@/components/UttarakhandUSP";
 import HillyAreasPackages from "@/components/HillyAreasPackages";
@@ -18,6 +19,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <MajorDestinations />
+      <WeekendGateway />
       <About />
       <TourPackages />
       <UttarakhandUSP />

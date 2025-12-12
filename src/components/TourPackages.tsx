@@ -195,8 +195,6 @@ const TourPackages = () => {
                         </div>
                       </div>
 
-                      <p className="text-xl font-bold text-gray-900 mb-3">{pkg.price}</p>
-
                       {/* Features */}
                       <div className="space-y-1 mb-4">
                         <div className="flex items-center gap-2 text-xs text-gray-600">

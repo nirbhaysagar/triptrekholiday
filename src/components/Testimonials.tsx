@@ -124,11 +124,11 @@ const scrollStyles = `
   }
   
   .animate-scroll-left {
-    animation: scroll-left 20s linear infinite;
+    animation: scroll-left 40s linear infinite;
   }
   
   .animate-scroll-right {
-    animation: scroll-right 20s linear infinite;
+    animation: scroll-right 40s linear infinite;
   }
   
   .animate-scroll-left:hover,
@@ -165,34 +165,20 @@ const scrollStyles = `
 `;
 
 const Testimonials = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  // const scrollContainerRef = useRef<HTMLDivElement>(null); // Removed manual ref
 
   // Inject CSS styles into document head
   useEffect(() => {
     const styleElement = document.createElement('style');
     styleElement.textContent = scrollStyles;
     document.head.appendChild(styleElement);
-    
+
     return () => {
       document.head.removeChild(styleElement);
     };
   }, []);
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const scroll = () => {
-      if (container.scrollLeft >= container.scrollWidth / 2) {
-        container.scrollLeft = 0;
-      } else {
-        container.scrollLeft += 1;
-      }
-    };
-
-    const interval = setInterval(scroll, 30); // Smooth continuous scroll
-    return () => clearInterval(interval);
-  }, []);
+  // Manual JS scroll effect removed in favor of CSS marquee
 
   return (
     <section className="py-20 bg-gray-50">
@@ -208,57 +194,60 @@ const Testimonials = () => {
             </p>
           </div>
 
-          {/* Auto-scrolling Testimonials */}
-          <div className="relative overflow-hidden">
-            <div 
-              ref={scrollContainerRef}
-              className="flex gap-6"
-              style={{ 
-                scrollbarWidth: 'none', 
-                msOverflowStyle: 'none',
-                scrollBehavior: 'smooth'
-              }}
-            >
-              {/* Duplicate testimonials for seamless loop */}
-              {[...testimonials, ...testimonials].map((testimonial, index) => (
+          {/* Auto-scrolling Testimonials - Row 1 */}
+          <div className="scroll-container mb-8">
+            <div className="flex gap-6 animate-scroll-right" style={{ width: 'max-content' }}>
+              {/* Duplicate testimonials for smoothness */}
+              {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
                 <div
-                  key={`${testimonial.id}-${index}`}
-                  className="flex-shrink-0 w-72"
+                  key={`row1-${index}`}
+                  className="flex-shrink-0 w-96"
                 >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full">
-                    {/* Tour Image */}
-                    <div className="relative h-36 overflow-hidden">
-                      <img 
-                        src={testimonial.tourImage} 
-                        alt={testimonial.destination}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                      <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <span className="text-xs font-medium text-gray-900">{testimonial.destination}</span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-4">
-                      {/* Rating */}
-                      <div className="flex justify-center mb-3">
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-center border border-black">
+                    <div className="p-8">
+                      <div className="flex justify-center mb-4">
                         <div className="flex gap-1">
                           {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                           ))}
                         </div>
                       </div>
-
-                      {/* Testimonial Text */}
-                      <p className="text-gray-700 text-center mb-4 leading-relaxed text-xs">
+                      <p className="text-gray-700 text-center mb-6 leading-relaxed text-base italic">
                         "{testimonial.text}"
                       </p>
+                      <div className="text-center border-t border-gray-100 pt-4">
+                        <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-                      {/* Customer Info - No Profile Picture */}
-                      <div className="text-center">
-                        <h4 className="font-semibold text-gray-900 text-sm">{testimonial.name}</h4>
-                        <p className="text-xs text-gray-600">{testimonial.location}</p>
+          {/* Auto-scrolling Testimonials - Row 2 */}
+          <div className="scroll-container">
+            <div className="flex gap-6 animate-scroll-right" style={{ width: 'max-content', animationDelay: '-10s' }}>
+              {/* Duplicate testimonials - Offset */}
+              {[...testimonials.slice(5), ...testimonials.slice(0, 5), ...testimonials].map((testimonial, index) => (
+                <div
+                  key={`row2-${index}`}
+                  className="flex-shrink-0 w-96"
+                >
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-center border border-black">
+                    <div className="p-8">
+                      <div className="flex justify-center mb-4">
+                        <div className="flex gap-1">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-gray-700 text-center mb-6 leading-relaxed text-base italic">
+                        "{testimonial.text}"
+                      </p>
+                      <div className="text-center border-t border-gray-100 pt-4">
+                        <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
                       </div>
                     </div>
                   </div>
@@ -275,7 +264,7 @@ const Testimonials = () => {
             <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
               Captured by our travelers during their amazing journeys
             </p>
-            
+
             {/* Row 1 - Scrolls Left to Right */}
             <div className="scroll-container mb-6">
               <div className="flex gap-3 md:gap-4 pb-4 mb-4 animate-scroll-left" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
@@ -284,7 +273,7 @@ const Testimonials = () => {
                   const testimonial = testimonials[index % testimonials.length]; // For text content
                   return (
                     <div key={`row1-${index}`} className="relative group overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] w-60 flex-shrink-0">
-                      <img 
+                      <img
                         src={testimonialImage}
                         alt={`Testimonial ${index + 1}`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -316,7 +305,7 @@ const Testimonials = () => {
                   const testimonial = testimonials[(index + 2) % testimonials.length]; // For text content with offset
                   return (
                     <div key={`row2-${index}`} className="relative group overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] w-60 flex-shrink-0">
-                      <img 
+                      <img
                         src={testimonialImage}
                         alt={`Testimonial ${index + 11}`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -370,8 +359,8 @@ const Testimonials = () => {
               <p className="text-gray-600 mb-6">
                 Join thousands of satisfied travelers who have experienced the magic of Uttarakhand with us.
               </p>
-              <button 
-                className="bg-gray-900 text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors duration-200"
+              <button
+                className="bg-[#25D366] text-white px-8 py-3 rounded-full font-medium hover:bg-[#128C7E] transition-colors duration-200"
                 onClick={() => window.open('https://wa.me/918178515133', '_blank')}
               >
                 Contact on WhatsApp

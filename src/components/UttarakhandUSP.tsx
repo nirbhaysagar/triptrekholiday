@@ -1,6 +1,5 @@
-import { MapPin, Mountain, Camera, Star, ChevronLeft, ChevronRight, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useRef, useState } from "react";
+import { MapPin, Mountain, Camera, Star, Clock } from "lucide-react";
+import { useState } from "react";
 
 // Import Uttarakhand-specific images
 import chardham from "@/assets/uttarakhand-usp/chardham.jpg";
@@ -109,34 +108,7 @@ const uttarakhandDestinations = [
 ];
 
 const UttarakhandUSP = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedId, setExpandedId] = useState<number | null>(null);
-  
-  const cardsPerView = 3;
-  const totalCards = uttarakhandDestinations.length;
-  const maxIndex = Math.max(0, totalCards - cardsPerView);
-
-  const scrollToIndex = (index: number) => {
-    if (scrollContainerRef.current) {
-      const cardWidth = 304; // match reduced base width
-      scrollContainerRef.current.scrollTo({
-        left: index * cardWidth,
-        behavior: 'smooth'
-      });
-      setCurrentIndex(index);
-    }
-  };
-
-  const scrollNext = () => {
-    const nextIndex = Math.min(currentIndex + 1, maxIndex);
-    scrollToIndex(nextIndex);
-  };
-
-  const scrollPrev = () => {
-    const prevIndex = Math.max(currentIndex - 1, 0);
-    scrollToIndex(prevIndex);
-  };
 
   return (
     <section className="py-32 bg-white text-gray-900 relative overflow-hidden">
@@ -186,55 +158,26 @@ const UttarakhandUSP = () => {
 
           {/* Scrollable Destinations */}
           <div className="relative">
-            {/* Navigation Buttons */}
-            <div className="flex justify-between items-center mb-12">
-              <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-3">
-                  Featured Destinations
-                </h3>
-                <p className="text-gray-600 text-lg">
-                  From spiritual retreats to adventure sports, discover what makes Uttarakhand legendary
-                </p>
-              </div>
-              <div className="flex gap-3">
-                <Button
-                  onClick={scrollPrev}
-                  disabled={currentIndex === 0}
-                  size="icon"
-                  className="rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-300 text-gray-700"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </Button>
-                <Button
-                  onClick={scrollNext}
-                  disabled={currentIndex >= maxIndex}
-                  size="icon"
-                  className="rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-300 text-gray-700"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-              </div>
+            {/* Header */}
+            <div className="mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                Featured Destinations
+              </h3>
+              <p className="text-gray-600 text-lg">
+                From spiritual retreats to adventure sports, discover what makes Uttarakhand legendary
+              </p>
             </div>
 
-            {/* Cards Container */}
-            <div 
-              ref={scrollContainerRef}
-              className="flex gap-6 overflow-x-hidden pb-4"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
+            {/* Grid Container - 3 rows x 2 columns */}
+            <div className="grid grid-cols-2 gap-6">
               {uttarakhandDestinations.map((destination) => {
                 const isExpanded = expandedId === destination.id;
-                const baseWidth = 304; // 0.8x of previous 380
-                const widthPx = isExpanded ? Math.round(baseWidth * 1.3) : baseWidth; // expand horizontally by 1.3x only
                 return (
                   <div
                     key={destination.id}
-                    className="flex-shrink-0 transition-[width] duration-[900ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"
-                    style={{ width: `${widthPx}px` }}
-                    data-card-id={`card-${destination.id}`}
                   >
                     <div
-                      className="bg-white rounded-[22px] overflow-hidden border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-[900ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group cursor-pointer h-[368px]"
+                      className="bg-white rounded-[22px] overflow-hidden border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 group cursor-pointer h-[400px]"
                       onMouseEnter={() => setExpandedId(destination.id)}
                       onMouseLeave={() => setExpandedId(null)}
                       onClick={() => window.location.href = `/usp/${destination.id}`}
@@ -244,14 +187,14 @@ const UttarakhandUSP = () => {
                       <img
                         src={destination.image}
                         alt={destination.name}
-                        className={`absolute inset-0 w-full h-full object-cover transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isExpanded ? 'blur-sm scale-105' : 'blur-0 scale-100'}`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ${isExpanded ? 'scale-110' : 'scale-100'}`}
                       />
                       {/* Gradient to ensure legibility at bottom */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
 
                       {/* Price pill and rating */}
                       <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-gray-800 text-[11px] px-3 py-1 rounded-full shadow-sm">
-                        starts at {destination.startsAt}
+                        Price: On Demand
                       </div>
                       <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
                         <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
@@ -265,12 +208,11 @@ const UttarakhandUSP = () => {
                             <h3 className="text-white text-lg font-semibold drop-shadow">{destination.name}</h3>
                             <p className="text-white/90 text-xs drop-shadow">{destination.bestTime} • {destination.altitude}</p>
                           </div>
-                          <div className="bg-white/90 text-gray-900 text-xs px-3 py-1 rounded-full">{destination.startsAt}</div>
                         </div>
                       </div>
 
                       {/* Simple hover text overlay */}
-                      <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-[900ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                      <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 ${isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <div className="text-center text-white p-4">
                           <h4 className="text-lg font-semibold mb-2">{destination.name}</h4>
                           <p className="text-sm text-white/90 mb-3">{destination.description}</p>

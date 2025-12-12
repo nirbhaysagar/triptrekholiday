@@ -1,13 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { ArrowLeft } from "lucide-react";
 
 const TermsConditions = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="relative pt-32 pb-16 bg-gradient-to-br from-gray-50 to-white">
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute top-24 left-6 inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back
+        </button>
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Terms & Conditions</h1>
@@ -26,8 +35,8 @@ const TermsConditions = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  By accessing and using Trip Trek Holiday's services, you agree to be bound by these 
-                  Terms and Conditions. If you do not agree with any part of these terms, please do 
+                  By accessing and using Trip Trek Holiday's services, you agree to be bound by these
+                  Terms and Conditions. If you do not agree with any part of these terms, please do
                   not use our services.
                 </p>
               </div>
@@ -72,8 +81,8 @@ const TermsConditions = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">5. Travel Documents</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  You are responsible for ensuring that you have all necessary travel documents, 
-                  including valid passports, visas, and health certificates. We are not liable for 
+                  You are responsible for ensuring that you have all necessary travel documents,
+                  including valid passports, visas, and health certificates. We are not liable for
                   any issues arising from incomplete or invalid documentation.
                 </p>
               </div>
@@ -81,8 +90,8 @@ const TermsConditions = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">6. Travel Insurance</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We strongly recommend purchasing comprehensive travel insurance covering medical 
-                  expenses, trip cancellation, baggage loss, and personal liability. Trip Trek Holiday 
+                  We strongly recommend purchasing comprehensive travel insurance covering medical
+                  expenses, trip cancellation, baggage loss, and personal liability. Trip Trek Holiday
                   is not responsible for costs arising from unforeseen circumstances.
                 </p>
               </div>
@@ -90,9 +99,9 @@ const TermsConditions = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">7. Liability</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  While we take every care to ensure your safety and satisfaction, Trip Trek Holiday 
-                  acts only as an agent for transportation, accommodation, and other services. We are 
-                  not liable for any injury, loss, damage, or delay caused by circumstances beyond our 
+                  While we take every care to ensure your safety and satisfaction, Trip Trek Holiday
+                  acts only as an agent for transportation, accommodation, and other services. We are
+                  not liable for any injury, loss, damage, or delay caused by circumstances beyond our
                   control.
                 </p>
               </div>
@@ -100,8 +109,8 @@ const TermsConditions = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">8. Changes to Itinerary</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We reserve the right to modify itineraries due to weather conditions, safety concerns, 
-                  or other unforeseen circumstances. We will make every effort to provide comparable 
+                  We reserve the right to modify itineraries due to weather conditions, safety concerns,
+                  or other unforeseen circumstances. We will make every effort to provide comparable
                   alternatives.
                 </p>
               </div>

@@ -185,7 +185,7 @@ const HillyAreasPackages = () => {
 
                       {/* Price pill */}
                       <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-gray-800 text-[11px] px-3 py-1 rounded-full shadow-sm">
-                        starts at {destination.startsAt}
+                        Price: On Demand
                       </div>
 
                       {/* Rating */}

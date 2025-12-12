@@ -23,10 +23,12 @@ const AgencyCTA = () => {
             </div>
 
             {/* Right - CTA Button */}
-            <Button className="bg-white text-blue-600 hover:bg-white/90 px-5 sm:px-6 py-2.5 rounded-full font-semibold transition-all duration-300 hover:scale-105 flex-shrink-0 text-sm sm:text-base w-full md:w-auto">
-              Join Community
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+            <a href="https://triptrekholidaydmc.com" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-white text-blue-600 hover:bg-white/90 px-5 sm:px-6 py-2.5 rounded-full font-semibold transition-all duration-300 hover:scale-105 flex-shrink-0 text-sm sm:text-base w-full md:w-auto">
+                Join Community
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </a>
           </div>
         </div>
       </div>
@@ -35,4 +37,3 @@ const AgencyCTA = () => {
 };
 
 export default AgencyCTA;
-

@@ -15,14 +15,14 @@ import mussorie from "@/assets/hillyarea/mussorie.jpg";
 import ooty from "@/assets/hillyarea/ooty.jpg";
 
 const mockHilly = [
-  { 
-    id: 1, 
-    name: "Shimla Manali", 
-    image: shimla, 
-    rating: 4.8, 
-    bestTime: "Oct – Jun", 
-    altitude: "2,276 m", 
-    region: "Himachal Pradesh", 
+  {
+    id: 1,
+    name: "Shimla Manali",
+    image: shimla,
+    rating: 4.8,
+    bestTime: "Oct – Jun",
+    altitude: "2,276 m",
+    region: "Himachal Pradesh",
     summary: "Experience the charm of Shimla's colonial heritage and Manali's adventure paradise. From Mall Road shopping to Rohtang Pass skiing, this package offers the perfect blend of leisure and thrill.",
     highlights: ["Mall Road Shimla", "Rohtang Pass", "Solang Valley", "Kufri Fun World", "Hidimba Temple", "Vashisht Hot Springs"],
     duration: "6 Days 5 Nights",
@@ -38,14 +38,14 @@ const mockHilly = [
     includes: ["Hotel accommodation", "Daily breakfast and dinner", "All transfers by AC vehicle", "Sightseeing as per itinerary", "Driver allowances"],
     excludes: ["Flights/trains", "Lunch", "Adventure activities fees", "Rohtang Pass permits", "Personal expenses"]
   },
-  { 
-    id: 2, 
-    name: "Darjeeling Gangtok", 
-    image: darjeeling, 
-    rating: 4.9, 
-    bestTime: "Mar – May", 
-    altitude: "1,650 m", 
-    region: "West Bengal & Sikkim", 
+  {
+    id: 2,
+    name: "Darjeeling Gangtok",
+    image: darjeeling,
+    rating: 4.9,
+    bestTime: "Mar – May",
+    altitude: "1,650 m",
+    region: "West Bengal & Sikkim",
     summary: "Witness the majestic sunrise over Kanchenjunga from Tiger Hill, explore Buddhist monasteries, and cruise around pristine Tsomgo Lake in this enchanting Himalayan journey.",
     highlights: ["Tiger Hill Sunrise", "Tsomgo Lake", "Nathula Pass", "Tea Estate Tour", "Rumtek Monastery", "MG Marg"],
     duration: "7 Days 6 Nights",
@@ -62,14 +62,14 @@ const mockHilly = [
     includes: ["Accommodation in 3-star hotels", "All meals", "AC vehicle throughout", "All permits and fees", "Professional guide"],
     excludes: ["Flights to Bagdogra", "Nathula Pass permit (subject to availability)", "Personal expenses", "Tips", "Travel insurance"]
   },
-  { 
-    id: 3, 
-    name: "Mussoorie Dhanaulti", 
-    image: mussorie, 
-    rating: 4.7, 
-    bestTime: "Apr – Jun", 
-    altitude: "2,005 m", 
-    region: "Uttarakhand", 
+  {
+    id: 3,
+    name: "Mussoorie Dhanaulti",
+    image: mussorie,
+    rating: 4.7,
+    bestTime: "Apr – Jun",
+    altitude: "2,005 m",
+    region: "Uttarakhand",
     summary: "Perfect weekend getaway to the Queen of Hills. Enjoy stunning mountain views, colonial architecture, and peaceful nature walks in the serene pine forests of Dhanaulti.",
     highlights: ["Kempty Falls", "Gun Hill", "Mall Road", "Eco Park Dhanaulti", "Surkanda Devi Temple", "Adventure activities"],
     duration: "4 Days 3 Nights",
@@ -83,14 +83,14 @@ const mockHilly = [
     includes: ["Accommodation", "Breakfast and dinner", "All transfers", "Cable car tickets", "Sightseeing"],
     excludes: ["Flights/trains", "Lunch", "Adventure activity fees", "Personal expenses", "Tips"]
   },
-  { 
-    id: 4, 
-    name: "Ooty Coonoor", 
-    image: ooty, 
-    rating: 4.8, 
-    bestTime: "Oct – Mar", 
-    altitude: "2,240 m", 
-    region: "Tamil Nadu", 
+  {
+    id: 4,
+    name: "Ooty Coonoor",
+    image: ooty,
+    rating: 4.8,
+    bestTime: "Oct – Mar",
+    altitude: "2,240 m",
+    region: "Tamil Nadu",
     summary: "Discover the Nilgiri Hills with tea gardens, colonial charm, and the famous toy train. Perfect blend of scenic beauty and pleasant climate year-round.",
     highlights: ["Botanical Garden", "Nilgiri Toy Train", "Doddabetta Peak", "Tea Factory Visit", "Sim's Park Coonoor", "Rose Garden"],
     duration: "5 Days 4 Nights",
@@ -105,14 +105,14 @@ const mockHilly = [
     includes: ["Hotel accommodation", "Daily breakfast", "Toy train tickets", "All sightseeing transfers", "Entry fees"],
     excludes: ["Flights to Coimbatore", "Lunch and dinner", "Personal expenses", "Shopping", "Tips"]
   },
-  { 
-    id: 5, 
-    name: "Coorg Chikmagalur", 
-    image: "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=400&h=300&fit=crop", 
-    rating: 4.7, 
-    bestTime: "Oct – Mar", 
-    altitude: "915 m", 
-    region: "Karnataka", 
+  {
+    id: 5,
+    name: "Coorg Chikmagalur",
+    image: "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=400&h=300&fit=crop",
+    rating: 4.7,
+    bestTime: "Oct – Mar",
+    altitude: "915 m",
+    region: "Karnataka",
     summary: "Coffee lovers' paradise! Walk through sprawling coffee estates, trek to waterfalls, and enjoy the Western Ghats' misty mountains and aromatic plantations.",
     highlights: ["Coffee Plantation Tour", "Abbey Falls", "Mullayanagiri Peak", "Raja's Seat", "Hebbe Falls", "Bhadra Wildlife"],
     duration: "5 Days 4 Nights",
@@ -127,14 +127,14 @@ const mockHilly = [
     includes: ["Homestay/hotel accommodation", "All meals", "Coffee plantation tour", "All transfers", "Trekking guide"],
     excludes: ["Flights", "Personal expenses", "Jeep safari fees", "Shopping", "Tips"]
   },
-  { 
-    id: 6, 
-    name: "Munnar Thekkady", 
-    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&h=300&fit=crop", 
-    rating: 4.9, 
-    bestTime: "Sep – May", 
-    altitude: "1,600 m", 
-    region: "Kerala", 
+  {
+    id: 6,
+    name: "Munnar Thekkady",
+    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&h=300&fit=crop",
+    rating: 4.9,
+    bestTime: "Sep – May",
+    altitude: "1,600 m",
+    region: "Kerala",
     summary: "Kerala's crown jewel with endless tea plantations, wildlife encounters at Periyar, and misty mountain peaks. Perfect for nature lovers and wildlife enthusiasts.",
     highlights: ["Tea Plantations", "Eravikulam National Park", "Periyar Wildlife Sanctuary", "Spice Plantation", "Mattupetty Dam", "Boat Safari"],
     duration: "6 Days 5 Nights",
@@ -150,14 +150,14 @@ const mockHilly = [
     includes: ["Resort/hotel accommodation", "Daily breakfast and dinner", "All transfers", "National park entry", "Boat safari", "Plantation tours"],
     excludes: ["Flights to Cochin", "Lunch", "Bamboo rafting fees", "Elephant ride", "Personal expenses"]
   },
-  { 
-    id: 7, 
-    name: "Mcleodganj Dharamshala", 
-    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&h=300&fit=crop", 
-    rating: 4.8, 
-    bestTime: "Mar – Jun", 
-    altitude: "1,475 m", 
-    region: "Himachal Pradesh", 
+  {
+    id: 7,
+    name: "Mcleodganj Dharamshala",
+    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&h=300&fit=crop",
+    rating: 4.8,
+    bestTime: "Mar – Jun",
+    altitude: "1,475 m",
+    region: "Himachal Pradesh",
     summary: "Experience Tibetan culture in Little Lhasa. Visit monasteries, trek to Triund, explore waterfalls, and immerse yourself in the spiritual atmosphere of the Dalai Lama's residence.",
     highlights: ["Dalai Lama Temple", "Triund Trek", "Bhagsu Waterfall", "Naddi Viewpoint", "Tibetan Museum", "St. John Church"],
     duration: "5 Days 4 Nights",
@@ -172,14 +172,14 @@ const mockHilly = [
     includes: ["Hotel accommodation", "Camping at Triund", "All meals during trek", "Trekking guide", "All transfers"],
     excludes: ["Flights", "Meals in Mcleodganj", "Trekking equipment", "Personal expenses", "Tips"]
   },
-  { 
-    id: 8, 
-    name: "Mount Abu", 
-    image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=400&h=300&fit=crop", 
-    rating: 4.6, 
-    bestTime: "Nov – Mar", 
-    altitude: "1,220 m", 
-    region: "Rajasthan", 
+  {
+    id: 8,
+    name: "Mount Abu",
+    image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=400&h=300&fit=crop",
+    rating: 4.6,
+    bestTime: "Nov – Mar",
+    altitude: "1,220 m",
+    region: "Rajasthan",
     summary: "Rajasthan's only hill station offering respite from desert heat. Marvel at intricate Jain temples, enjoy boat rides on Nakki Lake, and witness spectacular sunsets.",
     highlights: ["Dilwara Temples", "Nakki Lake", "Sunset Point", "Guru Shikhar", "Wildlife Sanctuary", "Peace Park"],
     duration: "4 Days 3 Nights",
@@ -217,20 +217,20 @@ const HillyDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section with Full-Width Image */}
       <div className="relative h-[50vh] sm:h-[60vh] min-h-[400px] sm:min-h-[500px] w-full">
-        <img 
-          src={item.image} 
-          alt={item.name} 
+        <img
+          src={item.image}
+          alt={item.name}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-        
+
         {/* Back Button */}
-        <button 
-          onClick={() => navigate(-1)} 
-          className="absolute top-8 left-8 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute top-32 left-6 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
@@ -241,19 +241,19 @@ const HillyDetail = () => {
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 tracking-tight">{item.name}</h1>
             <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-white/90">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" /> 
+                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 <span className="font-medium">{item.rating}</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Clock className="w-4 h-4" /> 
+                <Clock className="w-4 h-4" />
                 <span>{item.duration}</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Mountain className="w-4 h-4" /> 
+                <Mountain className="w-4 h-4" />
                 <span>{item.altitude}</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <MapPin className="w-4 h-4" /> 
+                <MapPin className="w-4 h-4" />
                 <span>{item.region}</span>
               </div>
             </div>
@@ -375,8 +375,8 @@ const HillyDetail = () => {
         <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 lg:p-12 text-white">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-4xl font-bold mb-2">{item.price}</h3>
-              <p className="text-white/80 text-lg">Starting price per person</p>
+              <h3 className="text-3xl font-bold mb-2">Price: On Demand</h3>
+              <p className="text-white/80 text-lg">Get a quote for personalized pricing</p>
               <p className="text-white/60 text-sm mt-2">Inclusive of accommodation, meals, and guided tours</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">

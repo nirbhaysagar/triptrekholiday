@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Star, Clock, Mountain, MapPin, Phone, CheckCircle2, XCircle } from "lucide-react";
+import { ArrowLeft, Star, Clock, Mountain, MapPin, Phone, CheckCircle2, XCircle, MessageSquare } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -18,21 +18,21 @@ import nainitalBanner from "@/assets/nainital-banner.jpg";
 import rishikeshBanner from "@/assets/rishikesh-banner.jpg";
 
 const mockUsp = [
-  { 
-    id: 1, 
-    name: "Chardham Yatra", 
-    image: chardhamBanner, 
-    rating: 4.9, 
-    bestTime: "May – Oct", 
-    altitude: "3,133 m", 
-    region: "Ex. Haridwar & Delhi", 
+  {
+    id: 1,
+    name: "Chardham Yatra",
+    image: chardhamBanner,
+    rating: 4.9,
+    bestTime: "May – Oct",
+    altitude: "3,133 m",
+    region: "Ex. Haridwar & Delhi",
     summary: "Complete spiritual journey to all four sacred dhams - Yamunotri, Gangotri, Kedarnath, and Badrinath. A transformative pilgrimage experience.",
     highlights: ["Yamunotri Temple", "Gangotri Temple", "Kedarnath Temple", "Badrinath Temple", "Gaurikund", "Joshimath"],
     departurePoints: ["Haridwar", "Delhi"],
     departureInfo: {
       "Haridwar": {
         duration: "10 Days 9 Nights",
-        price: "₹45,000",
+        price: "₹17,000",
         itinerary: [
           "Day 1: Arrival in Haridwar, check-in hotel, evening Ganga Aarti at Har Ki Pauri",
           "Day 2: Drive to Barkot via Mussoorie, visit Kempty Falls, overnight stay",
@@ -50,7 +50,7 @@ const mockUsp = [
       },
       "Delhi": {
         duration: "12 Days 11 Nights",
-        price: "₹52,000",
+        price: "₹21,500",
         itinerary: [
           "Day 1: Pickup from Delhi, drive to Haridwar, evening Ganga Aarti, overnight stay",
           "Day 2: Drive to Barkot via Mussoorie, visit Kempty Falls, overnight stay",
@@ -70,21 +70,21 @@ const mockUsp = [
       }
     }
   },
-  { 
-    id: 2, 
-    name: "DoDham Yatra", 
-    image: kedarnathBanner, 
-    rating: 4.7, 
-    bestTime: "May – Oct", 
-    altitude: "3,133 m", 
-    region: "Ex. Haridwar & Delhi", 
+  {
+    id: 2,
+    name: "DoDham Yatra",
+    image: kedarnathBanner,
+    rating: 4.7,
+    bestTime: "May – Oct",
+    altitude: "3,133 m",
+    region: "Ex. Haridwar & Delhi",
     summary: "Sacred journey to Kedarnath and Badrinath temples, the two most important dhams in the Char Dham circuit.",
     highlights: ["Kedarnath Temple", "Badrinath Temple", "Guptkashi", "Joshimath", "Trekking", "Pilgrimage"],
     departurePoints: ["Haridwar", "Delhi"],
     departureInfo: {
       "Haridwar": {
         duration: "7 Days 6 Nights",
-        price: "₹28,500",
+        price: "₹11,500",
         itinerary: [
           "Day 1: Arrival in Haridwar, check-in hotel, evening Ganga Aarti, overnight stay",
           "Day 2: Drive to Guptkashi via Rudraprayag, overnight stay in Guptkashi",
@@ -99,7 +99,7 @@ const mockUsp = [
       },
       "Delhi": {
         duration: "9 Days 8 Nights",
-        price: "₹35,000",
+        price: "₹14,500",
         itinerary: [
           "Day 1: Pickup from Delhi, drive to Haridwar, evening Ganga Aarti, overnight stay",
           "Day 2: Drive to Guptkashi via Rudraprayag, overnight stay in Guptkashi",
@@ -116,21 +116,21 @@ const mockUsp = [
       }
     }
   },
-  { 
-    id: 3, 
-    name: "Kedarnath Special", 
-    image: kedarnathBanner, 
-    rating: 4.9, 
-    bestTime: "May – Oct", 
-    altitude: "3,583 m", 
-    region: "Ex. Haridwar & Delhi", 
+  {
+    id: 3,
+    name: "Kedarnath Special",
+    image: kedarnathBanner,
+    rating: 4.9,
+    bestTime: "May – Oct",
+    altitude: "3,583 m",
+    region: "Ex. Haridwar & Delhi",
     summary: "Dedicated pilgrimage to the sacred Kedarnath temple, one of the 12 Jyotirlingas of Lord Shiva.",
     highlights: ["Kedarnath Temple", "Gaurikund", "Sonprayag", "Trekking", "Helicopter Option", "Darshan"],
     departurePoints: ["Haridwar", "Delhi"],
     departureInfo: {
       "Haridwar": {
         duration: "5 Days 4 Nights",
-        price: "₹18,500",
+        price: "₹9,000",
         itinerary: [
           "Day 1: Arrival in Haridwar, check-in hotel, evening Ganga Aarti, overnight stay",
           "Day 2: Drive to Guptkashi via Rudraprayag, overnight stay in Guptkashi",
@@ -143,7 +143,7 @@ const mockUsp = [
       },
       "Delhi": {
         duration: "6 Days 5 Nights",
-        price: "₹24,500",
+        price: "₹11,500",
         itinerary: [
           "Day 1: Pickup from Delhi, drive to Haridwar, evening Ganga Aarti, overnight stay",
           "Day 2: Drive to Guptkashi via Rudraprayag, overnight stay in Guptkashi",
@@ -157,14 +157,14 @@ const mockUsp = [
       }
     }
   },
-  { 
-    id: 4, 
-    name: "Nainital", 
-    image: nainitalBanner, 
-    rating: 4.8, 
-    bestTime: "Mar – Jun", 
-    altitude: "2,084 m", 
-    region: "Nainital, Uttarakhand", 
+  {
+    id: 4,
+    name: "Nainital",
+    image: nainitalBanner,
+    rating: 4.8,
+    bestTime: "Mar – Jun",
+    altitude: "2,084 m",
+    region: "Nainital, Uttarakhand",
     summary: "Beautiful lake district with boating, cable car rides, and stunning viewpoints perfect for families.",
     highlights: ["Naini Lake", "Cable Car", "Tiffin Top", "Mall Road", "Boating", "Shopping"],
     duration: "3 Days 2 Nights",
@@ -177,14 +177,14 @@ const mockUsp = [
     includes: ["Hotel accommodation", "Daily breakfast", "Local sightseeing transfers", "Cable car tickets", "Boating on Naini Lake"],
     excludes: ["Flights/trains", "Lunch and dinner", "Personal expenses", "Shopping", "Adventure activities"]
   },
-  { 
-    id: 5, 
-    name: "Valley of Flowers", 
-    image: valleyofflowerBanner, 
-    rating: 4.9, 
-    bestTime: "Jul – Sep", 
-    altitude: "3,500 m", 
-    region: "Chamoli, Uttarakhand", 
+  {
+    id: 5,
+    name: "Valley of Flowers",
+    image: valleyofflowerBanner,
+    rating: 4.9,
+    bestTime: "Jul – Sep",
+    altitude: "3,500 m",
+    region: "Chamoli, Uttarakhand",
     summary: "UNESCO World Heritage site with breathtaking wildflowers and the sacred Hemkund Sahib gurudwara.",
     highlights: ["Wildflowers", "UNESCO Site", "Hemkund Sahib", "Trekking", "Nature", "Photography"],
     duration: "6 Days 5 Nights",
@@ -200,14 +200,14 @@ const mockUsp = [
     includes: ["Accommodation in hotels/camps", "All meals during trek", "Trekking guide and support staff", "All permits and fees", "Transportation from Haridwar"],
     excludes: ["Flights to Haridwar", "Personal trekking gear", "Porter services", "Travel insurance", "Personal expenses"]
   },
-  { 
-    id: 6, 
-    name: "Auli Skiing", 
-    image: auliBanner, 
-    rating: 4.7, 
-    bestTime: "Dec – Mar", 
-    altitude: "2,800 m", 
-    region: "Chamoli, Uttarakhand", 
+  {
+    id: 6,
+    name: "Auli Skiing",
+    image: auliBanner,
+    rating: 4.7,
+    bestTime: "Dec – Mar",
+    altitude: "2,800 m",
+    region: "Chamoli, Uttarakhand",
     summary: "India's premier skiing destination with world-class slopes, cable car rides, and snow-covered meadows.",
     highlights: ["Skiing", "Cable Car", "Snow Views", "Gurso Bugyal", "Winter Sports", "Mountain Views"],
     duration: "4 Days 3 Nights",
@@ -221,14 +221,14 @@ const mockUsp = [
     includes: ["Hotel accommodation in Auli", "Daily meals", "Cable car tickets", "Basic skiing equipment", "All transfers from Haridwar"],
     excludes: ["Flights to Haridwar", "Advanced skiing gear rental", "Skiing instructor (optional)", "Personal expenses", "Travel insurance"]
   },
-  { 
-    id: 7, 
-    name: "Rishikesh Adventure", 
-    image: rishikeshBanner, 
-    rating: 4.8, 
-    bestTime: "Oct – Mar", 
-    altitude: "372 m", 
-    region: "Rishikesh, Uttarakhand", 
+  {
+    id: 7,
+    name: "Rishikesh Adventure",
+    image: rishikeshBanner,
+    rating: 4.8,
+    bestTime: "Oct – Mar",
+    altitude: "372 m",
+    region: "Rishikesh, Uttarakhand",
     summary: "Yoga capital of the world with thrilling adventure sports, spiritual retreats, and Ganga Aarti ceremonies.",
     highlights: ["River Rafting", "Ganga Aarti", "Yoga Retreats", "Bungee Jumping", "Camping", "Spiritual"],
     duration: "4 Days 3 Nights",
@@ -248,7 +248,7 @@ const UspDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const item = mockUsp.find(i => String(i.id) === id);
-  
+
   // State for departure point selection
   const [selectedDeparture, setSelectedDeparture] = useState(
     item?.departurePoints?.[0] || ""
@@ -271,20 +271,20 @@ const UspDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section with Full-Width Image */}
       <div className="relative h-[50vh] sm:h-[60vh] min-h-[400px] sm:min-h-[500px] w-full">
-        <img 
-          src={item.image} 
-          alt={item.name} 
+        <img
+          src={item.image}
+          alt={item.name}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-        
+
         {/* Back Button */}
-        <button 
-          onClick={() => navigate(-1)} 
-          className="absolute top-8 left-8 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute top-32 left-6 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
@@ -295,19 +295,19 @@ const UspDetail = () => {
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 tracking-tight">{item.name}</h1>
             <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-white/90">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" /> 
+                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 <span className="font-medium">{item.rating}</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Clock className="w-4 h-4" /> 
+                <Clock className="w-4 h-4" />
                 <span>{item.duration}</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Mountain className="w-4 h-4" /> 
+                <Mountain className="w-4 h-4" />
                 <span>{item.altitude}</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <MapPin className="w-4 h-4" /> 
+                <MapPin className="w-4 h-4" />
                 <span>{item.region}</span>
               </div>
             </div>
@@ -326,11 +326,10 @@ const UspDetail = () => {
                 <button
                   key={departure}
                   onClick={() => setSelectedDeparture(departure)}
-                  className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                    selectedDeparture === departure
-                      ? 'bg-blue-600 text-white shadow-lg scale-105'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
-                  }`}
+                  className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${selectedDeparture === departure
+                    ? 'bg-blue-600 text-white shadow-lg scale-105'
+                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                    }`}
                 >
                   Ex. {departure}
                 </button>
@@ -341,10 +340,16 @@ const UspDetail = () => {
                 <div className="flex items-center gap-2 text-blue-800">
                   <MapPin className="w-5 h-5" />
                   <span className="font-medium">Departure from {selectedDeparture}</span>
-                  <span className="ml-auto text-2xl font-bold text-blue-600">
-                    {item.departureInfo[selectedDeparture].price}
-                  </span>
+                  <div className="ml-auto text-right">
+                    <span className="text-2xl font-bold text-blue-600">
+                      {item.departureInfo[selectedDeparture].price}
+                    </span>
+                    <span className="text-sm text-gray-600 ml-1">/ person</span>
+                  </div>
                 </div>
+                <p className="text-sm text-gray-600 mt-2">
+                  <span className="font-semibold">Note:</span> These prices are for group tours. For personalized packages, please WhatsApp us your query.
+                </p>
               </div>
             )}
           </div>
@@ -472,9 +477,12 @@ const UspDetail = () => {
               <button className="bg-white text-gray-900 hover:bg-gray-100 px-10 py-4 rounded-full font-semibold text-lg transition-colors shadow-lg">
                 Book Now
               </button>
-              <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-10 py-4 rounded-full font-semibold text-lg transition-colors inline-flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                Contact Us
+              <button
+                onClick={() => window.open('https://wa.me/918178515133', '_blank')}
+                className="bg-[#25D366] text-white hover:bg-[#128C7E] px-10 py-4 rounded-full font-semibold text-lg transition-colors inline-flex items-center gap-2"
+              >
+                <MessageSquare className="w-5 h-5" />
+                WhatsApp Us
               </button>
             </div>
           </div>

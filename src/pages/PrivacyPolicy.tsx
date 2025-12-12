@@ -1,13 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { ArrowLeft } from "lucide-react";
 
 const PrivacyPolicy = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="relative pt-32 pb-16 bg-gradient-to-br from-gray-50 to-white">
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute top-24 left-6 inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back
+        </button>
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
@@ -26,8 +35,8 @@ const PrivacyPolicy = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Introduction</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  At Trip Trek Holiday, we are committed to protecting your privacy and ensuring the 
-                  security of your personal information. This Privacy Policy outlines how we collect, 
+                  At Trip Trek Holiday, we are committed to protecting your privacy and ensuring the
+                  security of your personal information. This Privacy Policy outlines how we collect,
                   use, and safeguard your data when you use our services.
                 </p>
               </div>
@@ -63,8 +72,8 @@ const PrivacyPolicy = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Data Security</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We implement appropriate technical and organizational measures to protect your 
-                  personal information against unauthorized access, alteration, disclosure, or 
+                  We implement appropriate technical and organizational measures to protect your
+                  personal information against unauthorized access, alteration, disclosure, or
                   destruction. However, no method of transmission over the internet is 100% secure.
                 </p>
               </div>
@@ -72,9 +81,9 @@ const PrivacyPolicy = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Sharing Your Information</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We do not sell your personal information. We may share your data with trusted 
-                  service providers who assist us in operating our business, such as payment 
-                  processors and accommodation providers, only to the extent necessary to provide 
+                  We do not sell your personal information. We may share your data with trusted
+                  service providers who assist us in operating our business, such as payment
+                  processors and accommodation providers, only to the extent necessary to provide
                   our services.
                 </p>
               </div>
@@ -96,7 +105,7 @@ const PrivacyPolicy = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  If you have any questions about this Privacy Policy or our data practices, 
+                  If you have any questions about this Privacy Policy or our data practices,
                   please contact us at:
                 </p>
                 <p className="text-gray-700 mt-3">

@@ -1,22 +1,30 @@
+import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const ContactUs = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="relative pt-32 pb-16 bg-gradient-to-br from-gray-50 to-white">
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute top-24 left-6 inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back
+        </button>
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Get in Touch</h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Have questions about your next adventure? We're here to help you plan 
+              Have questions about your next adventure? We're here to help you plan
               the perfect trip.
             </p>
           </div>
@@ -62,8 +70,8 @@ const ContactUs = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Message
                     </label>
-                    <Textarea 
-                      placeholder="Tell us about your travel plans..." 
+                    <Textarea
+                      placeholder="Tell us about your travel plans..."
                       className="bg-white min-h-[150px]"
                     />
                   </div>
@@ -78,7 +86,7 @@ const ContactUs = () => {
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
                   <p className="text-gray-600 mb-8">
-                    Reach out to us through any of the following channels. Our team is available 
+                    Reach out to us through any of the following channels. Our team is available
                     to assist you with your travel planning needs.
                   </p>
                 </div>
@@ -101,8 +109,8 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                      <p className="text-gray-600">+1 (555) 123-4567</p>
-                      <p className="text-gray-600">+1 (555) 765-4321</p>
+                      <a href="tel:+918178515133" className="text-gray-600 hover:text-gray-900 transition-colors block">+91 8178515133</a>
+                      <a href="tel:+916397677754" className="text-gray-600 hover:text-gray-900 transition-colors block">+91 6397677754</a>
                     </div>
                   </div>
 
@@ -111,9 +119,10 @@ const ContactUs = () => {
                       <MapPin className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Office</h3>
-                      <p className="text-gray-600">123 Travel Street</p>
-                      <p className="text-gray-600">Adventure City, AC 12345</p>
+                      <h3 className="font-semibold text-gray-900 mb-1">Office Address</h3>
+                      <p className="text-gray-600">Second Floor, H-187, Lohia Rd,</p>
+                      <p className="text-gray-600">H Block, Sector 63, Noida,</p>
+                      <p className="text-gray-600">Uttar Pradesh 201301</p>
                     </div>
                   </div>
 

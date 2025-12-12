@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { Star, Clock, Users, MapPin, Plane, Globe, Calendar, DollarSign, MessageSquare, Mail } from "lucide-react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { Star, Clock, Users, MapPin, Plane, Globe, Calendar, DollarSign, MessageSquare, Mail, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -109,6 +109,7 @@ const internationalTours = [
 
 const InternationalDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -160,9 +161,16 @@ Details:
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute top-32 left-6 z-10 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back
+        </button>
         <img
           src={tour.image}
           alt={tour.name}
@@ -250,7 +258,7 @@ Details:
                 <h3 className="text-3xl font-bold text-blue-600 mb-2">{tour.price}</h3>
                 <p className="text-gray-600">per person</p>
               </div>
-              
+
               <div className="space-y-4">
                 <Dialog>
                   <DialogTrigger asChild>
@@ -335,7 +343,7 @@ Details:
                 </Dialog>
 
                 <Button
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-[#25D366] hover:bg-[#128C7E]"
                   onClick={() => window.open(`https://wa.me/918178515133?text=${encodeURIComponent(`Hi, I'm interested in ${tour.name} (${tour.duration}) for ${tour.price}.`)}`, '_blank')}
                 >
                   <MessageSquare className="w-4 h-4 mr-2" />

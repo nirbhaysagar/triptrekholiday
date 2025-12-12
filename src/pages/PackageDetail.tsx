@@ -18,14 +18,14 @@ import rishikeshBanner from "@/assets/rishikesh-banner.jpg";
 
 // Temporary mock - reuse the same structure as in TourPackages
 const mockPackages = [
-  { 
-    id: 1, 
-    name: "Chardham Yatra Package", 
-    price: "₹45,000", 
-    rating: 5.0, 
-    duration: "10 Days 9 Nights", 
-    features: ["All Meals", "AC Transport", "Hotel Stay", "Pilgrimage Guide"], 
-    image: chardhamBanner, 
+  {
+    id: 1,
+    name: "Chardham Yatra Package",
+    price: "₹45,000",
+    rating: 5.0,
+    duration: "10 Days 9 Nights",
+    features: ["All Meals", "AC Transport", "Hotel Stay", "Pilgrimage Guide"],
+    image: chardhamBanner,
     overview: "Embark on a sacred journey to the four holy shrines of Uttarakhand - Yamunotri, Gangotri, Kedarnath, and Badrinath. This spiritual pilgrimage offers divine blessings, breathtaking mountain views, and profound spiritual experiences.",
     departurePoints: ["Delhi", "Haridwar"],
     departureInfo: {
@@ -61,7 +61,8 @@ const mockPackages = [
         includes: ["AC Transport from Haridwar", "All meals", "Hotel accommodation", "Pilgrimage guide", "Helicopter tickets (if opted)", "Temple entry fees"],
         price: "₹42,000"
       }
-    }
+    },
+    notIncludes: ["Personal expenses", "Travel insurance", "Tips and gratuities", "Extra meals not mentioned", "Camera charges at temples"]
   },
   { id: 2, name: "Jim Corbett Wildlife Safari", price: "₹18,500", rating: 4.8, duration: "3 Days 2 Nights", features: ["Jungle Safari", "Accommodation", "All Meals", "Naturalist Guide"], image: kedarnathBanner, overview: "Experience the thrill of spotting tigers, elephants, and diverse wildlife in India's first national park.", itinerary: ["Arrival and check-in", "Evening safari", "Morning safari", "Departure"], includes: ["Accommodation", "All meals", "Safari tickets", "Naturalist guide"], notIncludes: ["Transportation", "Personal expenses", "Camera charges"] },
   { id: 3, name: "Valley of Flowers Trek", price: "₹28,000", rating: 4.9, duration: "6 Days 5 Nights", features: ["Trekking Guide", "Camping", "Meals", "Transportation"], image: valleyofflowerBanner, overview: "Discover the enchanting Valley of Flowers, a UNESCO World Heritage Site with rare Himalayan flora.", itinerary: ["Arrival in Haridwar", "Drive to Joshimath", "Trek to Ghangaria", "Valley of Flowers exploration", "Return trek", "Departure"], includes: ["Accommodation", "All meals", "Trekking guide", "Transportation"], notIncludes: ["Personal trekking gear", "Personal expenses", "Travel insurance"] },
@@ -90,8 +91,8 @@ const PackageDetail = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      
-      <div className="container mx-auto px-6 lg:px-8 py-24">
+
+      <div className="container mx-auto px-6 lg:px-8 py-32">
         <button onClick={() => navigate(-1)} className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900">
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
@@ -126,11 +127,10 @@ const PackageDetail = () => {
                     <button
                       key={departure}
                       onClick={() => setSelectedDeparture(departure)}
-                      className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                        selectedDeparture === departure
+                      className={`px-4 py-2 rounded-lg font-medium transition-colors ${selectedDeparture === departure
                           ? 'bg-blue-600 text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
+                        }`}
                     >
                       Ex. {departure}
                     </button>
@@ -213,11 +213,11 @@ const PackageDetail = () => {
 
             <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <div className="text-3xl font-bold text-gray-900">
-                  {selectedDeparture && pkg.departureInfo?.[selectedDeparture]?.price || pkg.price}
+                <div className="text-2xl font-bold text-gray-900">
+                  Price: On Demand
                 </div>
                 <p className="text-sm text-gray-600 mt-1">
-                  {selectedDeparture ? `Price from ${selectedDeparture}` : 'Starting price per person'}
+                  Contact us for personalized pricing
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
