@@ -100,24 +100,27 @@ const Navigation = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-white/80 backdrop-blur-md border-t border-gray-200/30">
-          <div className="px-6 pt-4 pb-6 space-y-1">
+        <div className="md:hidden fixed inset-0 top-20 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200/30 overflow-y-auto">
+          <div className="px-6 pt-4 pb-6 space-y-2 flex flex-col h-full">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-4 py-3 text-xl font-medium text-black hover:text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                className="block px-4 py-4 text-2xl font-medium text-black hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200 border-b border-gray-100 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </a>
             ))}
-            <div className="pt-4">
+            <div className="pt-8 mt-auto pb-10">
               <Button
-                className="w-full bg-gray-900 text-white hover:bg-gray-800 py-3 text-xl font-medium rounded-full"
-                onClick={() => setIsOpen(false)}
+                className="w-full bg-[#25D366] text-white hover:bg-[#128C7E] py-6 text-xl font-medium rounded-xl shadow-lg"
+                onClick={() => {
+                  window.open('https://wa.me/918178515133', '_blank');
+                  setIsOpen(false);
+                }}
               >
-                Book Now
+                WhatsApp Us
               </Button>
             </div>
           </div>

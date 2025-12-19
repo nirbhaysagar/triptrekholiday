@@ -18,6 +18,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
+      <div className="h-32" /> {/* Spacer for Hero Search Overlap */}
       <MajorDestinations />
       <WeekendGateway />
       <About />

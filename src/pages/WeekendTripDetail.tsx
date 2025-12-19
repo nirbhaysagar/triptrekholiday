@@ -1,168 +1,295 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { Clock, Users, ArrowLeft, Star, MapPin, CheckCircle2, XCircle, Phone } from "lucide-react";
+import { Clock, MapPin, Calendar, CheckCircle2, XCircle, Star, Phone, Download, MessageCircle, ChevronLeft, Shield, Zap } from "lucide-react";
+import { useState } from "react";
 import { weekendTrips } from "@/data/weekendTrips";
-import Navigation from "@/components/Navigation";
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const WeekendTripDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const [activeTab, setActiveTab] = useState("overview");
 
     const trip = weekendTrips.find(t => String(t.id) === id);
 
     if (!trip) {
         return (
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-50 text-center py-24">
                 <Navigation />
-                <div className="container mx-auto px-6 lg:px-8 py-32 text-center">
-                    <h1 className="text-2xl font-bold text-gray-900">Trip Not Found</h1>
-                    <button onClick={() => navigate(-1)} className="mt-4 text-blue-600 hover:underline">Go Back</button>
-                </div>
+                <h1 className="text-2xl font-bold">Trip Not Found</h1>
+                <Button onClick={() => navigate(-1)} className="mt-4">Go Back</Button>
+                <Footer />
             </div>
         );
     }
 
+    // Default values if data missing
+    const rating = 4.5;
+    const reviews = 42;
+
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 font-sans">
             <Navigation />
 
-            {/* Hero Section */}
-            <div className="relative h-[60vh] lg:h-[70vh] w-full overflow-hidden">
-                <img
-                    src={trip.image}
-                    alt={trip.title}
-                    className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                <button
-                    onClick={() => navigate(-1)}
-                    className="absolute top-32 left-6 z-10 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
-                >
-                    <ArrowLeft className="w-4 h-4" /> Back
-                </button>
-
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 lg:p-16">
-                    <div className="container mx-auto">
-                        <div className="inline-flex items-center gap-2 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-4">
-                            <Clock className="w-4 h-4" /> {trip.duration}
+            {/* 1. Header & Breadcrumb Area */}
+            <div className="pt-24 pb-8 bg-white border-b">
+                <div className="container mx-auto px-4 lg:px-8">
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => navigate(-1)}
+                        className="mb-4 pl-0 hover:bg-transparent text-gray-500 hover:text-blue-600 transition-colors"
+                    >
+                        <ChevronLeft className="w-4 h-4 mr-1" /> Back
+                    </Button>
+                    <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+                        <div>
+                            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{trip.title}</h1>
+                            <div className="flex items-center gap-4 text-sm text-gray-600">
+                                <span className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-0.5 rounded">
+                                    <Star className="w-3.5 h-3.5 fill-current" /> {rating}
+                                </span>
+                                <span>({reviews} Reviews)</span>
+                                <span>•</span>
+                                <span>{trip.location}</span>
+                            </div>
                         </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-                            {trip.title}
-                        </h1>
-                        <div className="flex items-center text-white/90 text-lg">
-                            <MapPin className="w-5 h-5 mr-2 text-orange-400" />
-                            {trip.location}
+                        <div className="text-right hidden lg:block">
+                            <p className="text-sm text-gray-500 mb-1">Starting Price</p>
+                            <p className="text-3xl font-bold text-blue-600">{trip.price}</p>
+                            <p className="text-xs text-gray-400">per person</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 -mt-10 relative z-10">
-                <div className="grid lg:grid-cols-3 gap-8">
+            {/* 2. Gallery Grid */}
+            <div className="container mx-auto px-4 lg:px-8 py-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-2 h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
+                    {/* Main Large Image */}
+                    <div className="md:col-span-2 md:row-span-2 relative h-full">
+                        <img src={trip.image} alt={trip.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
+                    </div>
+                    {/* Secondary Images - Repeating same for demo */}
+                    {[1, 2, 3, 4].map((_, idx) => (
+                        <div key={idx} className="relative h-full overflow-hidden hidden md:block">
+                            <img src={trip.image} alt={`Gallery ${idx}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
+                        </div>
+                    ))}
+                </div>
+                {/* Mobile Grid */}
+                <div className="flex md:hidden gap-2 mt-2 overflow-x-auto pb-2 snap-x">
+                    {[1, 2, 3].map((_, idx) => (
+                        <img key={idx} src={trip.image} className="w-60 h-40 object-cover rounded-lg flex-shrink-0 snap-center" />
+                    ))}
+                </div>
+            </div>
 
-                    {/* Left Content */}
+            {/* 3. Main Content Layout */}
+            <div className="container mx-auto px-4 lg:px-8 py-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                    {/* LEFT COLUMN */}
                     <div className="lg:col-span-2 space-y-8">
 
-                        {/* Overview Card */}
-                        <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-900 mb-4">Trip Overview</h2>
-                            <p className="text-gray-600 leading-relaxed text-lg">
-                                {trip.overview}
-                            </p>
-
-                            {trip.highlights && (
-                                <div className="mt-6 flex flex-wrap gap-3">
-                                    {trip.highlights.map((highlight, idx) => (
-                                        <span key={idx} className="bg-orange-50 text-orange-700 px-4 py-2 rounded-lg text-sm font-medium border border-orange-100">
-                                            ✨ {highlight}
-                                        </span>
-                                    ))}
-                                </div>
-                            )}
+                        {/* Info Cards */}
+                        <div className="grid grid-cols-3 gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                            <div className="flex flex-col items-center justify-center text-center p-2 border-r last:border-0 border-gray-100">
+                                <Clock className="w-6 h-6 text-blue-600 mb-2" />
+                                <span className="text-xs text-gray-500 uppercase tracking-wide">Duration</span>
+                                <span className="font-semibold text-gray-900 text-sm md:text-base">{trip.duration}</span>
+                            </div>
+                            <div className="flex flex-col items-center justify-center text-center p-2 border-r last:border-0 border-gray-100">
+                                <MapPin className="w-6 h-6 text-blue-600 mb-2" />
+                                <span className="text-xs text-gray-500 uppercase tracking-wide">Location</span>
+                                <span className="font-semibold text-gray-900 text-sm md:text-base">{trip.location}</span>
+                            </div>
+                            <div className="flex flex-col items-center justify-center text-center p-2">
+                                <Zap className="w-6 h-6 text-blue-600 mb-2" />
+                                <span className="text-xs text-gray-500 uppercase tracking-wide">Type</span>
+                                <span className="font-semibold text-gray-900 text-sm md:text-base">Weekend</span>
+                            </div>
                         </div>
 
-                        {/* Itinerary */}
-                        {trip.itinerary && trip.itinerary.length > 0 && (
-                            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-6">Detailed Itinerary</h2>
-                                <Accordion type="single" collapsible className="w-full">
-                                    {trip.itinerary.map((day, idx) => (
-                                        <AccordionItem key={idx} value={`item-${idx}`}>
-                                            <AccordionTrigger className="text-left font-medium text-gray-900 data-[state=open]:text-orange-600">
-                                                {day.split(':')[0]}
-                                            </AccordionTrigger>
-                                            <AccordionContent className="text-gray-600">
-                                                {day.split(':')[1] || day}
-                                            </AccordionContent>
-                                        </AccordionItem>
-                                    ))}
-                                </Accordion>
-                            </div>
-                        )}
+                        {/* Tabs Section */}
+                        <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                            <Tabs defaultValue="overview" className="w-full" onValueChange={setActiveTab}>
+                                <div className="border-b px-4">
+                                    <TabsList className="h-auto w-full justify-start bg-transparent p-0 gap-6 overflow-x-auto">
+                                        {["Overview", "Itinerary", "Inclusions", "Exclusions"].map((tab) => (
+                                            <TabsTrigger
+                                                key={tab}
+                                                value={tab.toLowerCase()}
+                                                className="data-[state=active]:border-b-2 data-[state=active]:border-blue-600 data-[state=active]:text-blue-600 data-[state=active]:shadow-none rounded-none py-4 px-2 text-base font-medium text-gray-600 hover:text-gray-900 bg-transparent"
+                                            >
+                                                {tab}
+                                            </TabsTrigger>
+                                        ))}
+                                    </TabsList>
+                                </div>
+
+                                <div className="p-6">
+                                    {/* Overview */}
+                                    <TabsContent value="overview" className="mt-0">
+                                        <h3 className="text-xl font-bold mb-4">Trip Overview</h3>
+                                        <p className="text-gray-700 leading-7 mb-6">{trip.overview}</p>
+
+                                        {trip.highlights && (
+                                            <>
+                                                <h4 className="font-bold text-gray-900 mb-3">Highlights</h4>
+                                                <ul className="grid md:grid-cols-2 gap-2">
+                                                    {trip.highlights.map((h, i) => (
+                                                        <li key={i} className="flex items-center gap-2 text-gray-700">
+                                                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
+                                                            {h}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </>
+                                        )}
+                                    </TabsContent>
+
+                                    {/* Itinerary */}
+                                    <TabsContent value="itinerary" className="mt-0">
+                                        <h3 className="text-xl font-bold mb-6">Detailed Itinerary</h3>
+                                        {trip.itinerary && trip.itinerary.length > 0 ? (
+                                            <Accordion type="single" collapsible className="w-full space-y-3">
+                                                {trip.itinerary.map((day, index) => {
+                                                    const parts = day.split(':');
+                                                    const dayTitle = parts[0];
+                                                    const dayDesc = parts.slice(1).join(':').trim() || day;
+
+                                                    return (
+                                                        <AccordionItem key={index} value={`day-${index}`} className="border bg-gray-50 rounded-lg px-2">
+                                                            <AccordionTrigger className="hover:no-underline px-2">
+                                                                <div className="flex items-center text-left gap-3">
+                                                                    <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">{dayTitle}</span>
+                                                                    <span className="font-semibold text-gray-900 line-clamp-1">{dayDesc.substring(0, 50)}...</span>
+                                                                </div>
+                                                            </AccordionTrigger>
+                                                            <AccordionContent className="px-2 pb-4 pt-1 text-gray-600 ml-12 border-l-2 border-dashed border-gray-200 pl-4">
+                                                                {dayDesc}
+                                                            </AccordionContent>
+                                                        </AccordionItem>
+                                                    );
+                                                })}
+                                            </Accordion>
+                                        ) : (
+                                            <p className="text-gray-500">Itinerary details coming soon.</p>
+                                        )}
+                                    </TabsContent>
+
+                                    {/* Inclusions */}
+                                    <TabsContent value="inclusions" className="mt-0">
+                                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                            <CheckCircle2 className="text-green-600" /> Inclusions
+                                        </h3>
+                                        <ul className="grid md:grid-cols-2 gap-3">
+                                            {trip.includes?.map((incl, i) => (
+                                                <li key={i} className="flex items-start gap-2 bg-green-50/50 p-3 rounded-lg border border-green-100">
+                                                    <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                                    <span className="text-sm font-medium text-gray-700">{incl}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </TabsContent>
+
+                                    {/* Exclusions */}
+                                    <TabsContent value="exclusions" className="mt-0">
+                                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                            <XCircle className="text-red-600" /> Exclusions
+                                        </h3>
+                                        <ul className="grid md:grid-cols-2 gap-3">
+                                            {trip.excludes?.map((excl, i) => (
+                                                <li key={i} className="flex items-start gap-2 bg-red-50/50 p-3 rounded-lg border border-red-100">
+                                                    <XCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+                                                    <span className="text-sm font-medium text-gray-700">{excl}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </TabsContent>
+
+                                </div>
+                            </Tabs>
+                        </div>
                     </div>
 
-                    {/* Right Sidebar */}
+                    {/* RIGHT COLUMN - Sticky Sidebar */}
                     <div className="lg:col-span-1">
-                        <div className="bg-white rounded-2xl p-6 sticky top-32 shadow-lg border border-gray-100">
-                            <div className="mb-6">
-                                <span className="text-gray-500 text-sm">Starting from</span>
-                                <div className="flex items-baseline gap-1">
-                                    <span className="text-3xl font-bold text-gray-900">{trip.price}</span>
-                                    <span className="text-gray-500 text-sm">/person</span>
+                        <div className="sticky top-24 space-y-6">
+
+                            {/* Price Card */}
+                            <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+                                <div className="mb-4">
+                                    <p className="text-gray-500 text-sm">Starting Price</p>
+                                    <div className="flex items-baseline gap-1">
+                                        <h2 className="text-3xl font-bold text-gray-900">{trip.price}</h2>
+                                        <span className="text-gray-500 text-sm">/ Per Person</span>
+                                    </div>
+                                    <p className="text-green-600 text-xs font-semibold mt-1">5% OFF for Group Bookings</p>
+                                </div>
+
+                                <div className="space-y-3">
+                                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white h-12 text-lg font-semibold shadow-blue-200 shadow-lg" onClick={() => window.open(`https://wa.me/918178515133?text=${encodeURIComponent(`Hi, I am interested in ${trip.title}`)}`, '_blank')}>
+                                        Send Query Here
+                                    </Button>
+                                    <Button variant="outline" className="w-full border-2 border-gray-900 text-gray-900 hover:bg-gray-50 h-12 font-semibold">
+                                        Book Now
+                                    </Button>
                                 </div>
                             </div>
 
-                            <button
-                                onClick={() => window.open('https://wa.me/918178515133', '_blank')}
-                                className="w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-lg mb-4 transition-colors flex items-center justify-center gap-2 shadow-green-200 shadow-lg"
-                            >
-                                <Phone className="w-5 h-5" />
-                                Book via WhatsApp
-                            </button>
+                            {/* 2. Helper Actions */}
+                            <div className="grid grid-cols-2 gap-3">
+                                <Button variant="outline" className="flex items-center gap-2 h-auto py-3 border-gray-200" onClick={() => window.open('https://wa.me/918178515133', '_blank')}>
+                                    <MessageCircle className="w-4 h-4 text-green-600" />
+                                    <div className="text-left">
+                                        <span className="block text-[10px] text-gray-500 uppercase">Chat on</span>
+                                        <span className="block text-sm font-semibold text-gray-900">WhatsApp</span>
+                                    </div>
+                                </Button>
+                                <Button variant="outline" className="flex items-center gap-2 h-auto py-3 border-gray-200">
+                                    <Download className="w-4 h-4 text-red-500" />
+                                    <div className="text-left">
+                                        <span className="block text-[10px] text-gray-500 uppercase">Download</span>
+                                        <span className="block text-sm font-semibold text-gray-900">Itinerary</span>
+                                    </div>
+                                </Button>
+                            </div>
 
-                            <div className="space-y-6 mt-8">
-                                <div>
-                                    <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                                        <CheckCircle2 className="w-5 h-5 text-green-500" />
-                                        What's Included
-                                    </h3>
-                                    <ul className="space-y-2">
-                                        {trip.includes && trip.includes.map((item, idx) => (
-                                            <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
-                                                <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5 shrink-0" />
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
+                            {/* Trust Badges */}
+                            <div className="bg-blue-50 rounded-xl p-4 border border-blue-100 grid grid-cols-2 gap-y-4 gap-x-2">
+                                <div className="flex items-center gap-2">
+                                    <Shield className="w-4 h-4 text-blue-600" />
+                                    <span className="text-xs font-medium text-blue-900">Govt. Regd.</span>
                                 </div>
-
-                                <div>
-                                    <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                                        <XCircle className="w-5 h-5 text-red-500" />
-                                        Exclusions
-                                    </h3>
-                                    <ul className="space-y-2">
-                                        {trip.excludes && trip.excludes.map((item, idx) => (
-                                            <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
-                                                <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 shrink-0" />
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
+                                <div className="flex items-center gap-2">
+                                    <Star className="w-4 h-4 text-blue-600" />
+                                    <span className="text-xs font-medium text-blue-900">4.8/5 Rated</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Phone className="w-4 h-4 text-blue-600" />
+                                    <span className="text-xs font-medium text-blue-900">24/7 Support</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Calendar className="w-4 h-4 text-blue-600" />
+                                    <span className="text-xs font-medium text-blue-900">Flexible Dates</span>
                                 </div>
                             </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
+
             <Footer />
         </div>
     );

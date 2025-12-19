@@ -201,7 +201,7 @@ const Testimonials = () => {
               {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
                 <div
                   key={`row1-${index}`}
-                  className="flex-shrink-0 w-96"
+                  className="flex-shrink-0 w-80 md:w-96"
                 >
                   <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-center border border-black">
                     <div className="p-8">
@@ -232,7 +232,7 @@ const Testimonials = () => {
               {[...testimonials.slice(5), ...testimonials.slice(0, 5), ...testimonials].map((testimonial, index) => (
                 <div
                   key={`row2-${index}`}
-                  className="flex-shrink-0 w-96"
+                  className="flex-shrink-0 w-80 md:w-96"
                 >
                   <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-center border border-black">
                     <div className="p-8">

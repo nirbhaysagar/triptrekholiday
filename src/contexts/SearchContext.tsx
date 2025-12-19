@@ -6,11 +6,12 @@ export interface SearchFilters {
   priceRange: string;
   activity: string;
   groupSize: string;
+  type: string;
 }
 
 export interface SearchResult {
   id: string;
-  type: 'package' | 'destination' | 'hilly' | 'honeymoon' | 'usp';
+  type: 'package' | 'destination' | 'hilly' | 'honeymoon' | 'usp' | 'hotel' | 'visa' | 'experience';
   title: string;
   description: string;
   price: string;
@@ -54,9 +55,14 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
     priceRange: '',
     activity: '',
     groupSize: '',
+    type: '',
   });
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
+
+  const updateFilters = (newFilters: Partial<SearchFilters>) => {
+    setFilters(prev => ({ ...prev, ...newFilters }));
+  };
 
   // Mock data for search - in real app, this would come from API
   const allPackages: SearchResult[] = [
@@ -327,12 +333,87 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
       rating: 4.8,
       image: '/src/assets/destination-1.jpg',
       activities: ['River Rafting', 'Yoga', 'Adventure']
+    },
+    // Hotels
+    {
+      id: '23',
+      type: 'hotel',
+      title: 'Taj Mahal Palace',
+      description: 'Luxury heritage hotel overlooking the Gateway of India.',
+      price: '₹25,000',
+      duration: '1 Night',
+      destination: 'Mumbai',
+      rating: 5.0,
+      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      activities: ['Luxury', 'Sea View', 'Spa']
+    },
+    {
+      id: '24',
+      type: 'hotel',
+      title: 'The Leela Goa',
+      description: 'Beachside luxury resort with private beach access.',
+      price: '₹22,000',
+      duration: '1 Night',
+      destination: 'Goa',
+      rating: 4.9,
+      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      activities: ['Beach', 'Resort', 'Pool']
+    },
+    // Visa
+    {
+      id: '25',
+      type: 'visa',
+      title: 'Dubai Tourist Visa',
+      description: '30 Days Tourist Visa with insurance included.',
+      price: '₹6,500',
+      duration: '30 Days',
+      destination: 'Dubai',
+      rating: 4.8,
+      image: 'https://images.unsplash.com/photo-1512453979798-5ea936a7d40c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      activities: ['Visa Assistance', 'Insurance']
+    },
+    {
+      id: '26',
+      type: 'visa',
+      title: 'Thailand Tourist Visa',
+      description: 'Express visa processing for Thailand holidays.',
+      price: '₹4,500',
+      duration: '60 Days',
+      destination: 'Thailand',
+      rating: 4.7,
+      image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      activities: ['Express Processing', 'Documentation']
+    },
+    // Experience
+    {
+      id: '27',
+      type: 'experience',
+      title: 'Scuba Diving in Andaman',
+      description: 'Explore the vibrant coral reefs of Havelock Island.',
+      price: '₹4,500',
+      duration: '2 Hours',
+      destination: 'Andaman',
+      rating: 4.9,
+      image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      activities: ['Scuba', 'Adventure', 'Marine Life']
+    },
+    {
+      id: '28',
+      type: 'experience',
+      title: 'Hot Air Balloon Ride',
+      description: 'Float over the pink city of Jaipur at sunrise.',
+      price: '₹12,000',
+      duration: '1 Hour',
+      destination: 'Jaipur',
+      rating: 4.9,
+      image: 'https://images.unsplash.com/photo-1507608869274-d3177c8bb4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      activities: ['Adventure', 'Sunrise', 'Aerial View']
     }
   ];
 
   const performSearch = () => {
     setIsSearching(true);
-    
+
     // Simulate API delay
     setTimeout(() => {
       let results = allPackages;
@@ -350,7 +431,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
 
       // Filter by destination
       if (filters.destination) {
-        results = results.filter(pkg => 
+        results = results.filter(pkg =>
           pkg.destination.toLowerCase().includes(filters.destination.toLowerCase())
         );
       }
@@ -363,13 +444,13 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
             case '1-3':
               return duration.includes('2 nights') || duration.includes('3 nights');
             case '4-7':
-              return duration.includes('4 nights') || duration.includes('5 nights') || 
-                     duration.includes('6 nights') || duration.includes('7 nights');
+              return duration.includes('4 nights') || duration.includes('5 nights') ||
+                duration.includes('6 nights') || duration.includes('7 nights');
             case '8-14':
               return duration.includes('8 nights') || duration.includes('9 nights') ||
-                     duration.includes('10 nights') || duration.includes('11 nights') ||
-                     duration.includes('12 nights') || duration.includes('13 nights') ||
-                     duration.includes('14 nights');
+                duration.includes('10 nights') || duration.includes('11 nights') ||
+                duration.includes('12 nights') || duration.includes('13 nights') ||
+                duration.includes('14 nights');
             default:
               return true;
           }
@@ -398,7 +479,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
       // Filter by activity
       if (filters.activity) {
         results = results.filter(pkg =>
-          pkg.activities?.some(activity => 
+          pkg.activities?.some(activity =>
             activity.toLowerCase().includes(filters.activity.toLowerCase())
           )
         );
@@ -417,6 +498,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
       priceRange: '',
       activity: '',
       groupSize: '',
+      type: '',
     });
     setSearchResults([]);
   };
@@ -429,7 +511,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
         searchResults,
         isSearching,
         setSearchQuery,
-        setFilters,
+        setFilters: updateFilters,
         performSearch,
         clearSearch,
       }}

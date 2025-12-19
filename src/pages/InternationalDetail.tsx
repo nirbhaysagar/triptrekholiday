@@ -1,13 +1,14 @@
+import { useParams, useNavigate } from "react-router-dom";
+import { Clock, MapPin, Calendar, CheckCircle2, XCircle, Star, Phone, Download, MessageCircle, ChevronLeft, Shield, Plane, Users, Wallet } from "lucide-react";
 import { useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { Star, Clock, Users, MapPin, Plane, Globe, Calendar, DollarSign, MessageSquare, Mail, ArrowLeft } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -34,16 +35,17 @@ const internationalTours = [
     ],
     includes: ["Hotel accommodation", "All meals", "Airport transfers", "Local guide", "Entry fees", "Transportation"],
     notIncludes: ["International flights", "Visa fees", "Personal expenses", "Travel insurance"],
-    bestTime: "November to April (cool season)",
+    bestTime: "Nov - Apr",
     duration: "6 Days 5 Nights",
     rating: 4.8,
+    reviews: 156,
     price: "₹35,000",
     region: "Thailand",
     visaRequired: true,
     currency: "THB",
     groupSize: "8-12 people",
     difficulty: "Easy",
-    idealFor: ["Beach lovers", "Culture enthusiasts", "Food lovers", "Adventure seekers"],
+    idealFor: ["Beach", "Culture", "Food", "Adventure"],
     activities: ["Beach activities", "Temple visits", "Island hopping", "Shopping", "Spa treatments"],
   },
   {
@@ -62,18 +64,19 @@ const internationalTours = [
       "Day 6: Return to Kathmandu, shopping",
       "Day 7: Departure"
     ],
-    includes: ["Hotel accommodation", "All meals", "Airport transfers", "Trekking guide", "Entry fees", "Domestic flights"],
+    includes: ["Hotel accommodation", "All meals", "Airport transfers", "Trekking guide", "Entry fees", "Domestic notes"],
     notIncludes: ["International flights", "Trekking equipment", "Personal expenses", "Travel insurance"],
-    bestTime: "March to May, October to December",
+    bestTime: "Mar - May, Oct - Dec",
     duration: "7 Days 6 Nights",
     rating: 4.9,
+    reviews: 89,
     price: "₹28,500",
     region: "Nepal",
     visaRequired: false,
     currency: "NPR",
     groupSize: "6-10 people",
     difficulty: "Moderate",
-    idealFor: ["Adventure seekers", "Nature lovers", "Photography enthusiasts", "Trekking enthusiasts"],
+    idealFor: ["Adventure", "Nature", "Photography", "Trekking"],
     activities: ["Trekking", "Mountain views", "Temple visits", "Cultural experiences", "Photography"],
   },
   {
@@ -93,16 +96,17 @@ const internationalTours = [
     ],
     includes: ["Hotel accommodation", "All meals", "Airport transfers", "Local guide", "Entry fees", "Spa treatments"],
     notIncludes: ["International flights", "Visa fees", "Personal expenses", "Travel insurance"],
-    bestTime: "April to October (dry season)",
+    bestTime: "Apr - Oct",
     duration: "5 Days 4 Nights",
     rating: 4.7,
+    reviews: 210,
     price: "₹42,000",
     region: "Indonesia",
     visaRequired: true,
     currency: "IDR",
     groupSize: "8-12 people",
     difficulty: "Easy",
-    idealFor: ["Beach lovers", "Wellness seekers", "Culture enthusiasts", "Couples"],
+    idealFor: ["Beach", "Wellness", "Culture", "Couples"],
     activities: ["Beach activities", "Temple visits", "Rice terrace tours", "Volcano trekking", "Spa treatments"],
   },
 ];
@@ -110,320 +114,275 @@ const internationalTours = [
 const InternationalDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    travelDate: '',
-    guests: '',
-    message: ''
-  });
+  const [activeTab, setActiveTab] = useState("overview");
 
   const tour = internationalTours.find(t => t.id === parseInt(id || '0'));
 
   if (!tour) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center">
         <Navigation />
-        <div className="container mx-auto px-6 py-24 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Tour Not Found</h1>
-          <p className="text-gray-600 mb-8">The international tour you're looking for doesn't exist.</p>
-          <Link to="/" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg">
-            Back to Home
-          </Link>
-        </div>
-        <Footer />
+        <h1 className="text-2xl font-bold text-gray-900 mb-4">Tour Not Found</h1>
+        <Button onClick={() => navigate(-1)}>Go Back</Button>
       </div>
     );
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const handleSubmitQuote = () => {
-    const message = `Hi, I'm interested in ${tour.name} (${tour.duration}) for ${tour.price}.
-
-Details:
-- Name: ${formData.name}
-- Email: ${formData.email}
-- Phone: ${formData.phone}
-- Travel Date: ${formData.travelDate}
-- Number of Guests: ${formData.guests}
-- Message: ${formData.message}`;
-
-    window.open(`https://wa.me/918178515133?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 font-sans">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative h-96 overflow-hidden">
-        {/* Back Button */}
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute top-32 left-6 z-10 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" /> Back
-        </button>
-        <img
-          src={tour.image}
-          alt={tour.name}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">{tour.name}</h1>
-            <p className="text-xl md:text-2xl mb-6">{tour.description}</p>
-            <div className="flex items-center justify-center gap-6 text-lg">
-              <span className="flex items-center">
-                <MapPin className="w-5 h-5 mr-2" />
-                {tour.region}
-              </span>
-              <span className="flex items-center">
-                <Clock className="w-5 h-5 mr-2" />
-                {tour.duration}
-              </span>
-              <span className="flex items-center">
-                <Star className="w-5 h-5 mr-2 fill-yellow-400" />
-                {tour.rating}
-              </span>
+      {/* 1. Header & Breadcrumb Area */}
+      <div className="pt-24 pb-8 bg-white border-b">
+        <div className="container mx-auto px-4 lg:px-8">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate(-1)}
+            className="mb-4 pl-0 hover:bg-transparent text-gray-500 hover:text-blue-600 transition-colors"
+          >
+            <ChevronLeft className="w-4 h-4 mr-1" /> Back
+          </Button>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{tour.name}</h1>
+              <div className="flex items-center gap-4 text-sm text-gray-600">
+                <span className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-0.5 rounded">
+                  <Star className="w-3.5 h-3.5 fill-current" /> {tour.rating}
+                </span>
+                <span>({tour.reviews || 50} Reviews)</span>
+                <span>•</span>
+                <span>{tour.region}</span>
+              </div>
+            </div>
+            <div className="text-right hidden lg:block">
+              <p className="text-sm text-gray-500 mb-1">Starting Price</p>
+              <p className="text-3xl font-bold text-blue-600">{tour.price}</p>
+              <p className="text-xs text-gray-400">per person</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <div className="container mx-auto px-6 py-12">
+      {/* 2. Gallery Grid */}
+      <div className="container mx-auto px-4 lg:px-8 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
+          {/* Main Large Image */}
+          <div className="md:col-span-2 md:row-span-2 relative h-full">
+            <img src={tour.image} alt={tour.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
+          </div>
+          {/* Secondary Images - Repeating same for demo */}
+          {[1, 2, 3, 4].map((_, idx) => (
+            <div key={idx} className="relative h-full overflow-hidden hidden md:block">
+              <img src={tour.image} alt={`Gallery ${idx}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
+            </div>
+          ))}
+        </div>
+        {/* Mobile Grid */}
+        <div className="flex md:hidden gap-2 mt-2 overflow-x-auto pb-2 snap-x">
+          {[1, 2, 3].map((_, idx) => (
+            <img key={idx} src={tour.image} className="w-60 h-40 object-cover rounded-lg flex-shrink-0 snap-center" />
+          ))}
+        </div>
+      </div>
+
+      {/* 3. Main Content Layout */}
+      <div className="container mx-auto px-4 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
+
+          {/* LEFT COLUMN */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Overview */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Overview</h2>
-              <p className="text-gray-700 leading-relaxed">{tour.overview}</p>
-            </Card>
 
-            {/* Highlights */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Highlights</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {tour.highlights.map((highlight, index) => (
-                  <div key={index} className="flex items-center">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    <span>{highlight}</span>
-                  </div>
-                ))}
+            {/* Info Cards - Custom for International */}
+            <div className="grid grid-cols-3 gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+              <div className="flex flex-col items-center justify-center text-center p-2 border-r last:border-0 border-gray-100">
+                <Clock className="w-6 h-6 text-blue-600 mb-2" />
+                <span className="text-xs text-gray-500 uppercase tracking-wide">Duration</span>
+                <span className="font-semibold text-gray-900 text-sm md:text-base">{tour.duration}</span>
               </div>
-            </Card>
+              <div className="flex flex-col items-center justify-center text-center p-2 border-r last:border-0 border-gray-100">
+                <Plane className="w-6 h-6 text-blue-600 mb-2" />
+                <span className="text-xs text-gray-500 uppercase tracking-wide">Visa</span>
+                <span className="font-semibold text-gray-900 text-sm md:text-base">{tour.visaRequired ? "Required" : "On Arrival"}</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-2">
+                <Users className="w-6 h-6 text-blue-600 mb-2" />
+                <span className="text-xs text-gray-500 uppercase tracking-wide">Group Size</span>
+                <span className="font-semibold text-gray-900 text-sm md:text-base">{tour.groupSize}</span>
+              </div>
+            </div>
 
-            {/* Itinerary */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Itinerary</h2>
-              <div className="space-y-3">
-                {tour.itinerary.map((day, index) => (
-                  <div key={index} className="flex items-start">
-                    <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">
-                      {index + 1}
+            {/* Tabs Section */}
+            <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+              <Tabs defaultValue="overview" className="w-full" onValueChange={setActiveTab}>
+                <div className="border-b px-4">
+                  <TabsList className="h-auto w-full justify-start bg-transparent p-0 gap-6 overflow-x-auto">
+                    {["Overview", "Itinerary", "Inclusions", "Exclusions"].map((tab) => (
+                      <TabsTrigger
+                        key={tab}
+                        value={tab.toLowerCase()}
+                        className="data-[state=active]:border-b-2 data-[state=active]:border-blue-600 data-[state=active]:text-blue-600 data-[state=active]:shadow-none rounded-none py-4 px-2 text-base font-medium text-gray-600 hover:text-gray-900 bg-transparent"
+                      >
+                        {tab}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
+
+                <div className="p-6">
+                  {/* Overview */}
+                  <TabsContent value="overview" className="mt-0">
+                    <h3 className="text-xl font-bold mb-4">Trip Overview</h3>
+                    <p className="text-gray-700 leading-7 mb-6">{tour.overview}</p>
+
+                    <h4 className="font-bold text-gray-900 mb-3">Highlights</h4>
+                    <ul className="grid md:grid-cols-2 gap-2">
+                      {tour.highlights.map((h, i) => (
+                        <li key={i} className="flex items-center gap-2 text-gray-700">
+                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-6 pt-6 border-t">
+                      <h4 className="font-bold text-gray-900 mb-3">Ideal For</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {tour.idealFor.map((tag, idx) => (
+                          <span key={idx} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <p className="text-gray-700">{day}</p>
-                  </div>
-                ))}
-              </div>
-            </Card>
+                  </TabsContent>
 
-            {/* Activities */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Activities</h2>
-              <div className="flex flex-wrap gap-2">
-                {tour.activities.map((activity, index) => (
-                  <Badge key={index} variant="secondary" className="px-3 py-1">
-                    {activity}
-                  </Badge>
-                ))}
-              </div>
-            </Card>
+                  {/* Itinerary */}
+                  <TabsContent value="itinerary" className="mt-0">
+                    <h3 className="text-xl font-bold mb-6">Detailed Itinerary</h3>
+                    <Accordion type="single" collapsible className="w-full space-y-3">
+                      {tour.itinerary.map((day, index) => {
+                        const parts = day.split(':');
+                        const dayTitle = parts[0] || `Day ${index + 1}`;
+                        const dayDesc = parts.slice(1).join(':').trim() || day;
+
+                        return (
+                          <AccordionItem key={index} value={`day-${index}`} className="border bg-gray-50 rounded-lg px-2">
+                            <AccordionTrigger className="hover:no-underline px-2">
+                              <div className="flex items-center text-left gap-3">
+                                <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">{dayTitle}</span>
+                                <span className="font-semibold text-gray-900 line-clamp-1">{dayDesc.substring(0, 50)}...</span>
+                              </div>
+                            </AccordionTrigger>
+                            <AccordionContent className="px-2 pb-4 pt-1 text-gray-600 ml-12 border-l-2 border-dashed border-gray-200 pl-4">
+                              {dayDesc}
+                            </AccordionContent>
+                          </AccordionItem>
+                        );
+                      })}
+                    </Accordion>
+                  </TabsContent>
+
+                  {/* Inclusions */}
+                  <TabsContent value="inclusions" className="mt-0">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <CheckCircle2 className="text-green-600" /> Inclusions
+                    </h3>
+                    <ul className="grid md:grid-cols-2 gap-3">
+                      {tour.includes.map((incl, i) => (
+                        <li key={i} className="flex items-start gap-2 bg-green-50/50 p-3 rounded-lg border border-green-100">
+                          <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm font-medium text-gray-700">{incl}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TabsContent>
+
+                  {/* Exclusions */}
+                  <TabsContent value="exclusions" className="mt-0">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <XCircle className="text-red-600" /> Exclusions
+                    </h3>
+                    <ul className="grid md:grid-cols-2 gap-3">
+                      {tour.notIncludes.map((excl, i) => (
+                        <li key={i} className="flex items-start gap-2 bg-red-50/50 p-3 rounded-lg border border-red-100">
+                          <XCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm font-medium text-gray-700">{excl}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TabsContent>
+
+                </div>
+              </Tabs>
+            </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Price Card */}
-            <Card className="p-6">
-              <div className="text-center mb-6">
-                <h3 className="text-3xl font-bold text-blue-600 mb-2">{tour.price}</h3>
-                <p className="text-gray-600">per person</p>
+          {/* RIGHT COLUMN - Sticky Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24 space-y-6">
+
+              {/* Price Card */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+                <div className="mb-4">
+                  <p className="text-gray-500 text-sm">Starting Price</p>
+                  <div className="flex items-baseline gap-1">
+                    <h2 className="text-3xl font-bold text-gray-900">{tour.price}</h2>
+                    <span className="text-gray-500 text-sm">/ Per Person</span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">Currency: {tour.currency}</p>
+                </div>
+
+                <div className="space-y-3">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white h-12 text-lg font-semibold shadow-blue-200 shadow-lg" onClick={() => window.open(`https://wa.me/918178515133?text=${encodeURIComponent(`Hi, I am interested in ${tour.name}`)}`, '_blank')}>
+                    Send Query Here
+                  </Button>
+                  <Button variant="outline" className="w-full border-2 border-gray-900 text-gray-900 hover:bg-gray-50 h-12 font-semibold">
+                    Book Now
+                  </Button>
+                </div>
               </div>
 
-              <div className="space-y-4">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      <MessageSquare className="w-4 h-4 mr-2" />
-                      Get Quote
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-md">
-                    <DialogHeader>
-                      <DialogTitle>Get Quote for {tour.name}</DialogTitle>
-                    </DialogHeader>
-                    <div className="space-y-4">
-                      <div>
-                        <Label htmlFor="name">Name *</Label>
-                        <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="phone">Phone *</Label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="travelDate">Preferred Travel Date</Label>
-                        <Input
-                          id="travelDate"
-                          name="travelDate"
-                          type="date"
-                          value={formData.travelDate}
-                          onChange={handleInputChange}
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="guests">Number of Guests</Label>
-                        <Input
-                          id="guests"
-                          name="guests"
-                          type="number"
-                          min="1"
-                          value={formData.guests}
-                          onChange={handleInputChange}
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="message">Message</Label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleInputChange}
-                          placeholder="Any specific requirements or questions..."
-                        />
-                      </div>
-                      <Button onClick={handleSubmitQuote} className="w-full">
-                        <MessageSquare className="w-4 h-4 mr-2" />
-                        Send Quote Request
-                      </Button>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-
-                <Button
-                  className="w-full bg-[#25D366] hover:bg-[#128C7E]"
-                  onClick={() => window.open(`https://wa.me/918178515133?text=${encodeURIComponent(`Hi, I'm interested in ${tour.name} (${tour.duration}) for ${tour.price}.`)}`, '_blank')}
-                >
-                  <MessageSquare className="w-4 h-4 mr-2" />
-                  Contact on WhatsApp
+              {/* 2. Helper Actions */}
+              <div className="grid grid-cols-2 gap-3">
+                <Button variant="outline" className="flex items-center gap-2 h-auto py-3 border-gray-200" onClick={() => window.open('https://wa.me/918178515133', '_blank')}>
+                  <MessageCircle className="w-4 h-4 text-green-600" />
+                  <div className="text-left">
+                    <span className="block text-[10px] text-gray-500 uppercase">Chat on</span>
+                    <span className="block text-sm font-semibold text-gray-900">WhatsApp</span>
+                  </div>
+                </Button>
+                <Button variant="outline" className="flex items-center gap-2 h-auto py-3 border-gray-200">
+                  <Download className="w-4 h-4 text-red-500" />
+                  <div className="text-left">
+                    <span className="block text-[10px] text-gray-500 uppercase">Download</span>
+                    <span className="block text-sm font-semibold text-gray-900">Itinerary</span>
+                  </div>
                 </Button>
               </div>
-            </Card>
 
-            {/* Tour Details */}
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-4">Tour Details</h3>
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <Calendar className="w-5 h-5 text-gray-500 mr-3" />
-                  <span className="text-gray-700">Duration: {tour.duration}</span>
+              {/* Trust Badges */}
+              <div className="bg-blue-50 rounded-xl p-4 border border-blue-100 grid grid-cols-2 gap-y-4 gap-x-2">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-blue-600" />
+                  <span className="text-xs font-medium text-blue-900">Govt. Regd.</span>
                 </div>
-                <div className="flex items-center">
-                  <Users className="w-5 h-5 text-gray-500 mr-3" />
-                  <span className="text-gray-700">Group Size: {tour.groupSize}</span>
+                <div className="flex items-center gap-2">
+                  <Star className="w-4 h-4 text-blue-600" />
+                  <span className="text-xs font-medium text-blue-900">4.8/5 Rated</span>
                 </div>
-                <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-gray-500 mr-3" />
-                  <span className="text-gray-700">Region: {tour.region}</span>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-blue-600" />
+                  <span className="text-xs font-medium text-blue-900">24/7 Support</span>
                 </div>
-                <div className="flex items-center">
-                  <Plane className="w-5 h-5 text-gray-500 mr-3" />
-                  <span className="text-gray-700">Visa: {tour.visaRequired ? 'Required' : 'Not Required'}</span>
-                </div>
-                <div className="flex items-center">
-                  <DollarSign className="w-5 h-5 text-gray-500 mr-3" />
-                  <span className="text-gray-700">Currency: {tour.currency}</span>
+                <div className="flex items-center gap-2">
+                  <Wallet className="w-4 h-4 text-blue-600" />
+                  <span className="text-xs font-medium text-blue-900">Best Price</span>
                 </div>
               </div>
-            </Card>
 
-            {/* Best Time */}
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-4">Best Time to Visit</h3>
-              <p className="text-gray-700">{tour.bestTime}</p>
-            </Card>
-
-            {/* Ideal For */}
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-4">Ideal For</h3>
-              <div className="flex flex-wrap gap-2">
-                {tour.idealFor.map((type, index) => (
-                  <Badge key={index} variant="outline">
-                    {type}
-                  </Badge>
-                ))}
-              </div>
-            </Card>
+            </div>
           </div>
-        </div>
-
-        {/* Includes & Excludes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          <Card className="p-6">
-            <h3 className="text-xl font-bold mb-4 text-green-700">What's Included</h3>
-            <ul className="space-y-2">
-              {tour.includes.map((item, index) => (
-                <li key={index} className="flex items-center">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
-
-          <Card className="p-6">
-            <h3 className="text-xl font-bold mb-4 text-red-700">What's Not Included</h3>
-            <ul className="space-y-2">
-              {tour.notIncludes.map((item, index) => (
-                <li key={index} className="flex items-center">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
         </div>
       </div>
 

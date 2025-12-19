@@ -1,99 +1,15 @@
-import { Star, Clock, Users, Shield, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
+import { Star, Clock, Users, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-// Import Uttarakhand-specific images
-import chardham from "@/assets/uttarakhand-usp/chardham.jpg";
-import kedarnath from "@/assets/uttarakhand-usp/kedarnath.jpg";
-import valleyofflower from "@/assets/uttarakhand-usp/valleyofflower.jpg";
-import auli from "@/assets/uttarakhand-usp/auli.jpg";
-import rishikesh from "@/assets/uttarakhand-usp/rishikesh.jpg";
-import nainital from "@/assets/uttarakhand-usp/nainital.jpg";
-import mussorie from "@/assets/mussorie.jpg";
-import jimcorbett from "@/assets/jimcorbett.jpg";
-
-const packages = [
-  {
-    id: 1,
-    image: chardham,
-    name: "Chardham Yatra Package",
-    price: "₹45,000",
-    rating: 5.0,
-    duration: "10 Days 9 Nights",
-    features: ["All Meals", "AC Transport", "Hotel Stay", "Pilgrimage Guide"],
-    departurePoints: ["Delhi", "Haridwar"],
-  },
-  {
-    id: 2,
-    image: jimcorbett,
-    name: "Jim Corbett Wildlife Safari",
-    price: "₹18,500",
-    rating: 4.8,
-    duration: "3 Days 2 Nights",
-    features: ["Jungle Safari", "Accommodation", "All Meals", "Naturalist Guide"],
-  },
-  {
-    id: 3,
-    image: valleyofflower,
-    name: "Valley of Flowers Trek",
-    price: "₹28,000",
-    rating: 4.9,
-    duration: "6 Days 5 Nights",
-    features: ["Trekking Guide", "Camping", "Meals", "Transportation"],
-  },
-  {
-    id: 4,
-    image: auli,
-    name: "Auli Skiing Adventure",
-    price: "₹35,000",
-    rating: 4.7,
-    duration: "5 Days 4 Nights",
-    features: ["Ski Equipment", "Instructor", "Accommodation", "All Meals"],
-  },
-  {
-    id: 5,
-    image: rishikesh,
-    name: "Rishikesh Adventure Camp",
-    price: "₹15,000",
-    rating: 4.9,
-    duration: "4 Days 3 Nights",
-    features: ["River Rafting", "Camping", "Adventure Sports", "Meals"],
-  },
-  {
-    id: 6,
-    image: mussorie,
-    name: "Mussoorie & Dhanaulti",
-    price: "₹16,500",
-    rating: 4.6,
-    duration: "4 Days 3 Nights",
-    features: ["Hill Station", "Cable Car", "Accommodation", "Breakfast"],
-  },
-  {
-    id: 7,
-    image: nainital,
-    name: "Nainital & Bhimtal",
-    price: "₹14,500",
-    rating: 4.7,
-    duration: "3 Days 2 Nights",
-    features: ["Lake City", "Boat Ride", "Accommodation", "Meals"],
-  },
-  {
-    id: 8,
-    image: chardham,
-    name: "Patagonia",
-    price: "$734",
-    rating: 4.8,
-    duration: "7 Days 6 Nights",
-    features: ["Accommodation", "Professional Guide"],
-  },
-];
+import { packages } from "@/data/packages";
 
 const TourPackages = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+
   const cardsPerView = 4; // Number of cards visible at once
   const totalCards = packages.length;
   const maxIndex = Math.max(0, totalCards - cardsPerView);
@@ -158,7 +74,7 @@ const TourPackages = () => {
             </div>
 
             {/* Cards Container */}
-            <div 
+            <div
               ref={scrollContainerRef}
               className="flex gap-6 overflow-x-hidden"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -203,7 +119,7 @@ const TourPackages = () => {
                         </div>
                         <div className="flex items-center gap-2 text-xs text-gray-600">
                           <Users className="w-3 h-3 text-blue-600" />
-                          <span>{pkg.features[0]}</span>
+                          <span>{pkg.features?.[0] || 'Guided Tour'}</span>
                         </div>
                         {pkg.departurePoints && (
                           <div className="flex items-center gap-2 text-xs text-gray-600">

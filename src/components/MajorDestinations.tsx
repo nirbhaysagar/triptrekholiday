@@ -95,7 +95,7 @@ const MajorDestinations = () => {
   );
 
   return (
-    <section id="destinations" className="py-16 bg-white">
+    <section id="destinations" className="pt-32 pb-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           {/* Header */}

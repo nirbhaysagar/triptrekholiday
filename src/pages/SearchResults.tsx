@@ -8,9 +8,32 @@ import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
+import { useSearchParams } from 'react-router-dom';
+
 const SearchResults = () => {
-  const { searchQuery, filters, searchResults, isSearching, clearSearch } = useSearch();
+  const { searchQuery, filters, searchResults, isSearching, clearSearch, setFilters, performSearch } = useSearch();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const type = searchParams.get('type');
+    const destination = searchParams.get('destination') || searchParams.get('location'); // Handle both params
+    const duration = searchParams.get('duration');
+    const priceRange = searchParams.get('priceRange');
+    const activity = searchParams.get('activity');
+
+    if (type || destination || duration || priceRange || activity) {
+      setFilters({
+        type: type || '',
+        destination: destination || '',
+        duration: duration || '',
+        priceRange: priceRange || '',
+        activity: activity || ''
+      });
+      // Small timeout to allow state to update before searching
+      setTimeout(() => performSearch(), 100);
+    }
+  }, [searchParams]);
 
   const getTypeColor = (type: string) => {
     switch (type) {
