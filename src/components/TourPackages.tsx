@@ -76,13 +76,13 @@ const TourPackages = () => {
             {/* Cards Container */}
             <div
               ref={scrollContainerRef}
-              className="flex gap-6 overflow-x-hidden"
+              className="flex gap-6 overflow-x-auto md:overflow-x-hidden snap-x md:snap-none"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {packages.map((pkg, index) => (
                 <div
                   key={pkg.id}
-                  className="flex-shrink-0 w-64"
+                  className="flex-shrink-0 w-64 snap-center"
                 >
                   <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
                     {/* Image */}

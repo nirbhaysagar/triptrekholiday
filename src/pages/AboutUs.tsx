@@ -20,7 +20,7 @@ const AboutUs = () => {
         </button>
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">About Trip Trek Holiday</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">About Trip Trek Holiday</h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               We're passionate about creating unforgettable travel experiences that inspire,
               connect, and transform the way you explore the world.
@@ -36,121 +36,121 @@ const AboutUs = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               {/* Left Side - Info Blocks */}
               <div>
-                <h2 className="text-4xl font-bold text-gray-900 mb-8">Why Choose Us</h2>
-                <div className="grid grid-cols-2 gap-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 md:mb-8">Why Choose Us</h2>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   {/* Block 1 */}
-                  <div className="border-2 border-blue-200 rounded-xl p-4 bg-white hover:border-blue-400 transition-colors">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex-shrink-0">
-                        <Home className="w-6 h-6 text-blue-600" />
+                  <div className="border border-blue-100 rounded-xl p-4 bg-white shadow-sm active:scale-[0.98] transition-transform duration-200">
+                    <div className="flex flex-row items-start gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <Home className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">Handpicked Stays with Friendly Hosts</h3>
-                        <p className="text-xs text-gray-600 leading-snug">All our accommodations are verified, pre-checked for quality and hygiene.</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">Handpicked Stays with Friendly Hosts</h3>
+                        <p className="text-sm text-gray-600 leading-normal">All our accommodations are verified, pre-checked for quality and hygiene.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Block 2 */}
-                  <div className="border-2 border-blue-200 rounded-xl p-4 bg-white hover:border-blue-400 transition-colors">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex-shrink-0">
-                        <Plane className="w-6 h-6 text-blue-600" />
+                  <div className="border border-blue-100 rounded-xl p-4 bg-white shadow-sm active:scale-[0.98] transition-transform duration-200">
+                    <div className="flex flex-row items-start gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <Plane className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">2500+ Trips Hosted PAN India & Abroad</h3>
-                        <p className="text-xs text-gray-600 leading-snug">From group trips to custom tours exploring diverse landscapes, cultures & lots more.</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">2500+ Trips Hosted PAN India & Abroad</h3>
+                        <p className="text-sm text-gray-600 leading-normal">From group trips to custom tours exploring diverse landscapes, cultures & lots more.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Block 3 */}
-                  <div className="border-2 border-blue-200 rounded-xl p-4 bg-white hover:border-blue-400 transition-colors">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex-shrink-0">
-                        <Footprints className="w-6 h-6 text-blue-600" />
+                  <div className="border border-blue-100 rounded-xl p-4 bg-white shadow-sm active:scale-[0.98] transition-transform duration-200">
+                    <div className="flex flex-row items-start gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <Footprints className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">Solo Travel Friendly Trips for All</h3>
-                        <p className="text-xs text-gray-600 leading-snug">We provide absolutely safe and comfortable environment for solo travellers.</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">Solo Travel Friendly Trips for All</h3>
+                        <p className="text-sm text-gray-600 leading-normal">We provide absolutely safe and comfortable environment for solo travellers.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Block 4 */}
-                  <div className="border-2 border-blue-200 rounded-xl p-4 bg-white hover:border-blue-400 transition-colors">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex-shrink-0">
-                        <Mountain className="w-6 h-6 text-blue-600" />
+                  <div className="border border-blue-100 rounded-xl p-4 bg-white shadow-sm active:scale-[0.98] transition-transform duration-200">
+                    <div className="flex flex-row items-start gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <Mountain className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">Trip Itineraries Curated with Love</h3>
-                        <p className="text-xs text-gray-600 leading-snug">Trip plans handcrafted by destination experts for hassle-free travel experience.</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">Trip Itineraries Curated with Love</h3>
+                        <p className="text-sm text-gray-600 leading-normal">Trip plans handcrafted by destination experts for hassle-free travel experience.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Block 5 */}
-                  <div className="border-2 border-blue-200 rounded-xl p-4 bg-white hover:border-blue-400 transition-colors">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex-shrink-0">
-                        <Heart className="w-6 h-6 text-blue-600" />
+                  <div className="border border-blue-100 rounded-xl p-4 bg-white shadow-sm active:scale-[0.98] transition-transform duration-200">
+                    <div className="flex flex-row items-start gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <Heart className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">8 Years of On-Ground Experience</h3>
-                        <p className="text-xs text-gray-600 leading-snug">Being in Tourism industry for last 8 years, we put our heart in planning your trips.</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">8 Years of On-Ground Experience</h3>
+                        <p className="text-sm text-gray-600 leading-normal">Being in Tourism industry for last 8 years, we put our heart in planning your trips.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Block 6 */}
-                  <div className="border-2 border-blue-200 rounded-xl p-4 bg-white hover:border-blue-400 transition-colors">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex-shrink-0">
-                        <ThumbsUp className="w-6 h-6 text-blue-600" />
+                  <div className="border border-blue-100 rounded-xl p-4 bg-white shadow-sm active:scale-[0.98] transition-transform duration-200">
+                    <div className="flex flex-row items-start gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <ThumbsUp className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">Rated 4.8 Stars on Google Reviews</h3>
-                        <p className="text-xs text-gray-600 leading-snug">Our growth lies in the memorable travel experiences we provide to our travellers.</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">Rated 4.8 Stars on Google Reviews</h3>
+                        <p className="text-sm text-gray-600 leading-normal">Our growth lies in the memorable travel experiences we provide to our travellers.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Block 7 */}
-                  <div className="border-2 border-blue-200 rounded-xl p-4 bg-white hover:border-blue-400 transition-colors">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex-shrink-0">
-                        <Smartphone className="w-6 h-6 text-blue-600" />
+                  <div className="border border-blue-100 rounded-xl p-4 bg-white shadow-sm active:scale-[0.98] transition-transform duration-200">
+                    <div className="flex flex-row items-start gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <Smartphone className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">Hassle-Free Booking Process</h3>
-                        <p className="text-xs text-gray-600 leading-snug">Simple and quick booking with instant confirmation and flexible payment options.</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">Hassle-Free Booking Process</h3>
+                        <p className="text-sm text-gray-600 leading-normal">Simple and quick booking with instant confirmation and flexible payment options.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Block 8 */}
-                  <div className="border-2 border-blue-200 rounded-xl p-4 bg-white hover:border-blue-400 transition-colors">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex-shrink-0">
-                        <Filter className="w-6 h-6 text-blue-600" />
+                  <div className="border border-blue-100 rounded-xl p-4 bg-white shadow-sm active:scale-[0.98] transition-transform duration-200">
+                    <div className="flex flex-row items-start gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <Filter className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">Filtering Like-Minded Travellers</h3>
-                        <p className="text-xs text-gray-600 leading-snug">Connect with fellow travellers who share similar interests and travel preferences.</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">Filtering Like-Minded Travellers</h3>
+                        <p className="text-sm text-gray-600 leading-normal">Connect with fellow travellers who share similar interests and travel preferences.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Block 9 */}
-                  <div className="border-2 border-blue-200 rounded-xl p-4 bg-white hover:border-blue-400 transition-colors">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex-shrink-0">
-                        <UsersRound className="w-6 h-6 text-blue-600" />
+                  <div className="border border-blue-100 rounded-xl p-4 bg-white shadow-sm active:scale-[0.98] transition-transform duration-200">
+                    <div className="flex flex-row items-start gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <UsersRound className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 text-sm mb-1 leading-tight">Experienced & Cool Trip Captains</h3>
-                        <p className="text-xs text-gray-600 leading-snug">Our expert trip captains ensure your journey is safe, fun, and memorable.</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-1 leading-tight">Experienced & Cool Trip Captains</h3>
+                        <p className="text-sm text-gray-600 leading-normal">Our expert trip captains ensure your journey is safe, fun, and memorable.</p>
                       </div>
                     </div>
                   </div>
@@ -238,7 +238,7 @@ const AboutUs = () => {
       <section className="py-16">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
                 <div className="text-5xl font-bold text-blue-600 mb-2">15+</div>
                 <div className="text-gray-600">Years Experience</div>

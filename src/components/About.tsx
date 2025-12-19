@@ -41,12 +41,15 @@ const features = [
 
 const About = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isPaused = useRef(false);
 
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
     const scroll = () => {
+      if (isPaused.current) return;
+
       if (container.scrollLeft >= container.scrollWidth / 2) {
         container.scrollLeft = 0;
       } else {
@@ -62,8 +65,8 @@ const About = () => {
     <section id="about" className="pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-            
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+
             {/* Left Side - Circular Scrolling Features */}
             <div className="relative">
               <div className="text-center mb-6 sm:mb-8">
@@ -71,21 +74,21 @@ const About = () => {
                   Why Choose Us
                 </h2>
               </div>
-              
+
               {/* Auto-scrolling Cards */}
-              <div 
+              <div
                 ref={scrollContainerRef}
                 className="overflow-x-hidden scrollbar-hide"
                 style={{ scrollBehavior: 'auto' }}
               >
-                <div className="flex space-x-6 pb-4" style={{ width: 'max-content' }}>
+                <div className="flex flex-col gap-4 sm:flex-row sm:gap-0 sm:space-x-6 pb-4 w-full sm:w-max">
                   {/* First set of cards */}
                   {features.map((feature, index) => {
                     const Icon = feature.icon;
                     return (
                       <div
                         key={`first-${index}`}
-                        className="flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                        className="flex-shrink-0 w-full sm:w-80 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
                       >
                         <div className="p-6">
                           <div className="flex items-center space-x-4 mb-4">
@@ -111,7 +114,7 @@ const About = () => {
                     return (
                       <div
                         key={`second-${index}`}
-                        className="flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                        className="hidden sm:block flex-shrink-0 w-full sm:w-80 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
                       >
                         <div className="p-6">
                           <div className="flex items-center space-x-4 mb-4">

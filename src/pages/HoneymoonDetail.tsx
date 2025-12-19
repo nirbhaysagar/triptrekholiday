@@ -276,7 +276,7 @@ const HoneymoonDetail = () => {
 
       {/* 2. Gallery Grid */}
       <div className="container mx-auto px-4 lg:px-8 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+        <div className="hidden md:grid grid-cols-3 gap-4 h-auto">
           {/* Display exactly 3 images side by side */}
           {(item.images && item.images.length >= 3 ? item.images.slice(0, 3) : [item.image, item.image, item.image]).map((img, idx) => (
             <div key={idx} className="w-full h-auto">

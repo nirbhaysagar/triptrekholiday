@@ -65,7 +65,7 @@ const PackageDetail = () => {
 
       {/* 2. Gallery Grid */}
       <div className="container mx-auto px-4 lg:px-8 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+        <div className="hidden md:grid grid-cols-3 gap-4 h-auto">
           {/* Display exactly 3 images side by side */}
           {(pkg.images && pkg.images.length >= 3 ? pkg.images.slice(0, 3) : [pkg.image, pkg.image, pkg.image]).map((img, idx) => (
             <div key={idx} className="w-full h-auto">
