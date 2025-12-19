@@ -154,30 +154,28 @@ const mockUsp = [
     departurePoints: ["Haridwar", "Delhi"],
     departureInfo: {
       "Haridwar": {
-        duration: "5 Days 4 Nights",
+        duration: "4 Days 3 Nights",
         price: "₹9,000",
         itinerary: [
-          "Day 1: Arrival in Haridwar, check-in hotel, evening Ganga Aarti, overnight stay",
-          "Day 2: Drive to Guptkashi via Rudraprayag, overnight stay in Guptkashi",
-          "Day 3: Drive to Gaurikund, trek to Kedarnath Temple (16km), overnight in Kedarnath",
-          "Day 4: Morning darshan at Kedarnath, return trek to Gaurikund, drive to Haridwar",
-          "Day 5: Morning free time, drop at railway station/airport"
+          "Day 1: Arrival Haridwar, drive to Guptkashi/Sonprayag, Night Stay",
+          "Day 2: Trek to Kedarnath (16km), Evening Aarti, Night Stay at Temple",
+          "Day 3: Morning Darshan, trek down to Sonprayag, drive to Rudraprayag",
+          "Day 4: Drive back to Haridwar, drop at railway station"
         ],
-        includes: ["Accommodation in Haridwar and Kedarnath", "Daily meals", "All transfers", "Trekking guide", "Temple permits"],
+        includes: ["Accommodation", "Daily meals", "All transfers", "Trekking guide", "Temple permits"],
         excludes: ["Flights", "Personal expenses", "Helicopter option", "Porter services", "Insurance"]
       },
       "Delhi": {
-        duration: "6 Days 5 Nights",
+        duration: "5 Days 4 Nights",
         price: "₹11,500",
         itinerary: [
-          "Day 1: Pickup from Delhi, drive to Haridwar, evening Ganga Aarti, overnight stay",
-          "Day 2: Drive to Guptkashi via Rudraprayag, overnight stay in Guptkashi",
-          "Day 3: Drive to Gaurikund, trek to Kedarnath Temple (16km), overnight in Kedarnath",
-          "Day 4: Morning darshan at Kedarnath, return trek to Gaurikund, drive to Haridwar",
-          "Day 5: Drive to Delhi, overnight stay",
-          "Day 6: Drop at Delhi airport/railway station"
+          "Day 1: Pickup Delhi, drive to Haridwar, Ganga Aarti & Stay",
+          "Day 2: Drive to Guptkashi/Sonprayag via Rudraprayag",
+          "Day 3: Trek to Kedarnath Temple, Darshan & Night Stay",
+          "Day 4: Trek down to Sonprayag, drive to Srinagar",
+          "Day 5: Drive back to Delhi, drop at airport/station"
         ],
-        includes: ["Pickup and drop in Delhi", "Accommodation in Haridwar and Kedarnath", "Daily meals", "All transfers by AC vehicle", "Trekking guide", "Temple permits"],
+        includes: ["Pickup and drop in Delhi", "Accommodation", "Daily meals", "All transfers by AC vehicle", "Trekking guide", "Temple permits"],
         excludes: ["Flights to/from Delhi", "Personal expenses", "Helicopter option", "Porter services", "Insurance"]
       }
     }
