@@ -62,42 +62,39 @@ const mockUsp = [
     departurePoints: ["Haridwar", "Delhi"],
     departureInfo: {
       "Haridwar": {
-        duration: "10 Days 9 Nights",
+        duration: "9 Days 8 Nights",
         price: "₹17,000",
         itinerary: [
-          "Day 1: Arrival in Haridwar, check-in hotel, evening Ganga Aarti at Har Ki Pauri",
-          "Day 2: Drive to Barkot via Mussoorie, visit Kempty Falls, overnight stay",
-          "Day 3: Trek to Yamunotri Temple, holy dip in Yamuna, return to Barkot",
-          "Day 4: Drive to Uttarkashi, visit Gangotri Temple, return to Uttarkashi",
-          "Day 5: Drive to Guptkashi via Tehri Dam, overnight stay",
-          "Day 6: Trek to Kedarnath Temple (16km), darshan and overnight in Kedarnath",
-          "Day 7: Return trek to Gaurikund, drive to Joshimath, overnight stay",
-          "Day 8: Drive to Badrinath, visit temple and Mana village, overnight in Badrinath",
-          "Day 9: Morning darshan at Badrinath, drive to Rudraprayag, overnight stay",
-          "Day 10: Drive back to Haridwar, drop at railway station/airport"
+          "Day 1: Arrival in Haridwar, drive to Barkot via Mussoorie, visit Kempty Falls",
+          "Day 2: Trek to Yamunotri Temple, holy dip in Surya Kund, return to Barkot",
+          "Day 3: Drive to Uttarkashi, visit Kashi Vishwanath Temple",
+          "Day 4: Drive to Gangotri, holy dip in Ganges, return to Uttarkashi",
+          "Day 5: Drive to Guptkashi via Tehri Dam, evening at leisure",
+          "Day 6: Trek to Kedarnath Temple (16km), evening Aarti and Darshan",
+          "Day 7: Morning Darshan, trek down to Gaurikund, drive to Pipalkoti/Joshimath",
+          "Day 8: Drive to Badrinath, Darshan and Mana Village, return to Rudraprayag",
+          "Day 9: Drive back to Haridwar via Rishikesh, drop at station/airport"
         ],
-        includes: ["Accommodation in hotels/camps", "All meals (breakfast, lunch, dinner)", "All transfers and sightseeing by AC vehicle", "Professional guide throughout the journey", "All temple entry fees and permits"],
-        excludes: ["Flights to/from Haridwar", "Personal expenses and tips", "Travel insurance", "Helicopter services (optional)", "Any meals not mentioned"]
+        includes: ["Accommodation in best properties", "All meals (breakfast, lunch, dinner)", "AC Transport", "Pilgrimage Guide", "All permits"],
+        excludes: ["Flights/Trains", "Personal expenses", "Helicopter tickets", "Pony/Palki charges", "Insurance"]
       },
       "Delhi": {
-        duration: "12 Days 11 Nights",
+        duration: "10 Days 9 Nights",
         price: "₹21,500",
         itinerary: [
-          "Day 1: Pickup from Delhi, drive to Haridwar, evening Ganga Aarti, overnight stay",
-          "Day 2: Drive to Barkot via Mussoorie, visit Kempty Falls, overnight stay",
-          "Day 3: Trek to Yamunotri Temple, holy dip in Yamuna, return to Barkot",
-          "Day 4: Drive to Uttarkashi, visit Gangotri Temple, return to Uttarkashi",
-          "Day 5: Drive to Guptkashi via Tehri Dam, overnight stay",
-          "Day 6: Trek to Kedarnath Temple (16km), darshan and overnight in Kedarnath",
-          "Day 7: Return trek to Gaurikund, drive to Joshimath, overnight stay",
-          "Day 8: Drive to Badrinath, visit temple and Mana village, overnight in Badrinath",
-          "Day 9: Morning darshan at Badrinath, drive to Rudraprayag, overnight stay",
-          "Day 10: Drive to Rishikesh, visit Triveni Ghat, overnight stay",
-          "Day 11: Morning yoga session, drive to Delhi, overnight stay",
-          "Day 12: Drop at Delhi airport/railway station"
+          "Day 1: Pickup from Delhi, drive to Haridwar, evening Ganga Aarti",
+          "Day 2: Drive to Barkot via Mussoorie & Kempty Falls",
+          "Day 3: Trek to Yamunotri Temple, Darshan, return to Barkot",
+          "Day 4: Drive to Uttarkashi, visit Kashi Vishwanath Temple",
+          "Day 5: Drive to Gangotri Temple, Darshan, return to Uttarkashi",
+          "Day 6: Drive to Guptkashi, medical checkup for Kedarnath",
+          "Day 7: Trek to Kedarnath (16km), evening Aarti and Night Stay",
+          "Day 8: Trek down, drive to Pipalkoti/Joshimath",
+          "Day 9: Badrinath Darshan, Mana Village, drive to Srinagar",
+          "Day 10: Drive back to Delhi via Rishikesh, drop at airport"
         ],
-        includes: ["Pickup and drop in Delhi", "Premium accommodation", "All meals (breakfast, lunch, dinner)", "AC vehicle for all transfers", "Expert guide and support staff", "All permits and entry fees"],
-        excludes: ["Flights to/from Delhi", "Personal expenses", "Travel insurance", "Helicopter services (optional)", "Tips and gratuities"]
+        includes: ["Pickup & Drop Delhi", "Accommodation", "All Meals", "AC Transport", "Guide", "Permits"],
+        excludes: ["Flights", "Personal Expenses", "Helicopter", "Pony/Palki", "Tips"]
       }
     }
   },
