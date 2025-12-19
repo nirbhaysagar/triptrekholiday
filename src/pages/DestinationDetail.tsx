@@ -21,6 +21,8 @@ import rishikesh from "@/assets/uttarakhand-usp/rishikesh.jpg";
 import nainital from "@/assets/uttarakhand-usp/nainital.jpg";
 import mussorie from "@/assets/mussorie.jpg";
 import jimcorbett from "@/assets/jimcorbett.jpg";
+import jaisalmer from "@/assets/other/jaisalmer.png";
+import udaipur from "@/assets/other/udaipur1.png";
 
 // Destination data with about info and related packages
 const destinationData = [
@@ -182,23 +184,23 @@ const destinationData = [
     packages: [
       {
         id: 1,
-        name: "Rajasthan Royal Tour",
-        price: "₹38,000",
-        rating: 4.7,
-        duration: "8 Days 7 Nights",
-        image: rajasthan,
-        features: ["Heritage Hotels", "All Meals", "Transport", "Guide"],
-        link: "/honeymoon/4"
+        name: "Jaisalmer",
+        price: "₹7,499",
+        rating: 4.9,
+        duration: "3 Days 2 Nights",
+        image: jaisalmer,
+        features: ["Fort Stay", "Camel Safari", "Cultural Program", "Meals"],
+        link: "/weekend-trip/3"
       },
       {
         id: 2,
-        name: "Desert Safari Experience",
-        price: "₹22,000",
-        rating: 4.6,
+        name: "Udaipur & Mount Abu",
+        price: "₹8,999",
+        rating: 4.8,
         duration: "4 Days 3 Nights",
-        image: rajasthan,
-        features: ["Desert Camp", "Camel Safari", "Cultural Show", "Meals"],
-        link: "/honeymoon/4"
+        image: udaipur,
+        features: ["City Palace", "Lake Pichola", "Mount Abu", "Meals"],
+        link: "/weekend-trip/4"
       }
     ]
   },
