@@ -166,12 +166,12 @@ const HillyAreasPackages = () => {
                 return (
                   <div
                     key={destination.id}
-                    className="flex-shrink-0 transition-[width] duration-[900ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+                    className="flex-shrink-0 transition-[width] duration-1000 ease-out"
                     style={{ width: `${widthPx}px` }}
                     data-card-id={`card-${destination.id}`}
                   >
                     <div
-                      className="bg-white rounded-[22px] overflow-hidden border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-[900ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group cursor-pointer h-[368px]"
+                      className="bg-white rounded-[22px] overflow-hidden border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-1000 ease-out group cursor-pointer h-[368px]"
                       onMouseEnter={() => setExpandedId(destination.id)}
                       onMouseLeave={() => setExpandedId(null)}
                       onClick={() => window.location.href = `/hilly/${destination.id}`}
@@ -180,7 +180,7 @@ const HillyAreasPackages = () => {
                         <img
                           src={destination.image}
                           alt={destination.name}
-                          className={`absolute inset-0 w-full h-full object-cover transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isExpanded ? 'blur-sm scale-105' : 'blur-0 scale-100'}`}
+                          className={`absolute inset-0 w-full h-full object-cover transition-[transform,filter] duration-1000 ease-out ${isExpanded ? 'blur-sm scale-105' : 'blur-0 scale-100'}`}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
 
@@ -206,7 +206,7 @@ const HillyAreasPackages = () => {
                         </div>
 
                         {/* Hover overlay */}
-                        <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-[900ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                        <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-1000 ease-out ${isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                           <div className="text-center text-white p-4">
                             <h4 className="text-lg font-semibold mb-2">{destination.name}</h4>
                             <p className="text-sm text-white/90 mb-3">{destination.description}</p>
