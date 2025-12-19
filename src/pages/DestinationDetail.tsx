@@ -23,6 +23,7 @@ import mussorie from "@/assets/mussorie.jpg";
 import jimcorbett from "@/assets/jimcorbett.jpg";
 import jaisalmer from "@/assets/other/jaisalmer.png";
 import udaipur from "@/assets/other/udaipur1.png";
+import munnar from "@/assets/pophillpackage/munnar1.png";
 
 // Destination data with about info and related packages
 const destinationData = [
@@ -142,23 +143,33 @@ const destinationData = [
     packages: [
       {
         id: 1,
-        name: "Kerala Backwater Paradise",
+        name: "Kerala Backwaters Honeymoon",
         price: "₹32,000",
         rating: 4.9,
-        duration: "7 Days 6 Nights",
+        duration: "6 Days 5 Nights",
         image: kerala,
-        features: ["Houseboat", "All Meals", "Transport", "Guide"],
+        features: ["Houseboat", "Munnar", "Ayurveda", "Candlelight Dinner"],
         link: "/honeymoon/3"
       },
       {
         id: 2,
-        name: "Kerala Ayurvedic Retreat",
-        price: "₹45,000",
+        name: "Munnar Thekkady Tour",
+        price: "₹19,500",
+        rating: 4.9,
+        duration: "6 Days 5 Nights",
+        image: munnar,
+        features: ["Tea Estates", "Periyar Wildlife", "Boat Safari", "Nature"],
+        link: "/hilly/6"
+      },
+      {
+        id: 3,
+        name: "Kerala Hill Station Special",
+        price: "₹24,500",
         rating: 4.8,
-        duration: "8 Days 7 Nights",
-        image: kerala,
-        features: ["Ayurvedic Treatments", "Yoga", "Accommodation", "Meals"],
-        link: "/honeymoon/3"
+        duration: "5 Days 4 Nights",
+        image: munnar,
+        features: ["Eravikulam Park", "Spice Plantations", "Mattupetty Dam"],
+        link: "/hilly/5"
       }
     ]
   },
