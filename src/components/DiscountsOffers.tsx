@@ -62,7 +62,7 @@ const DiscountsOffers = () => {
 
                             {/* Card 1: Kashmir (Blue/Cyan theme) */}
                             <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                                <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300">
+                                <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300 border-4 border-yellow-400">
                                     <div className="absolute inset-0">
                                         <img src={kashmirImg} alt="Kashmir" className="w-full h-full object-cover" />
                                     </div>
@@ -71,7 +71,7 @@ const DiscountsOffers = () => {
 
                             {/* Card 2: Manali (Orange/Yellow theme) */}
                             <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                                <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300">
+                                <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300 border-4 border-yellow-400">
                                     <div className="absolute inset-0">
                                         <img src={manaliImg} alt="Manali" className="w-full h-full object-cover" />
                                     </div>
@@ -80,7 +80,7 @@ const DiscountsOffers = () => {
 
                             {/* Card 3: Chardham (Green theme) */}
                             <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                                <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300">
+                                <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300 border-4 border-yellow-400">
                                     <div className="absolute inset-0">
                                         <img src={chardhamImg} alt="Chardham" className="w-full h-full object-cover" />
                                     </div>
