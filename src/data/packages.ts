@@ -14,6 +14,11 @@ import valleyofflowerBanner from "@/assets/valleyofflower-banner.jpg";
 import auliBanner from "@/assets/auli-banner.jpg";
 import rishikeshBanner from "@/assets/rishikesh-banner.jpg";
 
+// Import new images from pophillpackage
+import mussorie1 from "@/assets/pophillpackage/mussorie.png";
+import mussorie2 from "@/assets/pophillpackage/mussorie1.png";
+import mussorie3 from "@/assets/pophillpackage/mussorie2.png";
+
 export const packages = [
     {
         id: 1,
@@ -160,7 +165,7 @@ export const packages = [
         category: "Hill Station",
         features: ["Hill Station", "Cable Car", "Accommodation", "Breakfast"],
         departurePoints: ["Dehradun"],
-        images: [mussorie, nainital, auli],
+        images: [mussorie1, mussorie2, mussorie3, mussorie1],
         overview: "A refreshing getaway to the 'Queen of Hills', Mussoorie, and the serene woodlands of Dhanaulti. Walk along the colonial Mall Road, witness the cascading Kempty Falls, and enjoy the peace of nature in the eco-parks of Dhanaulti.",
         itinerary: [
             { day: 1, title: "Arrival in Mussoorie", desc: "Pick up from Dehradun. Drive to Mussoorie (1.5 hrs). Check-in. Evening stroll at the Mall Road and Gun Hill point via Cable Car. Dinner." },

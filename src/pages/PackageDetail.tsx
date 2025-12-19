@@ -39,6 +39,11 @@ const PackageDetail = () => {
           </Button>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
             <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                  <MapPin className="w-3 h-3 fill-current" /> {pkg.category}
+                </span>
+              </div>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{pkg.name}</h1>
               <div className="flex items-center gap-4 text-sm text-gray-600">
                 <span className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-0.5 rounded">
@@ -60,22 +65,29 @@ const PackageDetail = () => {
 
       {/* 2. Gallery Grid */}
       <div className="container mx-auto px-4 lg:px-8 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
-          {/* Main Large Image */}
-          <div className="md:col-span-2 md:row-span-2 relative h-full">
-            <img src={pkg.images[0]} alt="Main" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
-          </div>
-          {/* Secondary Images */}
-          {pkg.images.slice(1, 5).map((img, idx) => (
-            <div key={idx} className="relative h-full overflow-hidden hidden md:block">
-              <img src={img} alt={`Gallery ${idx}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+          {/* Display exactly 3 images side by side */}
+          {(pkg.images && pkg.images.length >= 3 ? pkg.images.slice(0, 3) : [pkg.image, pkg.image, pkg.image]).map((img, idx) => (
+            <div key={idx} className="w-full h-auto">
+              <img
+                src={img}
+                alt={`Gallery ${idx}`}
+                className="w-full h-auto object-contain rounded-2xl shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
+              />
             </div>
           ))}
-          {/* Mobile View - just show main or swipe? For now hidden secondaries on mobile or stacked? Grid handles it. */}
         </div>
+        {/* Mobile View - Horizontal Scroll if needed, but the grid handles stacking on mobile (col-1). 
+            If we want scroll on mobile, we hide the grid and show scroll. 
+            For now, let's keep the user's preferred "3 images" visible.
+            The original code had a mobile snap scroll section. I'll keep it for mobile and hide the grid on mobile?
+            The user request "3 placeholder" implies desktop mostly. 
+            Let's keep the standard responsive behavior: grid-cols-1 on mobile (stacked) or just keep the scroll view.
+            I will hide the desktop grid on mobile and show the scroll view as before.
+        */}
         <div className="flex md:hidden gap-2 mt-2 overflow-x-auto pb-2 snap-x">
-          {pkg.images.slice(1).map((img, idx) => (
-            <img key={idx} src={img} className="w-60 h-40 object-cover rounded-lg flex-shrink-0 snap-center" />
+          {(pkg.images && pkg.images.length >= 3 ? pkg.images.slice(0, 3) : [pkg.image, pkg.image, pkg.image]).map((img, idx) => (
+            <img key={idx} src={img} className="w-80 h-auto object-contain rounded-lg flex-shrink-0 snap-center" />
           ))}
         </div>
       </div>

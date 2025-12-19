@@ -13,6 +13,10 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
+// Import fallback images
+import dest1 from "@/assets/destination-1.jpg";
+import dest2 from "@/assets/destination-2.jpg";
+
 const WeekendTripDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -52,6 +56,11 @@ const WeekendTripDetail = () => {
                     </Button>
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
                         <div>
+                            <div className="flex items-center gap-2 mb-2">
+                                <span className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                                    <Zap className="w-3 h-3 fill-current" /> Weekend Vibes
+                                </span>
+                            </div>
                             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{trip.title}</h1>
                             <div className="flex items-center gap-4 text-sm text-gray-600">
                                 <span className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-0.5 rounded">
@@ -73,22 +82,21 @@ const WeekendTripDetail = () => {
 
             {/* 2. Gallery Grid */}
             <div className="container mx-auto px-4 lg:px-8 py-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-2 h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
-                    {/* Main Large Image */}
-                    <div className="md:col-span-2 md:row-span-2 relative h-full">
-                        <img src={trip.image} alt={trip.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
-                    </div>
-                    {/* Secondary Images - Repeating same for demo */}
-                    {[1, 2, 3, 4].map((_, idx) => (
-                        <div key={idx} className="relative h-full overflow-hidden hidden md:block">
-                            <img src={trip.image} alt={`Gallery ${idx}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+                    {/* Display exactly 3 images side by side */}
+                    {(trip.images && trip.images.length >= 3 ? trip.images.slice(0, 3) : [trip.image, dest1, dest2]).map((img, idx) => (
+                        <div key={idx} className="w-full h-auto">
+                            <img
+                                src={img}
+                                alt={`Gallery ${idx}`}
+                                className="w-full h-auto object-contain rounded-2xl shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
+                            />
                         </div>
                     ))}
                 </div>
-                {/* Mobile Grid */}
                 <div className="flex md:hidden gap-2 mt-2 overflow-x-auto pb-2 snap-x">
-                    {[1, 2, 3].map((_, idx) => (
-                        <img key={idx} src={trip.image} className="w-60 h-40 object-cover rounded-lg flex-shrink-0 snap-center" />
+                    {(trip.images && trip.images.length >= 3 ? trip.images.slice(0, 3) : [trip.image, dest1, dest2]).map((img, idx) => (
+                        <img key={idx} src={img} className="w-80 h-auto object-contain rounded-lg flex-shrink-0 snap-center" />
                     ))}
                 </div>
             </div>

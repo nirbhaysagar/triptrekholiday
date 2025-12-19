@@ -1,3 +1,4 @@
+import Link from "next/link"; // Not typically used in Vite/React Router, checking standard
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import AgencyCTA from "@/components/AgencyCTA";
@@ -12,6 +13,7 @@ import InternationalTours from "@/components/InternationalTours";
 import Testimonials from "@/components/Testimonials";
 import TransportServices from "@/components/TransportServices";
 import Footer from "@/components/Footer";
+import DiscountsOffers from "@/components/DiscountsOffers";
 
 const Index = () => {
   return (
@@ -19,6 +21,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <div className="h-32" /> {/* Spacer for Hero Search Overlap */}
+      <DiscountsOffers />
       <MajorDestinations />
       <WeekendGateway />
       <About />

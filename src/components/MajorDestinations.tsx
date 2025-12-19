@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import destination1 from "@/assets/destination-1.jpg";
+import india from "@/assets/india.png";
 import kashmir from "@/assets/destination/kashmir.jpg";
 import kerala from "@/assets/destination/kerala.jpg";
 import rajasthan from "@/assets/destination/rajasthan.jpg";
@@ -30,7 +31,7 @@ const destinations = [
   },
   {
     id: 8,
-    image: kashmir,
+    image: india,
     title: "India",
     location: "Incredible India",
     type: "small"

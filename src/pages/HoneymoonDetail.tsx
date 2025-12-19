@@ -1,26 +1,43 @@
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Star, Clock, Heart, MapPin, Phone, CheckCircle2, XCircle } from "lucide-react";
+import { ArrowLeft, Star, Clock, Heart, MapPin, Phone, CheckCircle2, XCircle, Calendar, MessageCircle, Download, Shield } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
-// Import images from honeymoon folder
-import kashmir from "@/assets/honeymoon/kashmir.jpg";
-import goa from "@/assets/honeymoon/goa.jpg";
-import kerala from "@/assets/honeymoon/kerala.jpg";
-import shimla from "@/assets/honeymoon/shimla.jpg";
-import andaman from "@/assets/honeymoon/andaman.jpg";
-import lehladakh from "@/assets/honeymoon/lehladakh.jpg";
+// Import images from honeymoonpackage folder
+import kashmir1 from "@/assets/honeymoonpackage/kashmir1.png";
+import kashmir2 from "@/assets/honeymoonpackage/kashmir2.png";
+import kashmir3 from "@/assets/honeymoonpackage/kashmir3.png";
+import goa1 from "@/assets/honeymoonpackage/goa1.png";
+import goa2 from "@/assets/honeymoonpackage/goa2.png";
+import goa3 from "@/assets/honeymoonpackage/goa3.png";
+import kerala1 from "@/assets/honeymoonpackage/kerala1.png";
+import kerala2 from "@/assets/honeymoonpackage/kerala2.png";
+import kerala3 from "@/assets/honeymoonpackage/kerala3.png";
+import shimla1 from "@/assets/honeymoonpackage/shimla1.png";
+import shimla2 from "@/assets/honeymoonpackage/shimla2.png";
+import shimla3 from "@/assets/honeymoonpackage/shimla3.png";
+import andaman1 from "@/assets/honeymoonpackage/andaman1.png";
+import andaman2 from "@/assets/honeymoonpackage/andaman2.png";
+import andaman3 from "@/assets/honeymoonpackage/andaman3.png";
+import lehladakh1 from "@/assets/honeymoonpackage/lehladakh1.png";
+import lehladakh2 from "@/assets/honeymoonpackage/leh ladakh2.png";
+import lehladakh3 from "@/assets/honeymoonpackage/lehladakh3.png";
 
 const mockHoneymoon = [
   {
     id: 1,
     name: "Kashmir Honeymoon",
-    image: kashmir,
+    images: [kashmir1, kashmir2, kashmir3],
+    image: kashmir1,
     rating: 4.9,
     bestTime: "Apr – Oct",
     duration: "6 Days 5 Nights",
@@ -42,7 +59,8 @@ const mockHoneymoon = [
   {
     id: 2,
     name: "Goa Beach Romance",
-    image: goa,
+    images: [goa1, goa2, goa3],
+    image: goa1,
     rating: 4.8,
     bestTime: "Nov – Feb",
     duration: "5 Days 4 Nights",
@@ -63,7 +81,8 @@ const mockHoneymoon = [
   {
     id: 3,
     name: "Kerala Backwaters",
-    image: kerala,
+    images: [kerala1, kerala2, kerala3],
+    image: kerala1,
     rating: 4.9,
     bestTime: "Sep – Mar",
     duration: "6 Days 5 Nights",
@@ -85,7 +104,8 @@ const mockHoneymoon = [
   {
     id: 4,
     name: "Shimla Manali Romance",
-    image: shimla,
+    images: [shimla1, shimla2, shimla3],
+    image: shimla1,
     rating: 4.7,
     bestTime: "Oct – Jun",
     duration: "6 Days 5 Nights",
@@ -107,7 +127,8 @@ const mockHoneymoon = [
   {
     id: 5,
     name: "Andaman Islands",
-    image: andaman,
+    images: [andaman1, andaman2, andaman3],
+    image: andaman1,
     rating: 5.0,
     bestTime: "Oct – May",
     duration: "7 Days 6 Nights",
@@ -129,8 +150,8 @@ const mockHoneymoon = [
   },
   {
     id: 6,
-    name: "Leh Ladakh Adventure",
-    image: lehladakh,
+    name: "Udaipur Royal Romance", // Fixed name (was Leh Ladakh copy)
+    image: "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=800&h=600&fit=crop", // Fallback
     rating: 4.8,
     bestTime: "Oct – Mar",
     duration: "4 Days 3 Nights",
@@ -150,7 +171,7 @@ const mockHoneymoon = [
   {
     id: 7,
     name: "Coorg Honeymoon",
-    image: "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=800&h=600&fit=crop", // Fallback
     rating: 4.7,
     bestTime: "Oct – Mar",
     duration: "5 Days 4 Nights",
@@ -171,7 +192,8 @@ const mockHoneymoon = [
   {
     id: 8,
     name: "Leh Ladakh Adventure",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+    images: [lehladakh1, lehladakh2, lehladakh3],
+    image: lehladakh1,
     rating: 4.9,
     bestTime: "May – Sep",
     duration: "7 Days 6 Nights",
@@ -196,6 +218,7 @@ const mockHoneymoon = [
 const HoneymoonDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("overview");
   const item = mockHoneymoon.find(i => String(i.id) === id);
 
   if (!item) {
@@ -216,188 +239,254 @@ const HoneymoonDetail = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section with Full-Width Image */}
-      <div className="relative h-[50vh] sm:h-[60vh] min-h-[400px] sm:min-h-[500px] w-full">
-        <img
-          src={item.image}
-          alt={item.name}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-
-        {/* Heart Icon */}
-        <div className="absolute top-8 right-8 bg-pink-100/90 backdrop-blur-sm rounded-full p-3">
-          <Heart className="w-6 h-6 text-pink-600 fill-pink-600" />
-        </div>
-
-        {/* Back Button */}
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute top-32 left-6 inline-flex items-center gap-2 text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 px-4 py-2 rounded-full transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" /> Back
-        </button>
-
-        {/* Title & Meta Info Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-12">
-          <div className="container mx-auto max-w-7xl">
-            <div className="inline-flex items-center gap-2 bg-pink-100/90 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-              <Heart className="w-4 h-4 text-pink-600 fill-pink-600" />
-              <span className="text-sm font-medium text-pink-800">Honeymoon Special</span>
-            </div>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 tracking-tight">{item.name}</h1>
-            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-white/90">
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                <span className="font-medium">{item.rating}</span>
+      {/* 1. Header & Breadcrumb Area (Below Nav) */}
+      <div className="pt-24 pb-8 bg-white border-b">
+        <div className="container mx-auto px-4 lg:px-8">
+          <button
+            onClick={() => navigate(-1)}
+            className="mb-4 pl-0 hover:bg-transparent text-gray-500 hover:text-pink-600 transition-colors inline-flex items-center gap-1"
+          >
+            <ArrowLeft className="w-4 h-4" /> Back
+          </button>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="bg-pink-100 text-pink-700 text-xs font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                  <Heart className="w-3 h-3 fill-current" /> Honeymoon Special
+                </span>
               </div>
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Clock className="w-4 h-4" />
-                <span>{item.duration}</span>
-              </div>
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <MapPin className="w-4 h-4" />
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{item.name}</h1>
+              <div className="flex items-center gap-4 text-sm text-gray-600">
+                <span className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-0.5 rounded">
+                  <Star className="w-3.5 h-3.5 fill-current" /> {item.rating}
+                </span>
+                <span>({Math.floor(Math.random() * 50) + 50} Reviews)</span>
+                <span>•</span>
                 <span>{item.region}</span>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Content Section */}
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-        {/* Overview */}
-        <div className="max-w-4xl mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Overview</h2>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed">{item.summary}</p>
-        </div>
-
-        {/* Highlights & Details Grid */}
-        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12 lg:mb-16">
-          {/* Tour Highlights */}
-          <div className="lg:col-span-2 bg-pink-50 rounded-2xl p-6 sm:p-8 border border-pink-200">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Romantic Highlights</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {item.highlights.map((highlight, index) => (
-                <div key={index} className="flex items-center gap-3 text-gray-700">
-                  <Heart className="w-4 h-4 text-pink-600 fill-pink-600 flex-shrink-0" />
-                  <span className="text-base">{highlight}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Info */}
-          <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Quick Info</h3>
-            <div className="space-y-4 text-gray-700">
-              <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                <span className="text-sm">Duration</span>
-                <span className="font-semibold text-sm">{item.duration}</span>
-              </div>
-              <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                <span className="text-sm">Best Time</span>
-                <span className="font-semibold text-sm">{item.bestTime}</span>
-              </div>
-              <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                <span className="text-sm">Region</span>
-                <span className="font-semibold text-sm">{item.region}</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-sm">Rating</span>
-                <span className="font-semibold text-sm flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" /> {item.rating}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Inclusion & Exclusion */}
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12 lg:mb-16">
-          {/* What's Included */}
-          <div className="bg-green-50 rounded-2xl p-6 sm:p-8 border border-green-200">
-            <div className="flex items-center gap-3 mb-6">
-              <CheckCircle2 className="w-6 h-6 sm:w-7 sm:h-7 text-green-600" />
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">What's Included</h3>
-            </div>
-            <ul className="space-y-3">
-              {item.includes?.map((include, index) => (
-                <li key={index} className="flex items-start gap-3 text-gray-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>{include}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* What's Not Included */}
-          <div className="bg-red-50 rounded-2xl p-6 sm:p-8 border border-red-200">
-            <div className="flex items-center gap-3 mb-6">
-              <XCircle className="w-6 h-6 sm:w-7 sm:h-7 text-red-600" />
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">What's Not Included</h3>
-            </div>
-            <ul className="space-y-3">
-              {item.excludes?.map((exclude, index) => (
-                <li key={index} className="flex items-start gap-3 text-gray-700">
-                  <XCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                  <span>{exclude}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Detailed Itinerary */}
-        <div className="mb-16">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Detailed Itinerary</h2>
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="itinerary" className="border border-gray-200 rounded-2xl px-6">
-              <AccordionTrigger className="text-left hover:no-underline py-6">
-                <span className="text-base sm:text-lg font-semibold text-gray-900">View Complete Day-wise Itinerary ({item.itinerary?.length} Days)</span>
-              </AccordionTrigger>
-              <AccordionContent>
-                <div className="space-y-4 pb-6">
-                  {item.itinerary?.map((day, index) => (
-                    <div key={index} className="flex gap-4 p-5 bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-colors">
-                      <div className="flex-shrink-0 w-14 h-14 bg-pink-600 rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold">{index + 1}</span>
-                      </div>
-                      <div className="flex-1 pt-2">
-                        <p className="text-gray-700 leading-relaxed">{day}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-
-        {/* Price & Booking CTA */}
-        <div className="bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl p-8 lg:p-12 text-white">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-                <Heart className="w-5 h-5" />
-                <span className="text-sm">Honeymoon Special</span>
-              </div>
-              <h3 className="text-3xl font-bold mb-2">Price: On Demand</h3>
-              <p className="text-white/80 text-lg">Get a quote for personalized pricing</p>
-              <p className="text-white/60 text-sm mt-2">Inclusive of romantic experiences, accommodation, and meals</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
-              <button className="bg-white text-pink-600 hover:bg-white/90 px-10 py-4 rounded-full font-semibold text-lg transition-colors shadow-lg">
-                Book Now
-              </button>
-              <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-10 py-4 rounded-full font-semibold text-lg transition-colors inline-flex items-center justify-center gap-2">
-                <Phone className="w-5 h-5" />
-                Contact Us
-              </button>
+            <div className="text-right hidden lg:block">
+              <p className="text-sm text-gray-500 mb-1">Starting Price</p>
+              <p className="text-3xl font-bold text-pink-600">{item.price}</p>
+              <p className="text-xs text-gray-400">per couple</p>
             </div>
           </div>
         </div>
       </div>
+
+      {/* 2. Gallery Grid */}
+      <div className="container mx-auto px-4 lg:px-8 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+          {/* Display exactly 3 images side by side */}
+          {(item.images && item.images.length >= 3 ? item.images.slice(0, 3) : [item.image, item.image, item.image]).map((img, idx) => (
+            <div key={idx} className="w-full h-auto">
+              <img
+                src={img}
+                alt={`Gallery ${idx}`}
+                className="w-full h-auto object-contain rounded-2xl shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
+              />
+            </div>
+          ))}
+        </div>
+        {/* Mobile View */}
+        <div className="flex md:hidden gap-2 mt-2 overflow-x-auto pb-2 snap-x">
+          {(item.images || [item.image, item.image, item.image]).slice(0, 3).map((img, idx) => (
+            <img key={idx} src={img} className="w-80 h-auto object-contain rounded-lg flex-shrink-0 snap-center" />
+          ))}
+        </div>
+      </div>
+
+      {/* 3. Main Content Layout */}
+      <div className="container mx-auto px-4 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+          {/* LEFT COLUMN - Content */}
+          <div className="lg:col-span-2 space-y-8">
+
+            {/* Info Cards */}
+            <div className="grid grid-cols-3 gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+              <div className="flex flex-col items-center justify-center text-center p-2 border-r last:border-0 border-gray-100">
+                <Clock className="w-6 h-6 text-pink-600 mb-2" />
+                <span className="text-xs text-gray-500 uppercase tracking-wide">Duration</span>
+                <span className="font-semibold text-gray-900 text-sm md:text-base">{item.duration}</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-2 border-r last:border-0 border-gray-100">
+                <MapPin className="w-6 h-6 text-pink-600 mb-2" />
+                <span className="text-xs text-gray-500 uppercase tracking-wide">Region</span>
+                <span className="font-semibold text-gray-900 text-sm md:text-base">{item.region}</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-2">
+                <Calendar className="w-6 h-6 text-pink-600 mb-2" />
+                <span className="text-xs text-gray-500 uppercase tracking-wide">Best Time</span>
+                <span className="font-semibold text-gray-900 text-sm md:text-base">{item.bestTime}</span>
+              </div>
+            </div>
+
+            {/* Tabs Section */}
+            <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+              <Tabs defaultValue="overview" className="w-full" onValueChange={setActiveTab}>
+                <div className="border-b px-4">
+                  <TabsList className="h-auto w-full justify-start bg-transparent p-0 gap-6 overflow-x-auto">
+                    {["Overview", "Itinerary", "Inclusions", "Exclusions"].map((tab) => (
+                      <TabsTrigger
+                        key={tab}
+                        value={tab.toLowerCase()}
+                        className="data-[state=active]:border-b-2 data-[state=active]:border-pink-600 data-[state=active]:text-pink-600 data-[state=active]:shadow-none rounded-none py-4 px-2 text-base font-medium text-gray-600 hover:text-gray-900 bg-transparent"
+                      >
+                        {tab}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
+
+                <div className="p-6">
+                  {/* Overview */}
+                  <TabsContent value="overview" className="mt-0">
+                    <h3 className="text-xl font-bold mb-4">Trip Overview</h3>
+                    <p className="text-gray-700 leading-7 mb-6">{item.summary}</p>
+
+                    <h4 className="font-bold text-gray-900 mb-3">Romantic Highlights</h4>
+                    <ul className="grid md:grid-cols-2 gap-2">
+                      {item.highlights.map((h, i) => (
+                        <li key={i} className="flex items-center gap-2 text-gray-700">
+                          <Heart className="w-4 h-4 text-pink-600 fill-pink-600" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </TabsContent>
+
+                  {/* Itinerary */}
+                  <TabsContent value="itinerary" className="mt-0">
+                    <h3 className="text-xl font-bold mb-6">Detailed Itinerary</h3>
+                    <Accordion type="single" collapsible className="w-full space-y-3">
+                      {item.itinerary?.map((day, index) => {
+                        // Parse "Day X: Title" from string if possible
+                        const parts = day.split(':');
+                        const dayTitle = parts[0];
+                        const dayDesc = parts.slice(1).join(':').trim() || day;
+
+                        return (
+                          <AccordionItem key={index} value={`day-${index}`} className="border bg-gray-50 rounded-lg px-2">
+                            <AccordionTrigger className="hover:no-underline px-2">
+                              <div className="flex items-center text-left gap-3">
+                                <span className="bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded">{dayTitle}</span>
+                                <span className="font-semibold text-gray-900 line-clamp-1">{dayDesc.substring(0, 50)}...</span>
+                              </div>
+                            </AccordionTrigger>
+                            <AccordionContent className="px-2 pb-4 pt-1 text-gray-600 ml-12 border-l-2 border-dashed border-gray-200 pl-4">
+                              {dayDesc}
+                            </AccordionContent>
+                          </AccordionItem>
+                        );
+                      })}
+                    </Accordion>
+                  </TabsContent>
+
+                  {/* Inclusions */}
+                  <TabsContent value="inclusions" className="mt-0">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <CheckCircle2 className="text-green-600" /> Inclusions
+                    </h3>
+                    <ul className="grid md:grid-cols-2 gap-3">
+                      {item.includes?.map((incl, i) => (
+                        <li key={i} className="flex items-start gap-2 bg-green-50/50 p-3 rounded-lg border border-green-100">
+                          <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm font-medium text-gray-700">{incl}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TabsContent>
+
+                  {/* Exclusions */}
+                  <TabsContent value="exclusions" className="mt-0">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <XCircle className="text-red-600" /> Exclusions
+                    </h3>
+                    <ul className="grid md:grid-cols-2 gap-3">
+                      {item.excludes?.map((excl, i) => (
+                        <li key={i} className="flex items-start gap-2 bg-red-50/50 p-3 rounded-lg border border-red-100">
+                          <XCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm font-medium text-gray-700">{excl}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TabsContent>
+
+                </div>
+              </Tabs>
+            </div>
+
+          </div>
+
+          {/* RIGHT COLUMN - Sticky Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24 space-y-6">
+
+              {/* 1. Price Card */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+                <div className="mb-4">
+                  <div className="inline-flex items-center gap-2 bg-pink-50 px-2 py-1 rounded-full mb-2">
+                    <Heart className="w-3 h-3 text-pink-600 fill-pink-600" />
+                    <span className="text-xs font-semibold text-pink-800">Honeymoon Special</span>
+                  </div>
+                  <p className="text-gray-500 text-sm">Starting Price</p>
+                  <div className="flex items-baseline gap-1">
+                    <h2 className="text-3xl font-bold text-gray-900">{item.price}</h2>
+                    <span className="text-gray-500 text-sm">/ Pair</span>
+                  </div>
+                  <p className="text-green-600 text-xs font-semibold mt-1">Inclusive of all taxes</p>
+                </div>
+
+                <div className="space-y-3">
+                  <Button className="w-full bg-pink-600 hover:bg-pink-700 text-white h-12 text-lg font-semibold shadow-pink-200 shadow-lg" onClick={() => window.open('https://wa.me/918178515133', '_blank')}>
+                    Send Query
+                  </Button>
+                  <Button variant="outline" className="w-full border-2 border-gray-900 text-gray-900 hover:bg-gray-50 h-12 font-semibold">
+                    Book Now
+                  </Button>
+                </div>
+              </div>
+
+              {/* 2. Helper Actions */}
+              <div className="grid grid-cols-2 gap-3">
+                <Button variant="outline" className="flex items-center gap-2 h-auto py-3 border-gray-200" onClick={() => window.open('https://wa.me/918178515133', '_blank')}>
+                  <MessageCircle className="w-4 h-4 text-green-600" />
+                  <div className="text-left">
+                    <span className="block text-[10px] text-gray-500 uppercase">Chat on</span>
+                    <span className="block text-sm font-semibold text-gray-900">WhatsApp</span>
+                  </div>
+                </Button>
+                <Button variant="outline" className="flex items-center gap-2 h-auto py-3 border-gray-200">
+                  <Download className="w-4 h-4 text-red-500" />
+                  <div className="text-left">
+                    <span className="block text-[10px] text-gray-500 uppercase">Download</span>
+                    <span className="block text-sm font-semibold text-gray-900">Itinerary</span>
+                  </div>
+                </Button>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="bg-pink-50 rounded-xl p-4 border border-pink-100 grid grid-cols-2 gap-y-4 gap-x-2">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-pink-600" />
+                  <span className="text-xs font-medium text-pink-900">Verified</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Star className="w-4 h-4 text-pink-600" />
+                  <span className="text-xs font-medium text-pink-900">5-Star Rated</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-pink-600" />
+                  <span className="text-xs font-medium text-pink-900">24/7 Support</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

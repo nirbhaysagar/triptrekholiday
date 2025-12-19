@@ -4,11 +4,37 @@ import rajasthan from "@/assets/destination/rajasthan.jpg";
 import chardham from "@/assets/banner-chardham.jpg";
 import kedarnath from "@/assets/kedarnath-banner.jpg";
 
+// Import Gallery Images
+import kashmir1 from "@/assets/honeymoonpackage/kashmir1.png";
+import kashmir2 from "@/assets/honeymoonpackage/kashmir2.png";
+import kashmir3 from "@/assets/honeymoonpackage/kashmir3.png";
+
+import manali1 from "@/assets/pophillpackage/shimlamanali1.png";
+import manali2 from "@/assets/pophillpackage/shimlamanali2.png";
+import manali3 from "@/assets/pophillpackage/shimlamanli3.png";
+
+import chardham1 from "@/assets/uttarakhand/chardham1.png";
+import chardham2 from "@/assets/uttarakhand/chardham2.png";
+import chardham3 from "@/assets/uttarakhand/chardham3.png";
+
+import kedarnath1 from "@/assets/uttarakhand/kedarnath1.png";
+import kedarnath2 from "@/assets/uttarakhand/kedarnath2.png";
+import kedarnath3 from "@/assets/uttarakhand/kedarnath3.png";
+
+import jaisalmer1 from "@/assets/other/jaisalmer.png";
+import jaisalmer2 from "@/assets/other/jaisalmer2.png";
+import jaisalmer3 from "@/assets/other/jaisalmer 3.png";
+
+import udaipur1 from "@/assets/other/udaipur1.png";
+import udaipur2 from "@/assets/other/udaipur2.png";
+import udaipur3 from "@/assets/other/udaipur3.png";
+
 export const weekendTrips = [
     {
         id: 1,
         title: "Kashmir",
         image: kashmir,
+        images: [kashmir1, kashmir2, kashmir3],
         location: "Paradise on Earth",
         duration: "4D/3N",
         status: "active",
@@ -41,6 +67,7 @@ export const weekendTrips = [
         id: 2,
         title: "Manali",
         image: manali,
+        images: [manali1, manali2, manali3],
         location: "Himachal Pradesh",
         duration: "3D/2N",
         status: "active",
@@ -72,6 +99,7 @@ export const weekendTrips = [
         id: 3,
         title: "Jaisalmer",
         image: rajasthan,
+        images: [jaisalmer1, jaisalmer2, jaisalmer3],
         location: "Rajasthan",
         duration: "3D/2N",
         status: "active",
@@ -103,6 +131,7 @@ export const weekendTrips = [
         id: 4,
         title: "Udaipur & Mount Abu",
         image: rajasthan,
+        images: [udaipur1, udaipur2, udaipur3],
         location: "Rajasthan",
         duration: "4D/3N",
         status: "active",
@@ -136,6 +165,7 @@ export const weekendTrips = [
         id: 5,
         title: "Do Dham Yatra",
         image: chardham,
+        images: [chardham1, chardham2, chardham3],
         location: "Uttarakhand",
         duration: "Coming April",
         status: "upcoming",
@@ -152,6 +182,7 @@ export const weekendTrips = [
         id: 6,
         title: "Char Dham Yatra",
         image: chardham,
+        images: [chardham1, chardham2, chardham3],
         location: "Uttarakhand",
         duration: "Coming April",
         status: "upcoming",
@@ -168,6 +199,7 @@ export const weekendTrips = [
         id: 7,
         title: "Kedarnath",
         image: kedarnath,
+        images: [kedarnath1, kedarnath2, kedarnath3],
         location: "Uttarakhand",
         duration: "Coming April",
         status: "upcoming",

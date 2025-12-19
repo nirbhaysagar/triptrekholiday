@@ -12,17 +12,33 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-// Import images from hillyarea folder
-import shimla from "@/assets/hillyarea/shimla.jpg";
-import darjeeling from "@/assets/hillyarea/darjeeling.jpg";
-import mussorie from "@/assets/hillyarea/mussorie.jpg";
-import ooty from "@/assets/hillyarea/ooty.jpg";
+// Import images from pophillpackage folder
+import shimla1 from "@/assets/pophillpackage/shimlamanali1.png";
+import shimla2 from "@/assets/pophillpackage/shimlamanali2.png";
+import shimla3 from "@/assets/pophillpackage/shimlamanli3.png";
+
+import darjeeling1 from "@/assets/pophillpackage/darjandgangtok.png";
+import darjeeling2 from "@/assets/pophillpackage/darjandgangtok2.png";
+import darjeeling3 from "@/assets/pophillpackage/darjandgangtok3.png";
+
+import mussorie1 from "@/assets/pophillpackage/mussorie.png";
+import mussorie2 from "@/assets/pophillpackage/mussorie1.png";
+import mussorie3 from "@/assets/pophillpackage/mussorie2.png";
+
+import kasauli1 from "@/assets/pophillpackage/kasauli.png";
+import kasauli2 from "@/assets/pophillpackage/kasauli2.png";
+import kasauli3 from "@/assets/pophillpackage/kasauli3.png";
+
+import munnar1 from "@/assets/pophillpackage/munnar1.png";
+import munnar2 from "@/assets/pophillpackage/munnar2.png";
+import munnar3 from "@/assets/pophillpackage/munnar3.png";
 
 const mockHilly = [
   {
     id: 1,
     name: "Shimla Manali",
-    image: shimla,
+    image: shimla1,
+    images: [shimla1, shimla2, shimla3, shimla1], // Fallback/Repeat for grid
     rating: 4.8,
     reviews: 120,
     bestTime: "Oct – Jun",
@@ -46,7 +62,8 @@ const mockHilly = [
   {
     id: 2,
     name: "Darjeeling Gangtok",
-    image: darjeeling,
+    image: darjeeling1,
+    images: [darjeeling1, darjeeling2, darjeeling3, darjeeling1],
     rating: 4.9,
     reviews: 98,
     bestTime: "Mar – May",
@@ -71,7 +88,8 @@ const mockHilly = [
   {
     id: 3,
     name: "Mussoorie Dhanaulti",
-    image: mussorie,
+    image: mussorie1,
+    images: [mussorie1, mussorie2, mussorie3, mussorie1],
     rating: 4.7,
     reviews: 85,
     bestTime: "Apr – Jun",
@@ -92,49 +110,48 @@ const mockHilly = [
   },
   {
     id: 4,
-    name: "Ooty Coonoor",
-    image: ooty,
-    rating: 4.8,
-    reviews: 110,
-    bestTime: "Oct – Mar",
-    altitude: "2,240 m",
-    region: "Tamil Nadu",
-    summary: "Discover the Nilgiri Hills with tea gardens, colonial charm, and the famous toy train. Perfect blend of scenic beauty and pleasant climate year-round.",
-    highlights: ["Botanical Garden", "Nilgiri Toy Train", "Doddabetta Peak", "Tea Factory Visit", "Sim's Park Coonoor", "Rose Garden"],
-    duration: "5 Days 4 Nights",
-    price: "₹16,800",
+    name: "Kasauli",
+    image: kasauli1,
+    images: [kasauli1, kasauli2, kasauli3, kasauli1],
+    rating: 4.6,
+    reviews: 80,
+    bestTime: "Mar – Jun",
+    altitude: "1,927 m",
+    region: "Himachal Pradesh",
+    summary: "A small, quiet and beautiful hill station with colonial charm. Famous for its Monkey Point, Christ Church, and Gilbert Trail, Kasauli offers panoramic views and peaceful nature walks.",
+    highlights: ["Monkey Point", "Sunset Point", "Christ Church", "Gilbert Trail", "Baptist Church", "Toy Train Ride"],
+    duration: "3 Days 2 Nights",
+    price: "₹15,500",
     itinerary: [
-      "Day 1: Arrival in Coimbatore, drive to Ooty, check-in hotel, evening Ooty Lake visit",
-      "Day 2: Ooty sightseeing - Botanical Garden, Rose Garden, Doddabetta Peak, Tea Factory",
-      "Day 3: Toy Train ride to Coonoor, visit Sim's Park, Lamb's Rock, Dolphin's Nose",
-      "Day 4: Day trip to Pykara Lake and Pykara Falls, evening shopping",
-      "Day 5: Check-out, drive to Coimbatore for departure"
+      "Day 1: Arrival in Kasauli, check-in hotel, evening Mall Road walk",
+      "Day 2: Kasauli sightseeing - Monkey Point, Christ Church, Sunset Point",
+      "Day 3: Gilbert Trail nature walk, check-out and departure"
     ],
-    includes: ["Hotel accommodation", "Daily breakfast", "Toy train tickets", "All sightseeing transfers", "Entry fees"],
-    excludes: ["Flights to Coimbatore", "Lunch and dinner", "Personal expenses", "Shopping", "Tips"]
+    includes: ["Hotel accommodation", "Daily breakfast & dinner", "Sightseeing transfers", "Entry fees"],
+    excludes: ["Flights/Trains", "Lunch", "Personal expenses", "Tips"]
   },
   {
     id: 5,
-    name: "Coorg Chikmagalur",
-    image: "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=400&h=300&fit=crop",
-    rating: 4.7,
-    reviews: 75,
-    bestTime: "Oct – Mar",
-    altitude: "915 m",
-    region: "Karnataka",
-    summary: "Coffee lovers' paradise! Walk through sprawling coffee estates, trek to waterfalls, and enjoy the Western Ghats' misty mountains and aromatic plantations.",
-    highlights: ["Coffee Plantation Tour", "Abbey Falls", "Mullayanagiri Peak", "Raja's Seat", "Hebbe Falls", "Bhadra Wildlife"],
+    name: "Munnar Thekkady",
+    image: munnar1,
+    images: [munnar1, munnar2, munnar3, munnar1],
+    rating: 4.9,
+    reviews: 140,
+    bestTime: "Sep – May",
+    altitude: "1,600 m",
+    region: "Kerala",
+    summary: "Tea gardens, misty hills, and wildlife encounters. Explore the best of Kerala's hill stations with a visit to Eravikulam National Park and Periyar Wildlife Sanctuary.",
+    highlights: ["Tea Plantations", "Periyar Wildlife", "Eravikulam National Park", "Spice Gardens", "Mattupetty Dam"],
     duration: "5 Days 4 Nights",
-    price: "₹14,500",
+    price: "₹24,500",
     itinerary: [
-      "Day 1: Arrival in Bangalore, drive to Coorg, check-in homestay, coffee plantation walk",
-      "Day 2: Coorg sightseeing - Abbey Falls, Raja's Seat, Omkareshwara Temple, Madikeri Fort",
-      "Day 3: Drive to Chikmagalur, visit Baba Budangiri, Mullayanagiri trek",
-      "Day 4: Coffee estate tour, Hebbe Falls visit, leisure time",
-      "Day 5: Check-out, drive to Bangalore for departure"
+      "Day 1: Arrival in Cochin, drive to Munnar, check-in, tea museum visit",
+      "Day 2: Munnar sightseeing - Eravikulam Park, Mattupetty Dam, Echo Point",
+      "Day 3: Drive to Thekkady, spice plantation tour, Periyar Lake boat ride",
+      "Day 4: Morning nature walk, drive back to Cochin for departure"
     ],
-    includes: ["Homestay/hotel accommodation", "All meals", "Coffee plantation tour", "All transfers", "Trekking guide"],
-    excludes: ["Flights", "Personal expenses", "Jeep safari fees", "Shopping", "Tips"]
+    includes: ["Resort stay", "All meals", "All transfers", "Safari tickets"],
+    excludes: ["Flights", "Personal expenses", "Tips"]
   },
   {
     id: 6,
@@ -253,22 +270,25 @@ const HillyDetail = () => {
 
       {/* 2. Gallery Grid - Using single image repeated for now as mock data has only 1 */}
       <div className="container mx-auto px-4 lg:px-8 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
-          {/* Main Large Image */}
-          <div className="md:col-span-2 md:row-span-2 relative h-full">
-            <img src={item.image} alt={item.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
-          </div>
-          {/* Secondary Images - Repeating same image for demo */}
-          {[1, 2, 3, 4].map((_, idx) => (
-            <div key={idx} className="relative h-full overflow-hidden hidden md:block">
-              <img src={item.image} alt={`Gallery ${idx}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+          {/* Display exactly 3 images side by side */}
+          {(item.images && item.images.length > 0
+            ? [...item.images, ...item.images, ...item.images] // Repeat to ensure we have enough
+            : [item.image, item.image, item.image]
+          ).slice(0, 3).map((img, idx) => (
+            <div key={idx} className="w-full h-auto">
+              <img
+                src={img}
+                alt={`Gallery ${idx}`}
+                className="w-full h-auto object-contain rounded-2xl shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
+              />
             </div>
           ))}
         </div>
         {/* Mobile View */}
         <div className="flex md:hidden gap-2 mt-2 overflow-x-auto pb-2 snap-x">
-          {[1, 2, 3].map((_, idx) => (
-            <img key={idx} src={item.image} className="w-60 h-40 object-cover rounded-lg flex-shrink-0 snap-center" />
+          {(item.images || [item.image, item.image, item.image]).slice(0, 3).map((img, idx) => (
+            <img key={idx} src={img} className="w-80 h-auto object-contain rounded-lg flex-shrink-0 snap-center" />
           ))}
         </div>
       </div>

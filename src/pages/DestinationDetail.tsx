@@ -26,93 +26,53 @@ import jimcorbett from "@/assets/jimcorbett.jpg";
 const destinationData = [
   {
     id: 1,
-    title: "Uttarakhand",
+    title: "Chardham Yatra",
     location: "Devbhoomi - Land of Gods",
     image: destination1,
     banner: destination1,
     about: {
-      description: "Uttarakhand, the 'Land of Gods', is a breathtaking state nestled in the Himalayas. Known for its spiritual significance and natural beauty, it offers a perfect blend of adventure, tranquility, and divine experiences.",
+      description: "Perform the sacred Chardham Yatra in the Himalayas. Visit Yamunotri, Gangotri, Kedarnath, and Badrinath to cleanse your soul and experience divine spirituality.",
       highlights: [
-        "Sacred pilgrimage sites like Chardham Yatra",
-        "Stunning hill stations like Mussoorie and Nainital",
-        "Adventure sports in Rishikesh and Auli",
-        "Rich biodiversity and national parks",
-        "Traditional Garhwali and Kumaoni culture"
+        "Yamunotri & Gangotri Temples",
+        "Kedarnath Trek",
+        "Badrinath Temple Darshan",
+        "Scenic Himalayas",
+        "Ganga Aarti"
       ],
-      bestTime: "March to June & September to November",
-      idealDuration: "5-10 days",
-      popularActivities: ["Trekking", "Pilgrimage", "Wildlife Safari", "River Rafting", "Skiing", "Camping"]
+      bestTime: "April to June & September to October",
+      idealDuration: "10-12 days",
+      popularActivities: ["Pilgrimage", "Trekking", "Camping", "Sightseeing"]
     },
     packages: [
       {
         id: 1,
-        name: "Chardham Yatra Package",
-        price: "₹45,000",
+        name: "Complete Chardham Yatra",
+        price: "On Request",
         rating: 5.0,
         duration: "10 Days 9 Nights",
         image: chardham,
         features: ["All Meals", "AC Transport", "Hotel Stay", "Pilgrimage Guide"],
-        link: "/package/1"
+        link: "/usp/6"
       },
       {
         id: 2,
-        name: "Jim Corbett Wildlife Safari",
-        price: "₹18,500",
-        rating: 4.8,
-        duration: "3 Days 2 Nights",
-        image: jimcorbett,
-        features: ["Jungle Safari", "Accommodation", "All Meals", "Naturalist Guide"],
-        link: "/package/2"
+        name: "Do Dham Yatra (Kedarnath & Badrinath)",
+        price: "On Request",
+        rating: 4.9,
+        duration: "6 Days 5 Nights",
+        image: kedarnath,
+        features: ["Helicopter Option", "VIP Darshan", "Meals", "Stay"],
+        link: "/usp/5"
       },
       {
         id: 3,
-        name: "Valley of Flowers Trek",
-        price: "₹28,000",
-        rating: 4.9,
-        duration: "6 Days 5 Nights",
-        image: valleyofflower,
-        features: ["Trekking Guide", "Camping", "Meals", "Transportation"],
-        link: "/package/3"
-      },
-      {
-        id: 4,
-        name: "Auli Skiing Adventure",
-        price: "₹35,000",
-        rating: 4.7,
-        duration: "5 Days 4 Nights",
-        image: auli,
-        features: ["Ski Equipment", "Instructor", "Accommodation", "All Meals"],
-        link: "/package/4"
-      },
-      {
-        id: 5,
-        name: "Rishikesh Adventure Camp",
-        price: "₹15,000",
+        name: "Kedarnath Yatra",
+        price: "On Request",
         rating: 4.9,
         duration: "4 Days 3 Nights",
-        image: rishikesh,
-        features: ["River Rafting", "Camping", "Adventure Sports", "Meals"],
-        link: "/package/5"
-      },
-      {
-        id: 6,
-        name: "Mussoorie & Dhanaulti",
-        price: "₹16,500",
-        rating: 4.6,
-        duration: "4 Days 3 Nights",
-        image: mussorie,
-        features: ["Hill Station", "Cable Car", "Accommodation", "Breakfast"],
-        link: "/package/6"
-      },
-      {
-        id: 7,
-        name: "Nainital & Bhimtal",
-        price: "₹14,500",
-        rating: 4.7,
-        duration: "3 Days 2 Nights",
-        image: nainital,
-        features: ["Lake City", "Boat Ride", "Accommodation", "Meals"],
-        link: "/package/7"
+        image: kedarnath,
+        features: ["Trekking", "Camping", "Darshan", "Meals"],
+        link: "/usp/7"
       }
     ]
   },
@@ -328,46 +288,107 @@ const destinationData = [
   },
   {
     id: 7,
-    title: "Gujarat",
-    location: "Land of Legends & Culture",
-    image: himachal,
-    banner: himachal,
+    title: "Uttarakhand",
+    location: "Devbhoomi - Land of Beauty",
+    image: destination1,
+    banner: destination1,
     about: {
-      description: "Gujarat is a vibrant state known for its rich culture, historical monuments, and diverse landscapes. From the white desert of Kutch to the Gir Forest, it offers unique experiences and architectural marvels.",
+      description: "Uttarakhand offers a perfect blend of nature, adventure, and spirituality. From the lakes of Nainital to the skiing slopes of Auli and the jungles of Jim Corbett.",
       highlights: [
-        "White Desert of Kutch and Rann Utsav",
-        "Gir National Park - home of Asiatic lions",
-        "Statue of Unity - world's tallest statue",
-        "Ancient temples and Jain architecture",
-        "Traditional handicrafts and textiles"
+        "Hill Stations (Mussoorie, Nainital)",
+        "Adventure (Rishikesh, Auli)",
+        "Wildlife (Jim Corbett)",
+        "Scenic Treasure (Valley of Flowers)"
       ],
-      bestTime: "October to March",
-      idealDuration: "5-7 days",
-      popularActivities: ["Wildlife Safari", "Cultural Tours", "Desert Safari", "Temple Visits", "Shopping", "Photography"]
+      bestTime: "All year round (except monsoons)",
+      idealDuration: "5-8 days",
+      popularActivities: ["Trekking", "Rafting", "Safari", "Camping", "Sightseeing"]
     },
     packages: [
       {
         id: 1,
-        name: "Gujarat Heritage Tour",
-        price: "₹32,000",
-        rating: 4.7,
-        duration: "7 Days 6 Nights",
-        image: himachal,
-        features: ["Heritage Hotels", "All Meals", "Transport", "Guide"],
-        link: "/package/1"
+        name: "Valley of Flowers Trek",
+        price: "On Request",
+        rating: 4.9,
+        duration: "6 Days",
+        image: valleyofflower,
+        features: ["Trek", "Nature", "Meals", "Stay"],
+        link: "/usp/3"
       },
       {
         id: 2,
-        name: "Kutch & Gir Safari",
-        price: "₹28,000",
+        name: "Jim Corbett Safari",
+        price: "On Request",
         rating: 4.8,
-        duration: "6 Days 5 Nights",
-        image: himachal,
-        features: ["Wildlife Safari", "Desert Camp", "Meals", "Transport"],
-        link: "/package/1"
+        duration: "3 Days",
+        image: jimcorbett,
+        features: ["Safari", "Wildlife", "Stay", "Meals"],
+        link: "/usp/2"
+      },
+      {
+        id: 3,
+        name: "Auli Skiing",
+        price: "On Request",
+        rating: 4.7,
+        duration: "4 Days",
+        image: auli,
+        features: ["Skiing", "Snow", "Adventure"],
+        link: "/usp/4"
+      },
+      {
+        id: 4,
+        name: "Nainital Lake Tour",
+        price: "On Request",
+        rating: 4.6,
+        duration: "3 Days",
+        image: nainital,
+        features: ["Lakes", "Boating", "Sightseeing"],
+        link: "/usp/1"
       }
     ]
   },
+  {
+    id: 8,
+    title: "India",
+    location: "Incredible India",
+    image: destination1, // You might want a specific India banner 
+    banner: destination1,
+    about: {
+      description: "Explore the vast and diverse landscapes of India. From the Himalayas in the north to the beaches of the south, India offers an endless array of experiences.",
+      highlights: [
+        "Diverse Culture",
+        "Historical Monuments",
+        "Cuisine",
+        "Festivals",
+        "Natural Beauty"
+      ],
+      bestTime: "October to March",
+      idealDuration: "14-21 days",
+      popularActivities: ["Sightseeing", "Cultural Tours", "Food Walks", "Heritage Walks"]
+    },
+    packages: [
+      {
+        id: 1,
+        name: "Golden Triangle Tour",
+        price: "On Request",
+        rating: 4.9,
+        duration: "6 Days",
+        image: rajasthan,
+        features: ["Delhi", "Agra", "Jaipur", "Culture"],
+        link: "/package/101"
+      },
+      {
+        id: 2,
+        name: "Best of North India",
+        price: "On Request",
+        rating: 4.8,
+        duration: "10 Days",
+        image: himachal,
+        features: ["Himalayas", "Culture", "Adventure"],
+        link: "/package/102"
+      }
+    ]
+  }
 ];
 
 const DestinationDetail = () => {

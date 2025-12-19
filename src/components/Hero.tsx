@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 
+import herovideo from "@/assets/herovideo.mp4";
+
 const Hero = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("tours");
@@ -68,7 +70,7 @@ const Hero = () => {
         >
           {/* Mountain/Adventure Theme Video */}
           <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-mountain-range-at-sunset-33633-large.mp4"
+            src={herovideo}
             type="video/mp4"
           />
           Your browser does not support the video tag.
