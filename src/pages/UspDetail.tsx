@@ -112,33 +112,28 @@ const mockUsp = [
     departurePoints: ["Haridwar", "Delhi"],
     departureInfo: {
       "Haridwar": {
-        duration: "7 Days 6 Nights",
+        duration: "5 Days 4 Nights",
         price: "₹11,500",
         itinerary: [
-          "Day 1: Arrival in Haridwar, check-in hotel, evening Ganga Aarti, overnight stay",
-          "Day 2: Drive to Guptkashi via Rudraprayag, overnight stay in Guptkashi",
-          "Day 3: Drive to Gaurikund, trek to Kedarnath Temple (16km), overnight in Kedarnath",
-          "Day 4: Morning darshan at Kedarnath, return trek to Gaurikund, drive to Joshimath",
-          "Day 5: Drive to Badrinath, visit temple and Mana village, overnight in Badrinath",
-          "Day 6: Morning darshan at Badrinath, drive to Rudraprayag, overnight stay",
-          "Day 7: Drive back to Haridwar, drop at railway station/airport"
+          "Day 1: Arrival Haridwar, drive to Guptkashi via Rudraprayag",
+          "Day 2: Trek to Kedarnath Temple (16km), evening Aarti & Stay",
+          "Day 3: Morning Darshan, trek down using chopper/pony, drive to Pipalkoti",
+          "Day 4: Early morning Badrinath Darshan, Mana Village, drive to Srinagar",
+          "Day 5: Drive back to Haridwar, drop at railway station"
         ],
         includes: ["Accommodation", "Daily breakfast and dinner", "All transfers by vehicle", "Professional guide", "Temple entry fees"],
         excludes: ["Flights", "Lunch", "Personal expenses", "Helicopter services", "Tips"]
       },
       "Delhi": {
-        duration: "9 Days 8 Nights",
+        duration: "6 Days 5 Nights",
         price: "₹14,500",
         itinerary: [
-          "Day 1: Pickup from Delhi, drive to Haridwar, evening Ganga Aarti, overnight stay",
-          "Day 2: Drive to Guptkashi via Rudraprayag, overnight stay in Guptkashi",
-          "Day 3: Drive to Gaurikund, trek to Kedarnath Temple (16km), overnight in Kedarnath",
-          "Day 4: Morning darshan at Kedarnath, return trek to Gaurikund, drive to Joshimath",
-          "Day 5: Drive to Badrinath, visit temple and Mana village, overnight in Badrinath",
-          "Day 6: Morning darshan at Badrinath, drive to Rudraprayag, overnight stay",
-          "Day 7: Drive to Rishikesh, visit Triveni Ghat, overnight stay",
-          "Day 8: Drive to Delhi, overnight stay",
-          "Day 9: Drop at Delhi airport/railway station"
+          "Day 1: Pickup Delhi, drive to Haridwar, Ganga Aarti & Stay",
+          "Day 2: Drive to Guptkashi via Rudraprayag (7-8 hrs)",
+          "Day 3: Trek to Kedarnath Temple, Darshan & Night Stay",
+          "Day 4: Trek down, drive to Joshimath/Pipalkoti",
+          "Day 5: Badrinath Darshan, drive to Srinagar via Devprayag",
+          "Day 6: Drive back to Delhi, drop at airport/station"
         ],
         includes: ["Pickup and drop in Delhi", "Accommodation", "Daily breakfast and dinner", "All transfers by AC vehicle", "Professional guide", "Temple entry fees"],
         excludes: ["Flights to/from Delhi", "Lunch", "Personal expenses", "Helicopter services", "Tips"]
