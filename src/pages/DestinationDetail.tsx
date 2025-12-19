@@ -54,7 +54,7 @@ const destinationData = [
         duration: "10 Days 9 Nights",
         image: chardham,
         features: ["All Meals", "AC Transport", "Hotel Stay", "Pilgrimage Guide"],
-        link: "/usp/6"
+        link: "/usp/1"
       },
       {
         id: 2,
@@ -64,7 +64,7 @@ const destinationData = [
         duration: "6 Days 5 Nights",
         image: kedarnath,
         features: ["Helicopter Option", "VIP Darshan", "Meals", "Stay"],
-        link: "/usp/5"
+        link: "/usp/2"
       },
       {
         id: 3,
@@ -74,7 +74,7 @@ const destinationData = [
         duration: "4 Days 3 Nights",
         image: kedarnath,
         features: ["Trekking", "Camping", "Darshan", "Meals"],
-        link: "/usp/7"
+        link: "/usp/3"
       }
     ]
   },
@@ -315,7 +315,7 @@ const destinationData = [
         duration: "6 Days",
         image: valleyofflower,
         features: ["Trek", "Nature", "Meals", "Stay"],
-        link: "/usp/3"
+        link: "/usp/5"
       },
       {
         id: 2,
@@ -325,7 +325,7 @@ const destinationData = [
         duration: "3 Days",
         image: jimcorbett,
         features: ["Safari", "Wildlife", "Stay", "Meals"],
-        link: "/usp/2"
+        link: "/package/2"
       },
       {
         id: 3,
@@ -335,7 +335,7 @@ const destinationData = [
         duration: "4 Days",
         image: auli,
         features: ["Skiing", "Snow", "Adventure"],
-        link: "/usp/4"
+        link: "/usp/6"
       },
       {
         id: 4,
@@ -345,7 +345,7 @@ const destinationData = [
         duration: "3 Days",
         image: nainital,
         features: ["Lakes", "Boating", "Sightseeing"],
-        link: "/usp/1"
+        link: "/usp/4"
       }
     ]
   },
