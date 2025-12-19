@@ -21,9 +21,16 @@ import rishikesh from "@/assets/uttarakhand-usp/rishikesh.jpg";
 import nainital from "@/assets/uttarakhand-usp/nainital.jpg";
 import mussorie from "@/assets/mussorie.jpg";
 import jimcorbett from "@/assets/jimcorbett.jpg";
-import jaisalmer from "@/assets/other/jaisalmer.png";
-import udaipur from "@/assets/other/udaipur1.png";
 import munnar from "@/assets/pophillpackage/munnar1.png";
+import shimlaImage from "@/assets/pophillpackage/shimlamanali1.png";
+import goaImage from "@/assets/honeymoonpackage/goa1.png";
+import andamanImage from "@/assets/honeymoonpackage/andaman1.png";
+import ladakhImage from "@/assets/honeymoonpackage/lehladakh1.png";
+import darjeelingImage from "@/assets/pophillpackage/darjandgangtok.png";
+import kasauliImage from "@/assets/pophillpackage/kasauli.png";
+import mcleodganjImage from "@/assets/pophillpackage/shimlamanali2.png"; // reusing or finding better if avail, but reusing for safety
+import rishikeshImage from "@/assets/uttarakhand-usp/rishikesh.jpg";
+import mussoorieImage from "@/assets/pophillpackage/mussorie.png";
 
 // Destination data with about info and related packages
 const destinationData = [
@@ -101,23 +108,23 @@ const destinationData = [
     packages: [
       {
         id: 1,
-        name: "Kashmir Paradise Tour",
-        price: "₹28,500",
+        name: "Kashmir Honeymoon Special",
+        price: "₹35,000",
         rating: 4.9,
         duration: "6 Days 5 Nights",
         image: kashmir,
-        features: ["Houseboat Stay", "All Meals", "Transport", "Guide"],
+        features: ["Dal Lake", "Gulmarg", "Pahalgam", "Houseboat"],
         link: "/honeymoon/1"
       },
       {
         id: 2,
-        name: "Gulmarg Skiing Package",
-        price: "₹35,000",
-        rating: 4.8,
-        duration: "5 Days 4 Nights",
-        image: kashmir,
-        features: ["Ski Equipment", "Instructor", "Accommodation", "Meals"],
-        link: "/honeymoon/1"
+        name: "Leh Ladakh Adventure",
+        price: "₹42,000",
+        rating: 4.9,
+        duration: "7 Days 6 Nights",
+        image: ladakhImage,
+        features: ["Pangong Lake", "Nubra Valley", "Deserts", "Monasteries"],
+        link: "/honeymoon/8"
       }
     ]
   },
@@ -237,23 +244,33 @@ const destinationData = [
     packages: [
       {
         id: 1,
-        name: "Shimla Manali Tour",
+        name: "Shimla Manali Romance",
         price: "₹25,000",
         rating: 4.8,
         duration: "6 Days 5 Nights",
-        image: himachal,
-        features: ["Hill Stations", "All Meals", "Transport", "Guide"],
-        link: "/hilly/1"
+        image: shimlaImage,
+        features: ["Snow Points", "Rohtang Pass", "Mall Road", "Honeymoon Special"],
+        link: "/honeymoon/4"
       },
       {
         id: 2,
-        name: "Manali Adventure Package",
-        price: "₹28,000",
+        name: "Mcleodganj Dharamshala",
+        price: "₹13,500",
         rating: 4.7,
         duration: "5 Days 4 Nights",
-        image: himachal,
-        features: ["Adventure Sports", "Accommodation", "Meals", "Equipment"],
-        link: "/hilly/1"
+        image: mcleodganjImage,
+        features: ["Triund Trek", "Monasteries", "Waterfall", "Camping"],
+        link: "/hilly/7"
+      },
+      {
+        id: 3,
+        name: "Kasauli Weekend",
+        price: "₹15,500",
+        rating: 4.6,
+        duration: "3 Days 2 Nights",
+        image: kasauliImage,
+        features: ["Nature Walks", "Sunset Point", "Colonial Charm"],
+        link: "/hilly/4"
       }
     ]
   },
@@ -279,22 +296,12 @@ const destinationData = [
     packages: [
       {
         id: 1,
-        name: "Goa Beach Paradise",
-        price: "₹18,000",
-        rating: 4.6,
+        name: "Goa Beach Romance",
+        price: "₹28,000",
+        rating: 4.8,
         duration: "5 Days 4 Nights",
-        image: goa,
-        features: ["Beach Resort", "Breakfast", "Water Sports", "Transport"],
-        link: "/honeymoon/2"
-      },
-      {
-        id: 2,
-        name: "Goa Adventure & Fun",
-        price: "₹22,000",
-        rating: 4.7,
-        duration: "4 Days 3 Nights",
-        image: goa,
-        features: ["Adventure Sports", "Accommodation", "Meals", "Equipment"],
+        image: goaImage,
+        features: ["Candlelight Dinner", "North & South Goa", "Cruise", "Water Sports"],
         link: "/honeymoon/2"
       }
     ]
@@ -320,43 +327,63 @@ const destinationData = [
     packages: [
       {
         id: 1,
-        name: "Valley of Flowers Trek",
-        price: "On Request",
+        name: "Chardham Yatra",
+        price: "₹45,000",
         rating: 4.9,
-        duration: "6 Days",
-        image: valleyofflower,
-        features: ["Trek", "Nature", "Meals", "Stay"],
-        link: "/usp/5"
+        duration: "10 Days",
+        image: chardham,
+        features: ["Yamunotri", "Gangotri", "Kedarnath", "Badrinath"],
+        link: "/usp/1"
       },
       {
         id: 2,
-        name: "Jim Corbett Safari",
-        price: "On Request",
-        rating: 4.8,
-        duration: "3 Days",
-        image: jimcorbett,
-        features: ["Safari", "Wildlife", "Stay", "Meals"],
-        link: "/package/2"
+        name: "Kedarnath Special",
+        price: "₹9,000",
+        rating: 4.9,
+        duration: "5 Days",
+        image: kedarnath,
+        features: ["Trek", "Darshan", "Guptkashi", "Srinagar"],
+        link: "/usp/3"
       },
       {
         id: 3,
-        name: "Auli Skiing",
-        price: "On Request",
-        rating: 4.7,
-        duration: "4 Days",
-        image: auli,
-        features: ["Skiing", "Snow", "Adventure"],
-        link: "/usp/6"
+        name: "Valley of Flowers",
+        price: "₹28,000",
+        rating: 4.9,
+        duration: "6 Days",
+        image: valleyofflower,
+        features: ["Trek", "Flowers", "Hemkund Sahib", "Nature"],
+        link: "/package/3"
       },
       {
         id: 4,
-        name: "Nainital Lake Tour",
-        price: "On Request",
-        rating: 4.6,
+        name: "Jim Corbett Safari",
+        price: "₹18,500",
+        rating: 4.8,
         duration: "3 Days",
-        image: nainital,
-        features: ["Lakes", "Boating", "Sightseeing"],
-        link: "/usp/4"
+        image: jimcorbett,
+        features: ["Safari", "Tigers", "Jungle Stay", "Wildlife"],
+        link: "/package/2"
+      },
+      {
+        id: 5,
+        name: "Rishikesh Adventure",
+        price: "₹15,000",
+        rating: 4.9,
+        duration: "4 Days",
+        image: rishikeshImage,
+        features: ["Rafting", "Camping", "Bungee", "Ganga Aarti"],
+        link: "/package/5"
+      },
+      {
+        id: 6,
+        name: "Mussoorie & Dhanaulti",
+        price: "₹16,500",
+        rating: 4.6,
+        duration: "4 Days",
+        image: mussoorieImage,
+        features: ["Kempty Falls", "Mall Road", "Eco Park", "Views"],
+        link: "/package/6"
       }
     ]
   },
@@ -382,23 +409,33 @@ const destinationData = [
     packages: [
       {
         id: 1,
-        name: "Golden Triangle Tour",
-        price: "On Request",
-        rating: 4.9,
-        duration: "6 Days",
-        image: rajasthan,
-        features: ["Delhi", "Agra", "Jaipur", "Culture"],
-        link: "/package/101"
+        name: "Andaman Island Paradise",
+        price: "₹45,000",
+        rating: 5.0,
+        duration: "7 Days 6 Nights",
+        image: andamanImage,
+        features: ["Havelock", "Scuba Diving", "Radhanagar Beach", "Cruise"],
+        link: "/honeymoon/5"
       },
       {
         id: 2,
-        name: "Best of North India",
-        price: "On Request",
-        rating: 4.8,
-        duration: "10 Days",
-        image: himachal,
-        features: ["Himalayas", "Culture", "Adventure"],
-        link: "/package/102"
+        name: "Darjeeling & Gangtok",
+        price: "₹22,000",
+        rating: 4.9,
+        duration: "7 Days 6 Nights",
+        image: darjeelingImage,
+        features: ["Tiger Hill", "Tea Estates", "Tsomgo Lake", "Monasteries"],
+        link: "/hilly/2"
+      },
+      {
+        id: 3,
+        name: "Coorg Coffee Country",
+        price: "₹22,000",
+        rating: 4.7,
+        duration: "5 Days 4 Nights",
+        image: munnar,
+        features: ["Coffee Estates", "Abbey Falls", "Dubare Camp", "Nature"],
+        link: "/honeymoon/7"
       }
     ]
   }
