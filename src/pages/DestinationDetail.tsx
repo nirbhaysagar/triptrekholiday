@@ -21,6 +21,8 @@ import rishikesh from "@/assets/uttarakhand-usp/rishikesh.jpg";
 import nainital from "@/assets/uttarakhand-usp/nainital.jpg";
 import mussorie from "@/assets/mussorie.jpg";
 import jimcorbett from "@/assets/jimcorbett.jpg";
+import jaisalmer from "@/assets/other/jaisalmer.png";
+import udaipur from "@/assets/other/udaipur1.png";
 import munnar from "@/assets/pophillpackage/munnar1.png";
 import shimlaImage from "@/assets/pophillpackage/shimlamanali1.png";
 import goaImage from "@/assets/honeymoonpackage/goa1.png";

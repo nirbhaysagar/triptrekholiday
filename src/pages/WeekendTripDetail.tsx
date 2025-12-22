@@ -256,19 +256,12 @@ const WeekendTripDetail = () => {
                             </div>
 
                             {/* 2. Helper Actions */}
-                            <div className="grid grid-cols-2 gap-3">
-                                <Button variant="outline" className="flex items-center gap-2 h-auto py-3 border-gray-200" onClick={() => window.open('https://wa.me/918178515133', '_blank')}>
+                            <div className="grid grid-cols-1 gap-3">
+                                <Button variant="outline" className="flex items-center justify-center gap-2 h-auto py-3 border-gray-200" onClick={() => window.open('https://wa.me/918178515133', '_blank')}>
                                     <MessageCircle className="w-4 h-4 text-green-600" />
                                     <div className="text-left">
                                         <span className="block text-[10px] text-gray-500 uppercase">Chat on</span>
                                         <span className="block text-sm font-semibold text-gray-900">WhatsApp</span>
-                                    </div>
-                                </Button>
-                                <Button variant="outline" className="flex items-center gap-2 h-auto py-3 border-gray-200">
-                                    <Download className="w-4 h-4 text-red-500" />
-                                    <div className="text-left">
-                                        <span className="block text-[10px] text-gray-500 uppercase">Download</span>
-                                        <span className="block text-sm font-semibold text-gray-900">Itinerary</span>
                                     </div>
                                 </Button>
                             </div>

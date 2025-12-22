@@ -194,65 +194,92 @@ const Testimonials = () => {
             </p>
           </div>
 
-          {/* Auto-scrolling Testimonials - Row 1 */}
-          <div className="scroll-container mb-8">
-            <div className="flex gap-6 animate-scroll-right" style={{ width: 'max-content' }}>
-              {/* Duplicate testimonials for smoothness */}
-              {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
-                <div
-                  key={`row1-${index}`}
-                  className="flex-shrink-0 w-80 md:w-96"
-                >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-center border border-black">
-                    <div className="p-8">
-                      <div className="flex justify-center mb-4">
-                        <div className="flex gap-1">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                          ))}
-                        </div>
-                      </div>
-                      <p className="text-gray-700 text-center mb-6 leading-relaxed text-base italic">
-                        "{testimonial.text}"
-                      </p>
-                      <div className="text-center border-t border-gray-100 pt-4">
-                        <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
-                      </div>
+          {/* Mobile View: 2-Row Horizontal Slider */}
+          <div className="grid grid-rows-2 grid-flow-col gap-4 overflow-x-auto md:hidden pb-6 snap-x scrollbar-hide">
+            {testimonials.map((testimonial, index) => (
+              <div key={`mobile-${index}`} className="w-[85vw] snap-center bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex justify-center mb-3">
+                    <div className="flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                      ))}
                     </div>
                   </div>
+                  <p className="text-gray-700 text-center mb-4 leading-relaxed text-sm italic line-clamp-4">
+                    "{testimonial.text}"
+                  </p>
                 </div>
-              ))}
-            </div>
+                <div className="text-center border-t border-gray-100 pt-3 mt-auto">
+                  <h4 className="font-bold text-gray-900 text-base">{testimonial.name}</h4>
+                  <p className="text-xs text-gray-500">{testimonial.location}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Auto-scrolling Testimonials - Row 2 */}
-          <div className="scroll-container">
-            <div className="flex gap-6 animate-scroll-right" style={{ width: 'max-content', animationDelay: '-10s' }}>
-              {/* Duplicate testimonials - Offset */}
-              {[...testimonials.slice(5), ...testimonials.slice(0, 5), ...testimonials].map((testimonial, index) => (
-                <div
-                  key={`row2-${index}`}
-                  className="flex-shrink-0 w-80 md:w-96"
-                >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-center border border-black">
-                    <div className="p-8">
-                      <div className="flex justify-center mb-4">
-                        <div className="flex gap-1">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                          ))}
+          {/* Desktop View: Auto-scrolling Rows */}
+          <div className="hidden md:block">
+            {/* Auto-scrolling Testimonials - Row 1 */}
+            <div className="scroll-container mb-8">
+              <div className="flex gap-6 animate-scroll-right" style={{ width: 'max-content' }}>
+                {/* Duplicate testimonials for smoothness */}
+                {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
+                  <div
+                    key={`row1-${index}`}
+                    className="flex-shrink-0 w-80 md:w-96"
+                  >
+                    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-center border border-black">
+                      <div className="p-8">
+                        <div className="flex justify-center mb-4">
+                          <div className="flex gap-1">
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                      <p className="text-gray-700 text-center mb-6 leading-relaxed text-base italic">
-                        "{testimonial.text}"
-                      </p>
-                      <div className="text-center border-t border-gray-100 pt-4">
-                        <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                        <p className="text-gray-700 text-center mb-6 leading-relaxed text-base italic">
+                          "{testimonial.text}"
+                        </p>
+                        <div className="text-center border-t border-gray-100 pt-4">
+                          <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Auto-scrolling Testimonials - Row 2 */}
+            <div className="scroll-container">
+              <div className="flex gap-6 animate-scroll-right" style={{ width: 'max-content', animationDelay: '-10s' }}>
+                {/* Duplicate testimonials - Offset */}
+                {[...testimonials.slice(5), ...testimonials.slice(0, 5), ...testimonials].map((testimonial, index) => (
+                  <div
+                    key={`row2-${index}`}
+                    className="flex-shrink-0 w-80 md:w-96"
+                  >
+                    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-center border border-black">
+                      <div className="p-8">
+                        <div className="flex justify-center mb-4">
+                          <div className="flex gap-1">
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                            ))}
+                          </div>
+                        </div>
+                        <p className="text-gray-700 text-center mb-6 leading-relaxed text-base italic">
+                          "{testimonial.text}"
+                        </p>
+                        <div className="text-center border-t border-gray-100 pt-4">
+                          <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -265,67 +292,97 @@ const Testimonials = () => {
               Captured by our travelers during their amazing journeys
             </p>
 
-            {/* Row 1 - Scrolls Left to Right */}
-            <div className="scroll-container mb-6">
-              <div className="flex gap-3 md:gap-4 pb-4 mb-4 animate-scroll-left" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                {[...Array(10)].map((_, index) => {
-                  const testimonialImage = testimonialImages[index]; // image1 to image10
-                  const testimonial = testimonials[index % testimonials.length]; // For text content
-                  return (
-                    <div key={`row1-${index}`} className="relative group overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] w-60 flex-shrink-0">
-                      <img
-                        src={testimonialImage}
-                        alt={`Testimonial ${index + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div>
-                            <p className="text-white font-semibold text-xs">{testimonial.destination}</p>
-                          </div>
-                        </div>
-                        <div className="flex gap-1">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                          ))}
-                        </div>
+            {/* Mobile View: Manual Horizontal Slider (2 Rows) */}
+            <div className="grid grid-rows-2 grid-flow-col gap-3 overflow-x-auto md:hidden pb-6 snap-x scrollbar-hide">
+              {testimonialImages.map((image, index) => {
+                const testimonial = testimonials[index % testimonials.length];
+                return (
+                  <div key={`mobile-img-${index}`} className="relative group overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] w-64 snap-center flex-shrink-0">
+                    <img
+                      src={image}
+                      alt={`Travel Moment ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <div className="flex items-center gap-2 mb-1">
+                        <p className="text-white font-semibold text-xs">{testimonial.destination}</p>
+                      </div>
+                      <div className="flex gap-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                        ))}
                       </div>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Row 2 - Scrolls Right to Left */}
-            <div className="scroll-container">
-              <div className="flex gap-3 md:gap-4 pb-4 animate-scroll-right" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                {[...Array(10)].map((_, index) => {
-                  const testimonialImage = testimonialImages[index + 10]; // image11 to image20
-                  const testimonial = testimonials[(index + 2) % testimonials.length]; // For text content with offset
-                  return (
-                    <div key={`row2-${index}`} className="relative group overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] w-60 flex-shrink-0">
-                      <img
-                        src={testimonialImage}
-                        alt={`Testimonial ${index + 11}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div>
-                            <p className="text-white font-semibold text-xs">{testimonial.destination}</p>
+            {/* Desktop View: Auto-scrolling Rows */}
+            <div className="hidden md:block">
+              {/* Row 1 - Scrolls Left to Right */}
+              <div className="scroll-container mb-6">
+                <div className="flex gap-3 md:gap-4 pb-4 mb-4 animate-scroll-left" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                  {[...Array(10)].map((_, index) => {
+                    const testimonialImage = testimonialImages[index]; // image1 to image10
+                    const testimonial = testimonials[index % testimonials.length]; // For text content
+                    return (
+                      <div key={`row1-${index}`} className="relative group overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] w-60 flex-shrink-0">
+                        <img
+                          src={testimonialImage}
+                          alt={`Testimonial ${index + 1}`}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                        <div className="absolute bottom-3 left-3 right-3">
+                          <div className="flex items-center gap-2 mb-2">
+                            <div>
+                              <p className="text-white font-semibold text-xs">{testimonial.destination}</p>
+                            </div>
+                          </div>
+                          <div className="flex gap-1">
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                              <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                            ))}
                           </div>
                         </div>
-                        <div className="flex gap-1">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                          ))}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Row 2 - Scrolls Right to Left */}
+              <div className="scroll-container">
+                <div className="flex gap-3 md:gap-4 pb-4 animate-scroll-right" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                  {[...Array(10)].map((_, index) => {
+                    const testimonialImage = testimonialImages[index + 10]; // image11 to image20
+                    const testimonial = testimonials[(index + 2) % testimonials.length]; // For text content with offset
+                    return (
+                      <div key={`row2-${index}`} className="relative group overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] w-60 flex-shrink-0">
+                        <img
+                          src={testimonialImage}
+                          alt={`Testimonial ${index + 11}`}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                        <div className="absolute bottom-3 left-3 right-3">
+                          <div className="flex items-center gap-2 mb-2">
+                            <div>
+                              <p className="text-white font-semibold text-xs">{testimonial.destination}</p>
+                            </div>
+                          </div>
+                          <div className="flex gap-1">
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                              <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

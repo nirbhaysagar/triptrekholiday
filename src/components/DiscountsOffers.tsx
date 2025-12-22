@@ -18,6 +18,12 @@ const DiscountsOffers = () => {
     const [current, setCurrent] = useState(0);
     const [count, setCount] = useState(0);
 
+    const offers = [
+        { name: "Kashmir", image: kashmirImg },
+        { name: "Manali", image: manaliImg },
+        { name: "Chardham", image: chardhamImg },
+    ];
+
     useEffect(() => {
         if (!api) {
             return;
@@ -48,8 +54,17 @@ const DiscountsOffers = () => {
                     </p>
                 </div>
 
-                {/* Carousel */}
-                <div className="relative px-12 md:px-24">
+                {/* Mobile View: Vertical Stack */}
+                <div className="flex flex-col gap-6 md:hidden px-4">
+                    {offers.map((offer, index) => (
+                        <div key={index} className="relative w-full h-auto rounded-[2rem] overflow-hidden group cursor-pointer border-4 border-yellow-400 shadow-lg">
+                            <img src={offer.image} alt={offer.name} className="w-full h-auto object-contain" />
+                        </div>
+                    ))}
+                </div>
+
+                {/* Desktop View: Carousel */}
+                <div className="hidden md:block relative px-12 md:px-24">
                     <Carousel
                         setApi={setApi}
                         opts={{
@@ -59,34 +74,15 @@ const DiscountsOffers = () => {
                         className="w-full max-w-6xl mx-auto"
                     >
                         <CarouselContent className="-ml-2 md:-ml-4">
-
-                            {/* Card 1: Kashmir (Blue/Cyan theme) */}
-                            <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                                <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300 border-4 border-yellow-400">
-                                    <div className="absolute inset-0">
-                                        <img src={kashmirImg} alt="Kashmir" className="w-full h-full object-cover" />
+                            {offers.map((offer, index) => (
+                                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                                    <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300 border-4 border-yellow-400">
+                                        <div className="absolute inset-0">
+                                            <img src={offer.image} alt={offer.name} className="w-full h-full object-cover" />
+                                        </div>
                                     </div>
-                                </div>
-                            </CarouselItem>
-
-                            {/* Card 2: Manali (Orange/Yellow theme) */}
-                            <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                                <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300 border-4 border-yellow-400">
-                                    <div className="absolute inset-0">
-                                        <img src={manaliImg} alt="Manali" className="w-full h-full object-cover" />
-                                    </div>
-                                </div>
-                            </CarouselItem>
-
-                            {/* Card 3: Chardham (Green theme) */}
-                            <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                                <div className="relative h-64 rounded-[2rem] overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] duration-300 border-4 border-yellow-400">
-                                    <div className="absolute inset-0">
-                                        <img src={chardhamImg} alt="Chardham" className="w-full h-full object-cover" />
-                                    </div>
-                                </div>
-                            </CarouselItem>
-
+                                </CarouselItem>
+                            ))}
                         </CarouselContent>
                         <CarouselPrevious className="-left-12 lg:-left-24 h-14 w-14 border-none bg-blue-100/80 hover:bg-blue-200 text-blue-600 shadow-md backdrop-blur-sm" />
                         <CarouselNext className="-right-12 lg:-right-24 h-14 w-14 border-none bg-blue-100/80 hover:bg-blue-200 text-blue-600 shadow-md backdrop-blur-sm" />
