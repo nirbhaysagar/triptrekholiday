@@ -17,7 +17,10 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import WeekendTripDetail from "./pages/WeekendTripDetail";
 import Career from "./pages/Career";
-import SearchResults from "./pages/SearchResults";
+import Destinations from "./pages/Destinations";
+import Tours from "./pages/Tours";
+import International from "./pages/International";
+import QueryPopup from "./components/QueryPopup";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +29,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <QueryPopup />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -36,8 +40,14 @@ const App = () => (
           <Route path="/hilly/:id" element={<HillyDetail />} />
           <Route path="/honeymoon/:id" element={<HoneymoonDetail />} />
           <Route path="/international/:id" element={<InternationalDetail />} />
+
+          {/* Main Menu Routes */}
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/tours" element={<Tours />} />
+          <Route path="/international" element={<International />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
+
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsConditions />} />
           <Route path="/career" element={<Career />} />

@@ -20,11 +20,11 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { name: "Destinations", href: "#destinations" },
-    { name: "Tours", href: "#tour" },
-    { name: "International", href: "#international" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Destinations", href: "/destinations" },
+    { name: "Tours", href: "/tours" },
+    { name: "International", href: "/international" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const navClasses = isScrolled || isOpen
@@ -50,13 +50,13 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex items-center gap-8 bg-white/40 backdrop-blur-md px-10 py-3 rounded-full border border-white/30 shadow-sm">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className="text-black hover:text-gray-700 transition-colors duration-200 font-medium text-xl tracking-wide"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -98,29 +98,54 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Overlay */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 top-20 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200/30 overflow-y-auto">
-          <div className="px-6 pt-4 pb-6 space-y-2 flex flex-col h-full">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block px-4 py-4 text-2xl font-medium text-black hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200 border-b border-gray-100 last:border-0"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="pt-8 mt-auto pb-10">
+        <div className="md:hidden fixed inset-0 z-[60] bg-white h-screen w-full overflow-y-auto">
+          <div className="flex flex-col min-h-screen">
+            {/* Mobile Menu Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-white sticky top-0 z-10">
+              <Link to="/" onClick={() => setIsOpen(false)} className="flex-shrink-0">
+                <img
+                  src={logo}
+                  alt="Trip Trek Holiday"
+                  className="h-12 w-auto object-contain"
+                />
+              </Link>
               <Button
-                className="w-full bg-[#25D366] text-white hover:bg-[#128C7E] py-6 text-xl font-medium rounded-xl shadow-lg"
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(false)}
+                className="h-12 w-12 rounded-full hover:bg-gray-100"
+                aria-label="Close menu"
+              >
+                <X className="h-6 w-6 text-gray-900" />
+              </Button>
+            </div>
+
+            {/* Links */}
+            <div className="px-6 py-8 flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="flex items-center justify-between px-4 py-4 text-2xl font-semibold text-gray-900 hover:text-blue-600 hover:bg-blue-50/50 rounded-2xl transition-all duration-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Footer / CTA */}
+            <div className="mt-auto px-6 pb-12 pt-6 bg-gray-50/50">
+              <Button
+                className="w-full bg-[#25D366] text-white hover:bg-[#128C7E] py-7 text-xl font-bold rounded-2xl shadow-lg shadow-green-500/20 active:scale-[0.98] transition-all"
                 onClick={() => {
                   window.open('https://wa.me/918178515133', '_blank');
                   setIsOpen(false);
                 }}
               >
-                WhatsApp Us
+                Chat on WhatsApp
               </Button>
             </div>
           </div>
