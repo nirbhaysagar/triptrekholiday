@@ -20,6 +20,7 @@ import Career from "./pages/Career";
 import Destinations from "./pages/Destinations";
 import Tours from "./pages/Tours";
 import International from "./pages/International";
+import SearchResults from "./pages/SearchResults";
 import QueryPopup from "./components/QueryPopup";
 
 const queryClient = new QueryClient();
