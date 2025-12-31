@@ -10,6 +10,7 @@ const QueryPopup = () => {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
+        adults: "",
         destination: "",
     });
 
@@ -21,7 +22,7 @@ const QueryPopup = () => {
             const timer = setTimeout(() => {
                 setIsOpen(true);
                 sessionStorage.setItem("hasSeenPopup", "true");
-            }, 15000); // 15 seconds
+            }, 10000); // 10 seconds
 
             return () => clearTimeout(timer);
         }
@@ -30,7 +31,7 @@ const QueryPopup = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // Create WhatsApp message
-        const message = `*New Trip Enquiry (Popup)*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Destination:* ${formData.destination || "Not specified"}`;
+        const message = `*New Trip Enquiry (Popup)*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Audlts:* ${formData.adults}%0A*Destination:* ${formData.destination || "Not specified"}`;
 
         // Open WhatsApp
         window.open(`https://wa.me/918178515133?text=${message}`, '_blank');
@@ -83,6 +84,19 @@ const QueryPopup = () => {
                                 className="bg-gray-50 border-gray-200 focus:bg-white transition-colors"
                                 value={formData.phone}
                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-gray-700">Number of Adults</label>
+                            <Input
+                                required
+                                type="number"
+                                min="1"
+                                placeholder="Enter number of adults"
+                                className="bg-gray-50 border-gray-200 focus:bg-white transition-colors"
+                                value={formData.adults}
+                                onChange={(e) => setFormData({ ...formData, adults: e.target.value })}
                             />
                         </div>
 
