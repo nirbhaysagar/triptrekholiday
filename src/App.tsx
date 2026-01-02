@@ -25,6 +25,8 @@ import QueryPopup from "./components/QueryPopup";
 
 const queryClient = new QueryClient();
 
+import ScrollToTop from "./components/ScrollToTop";
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -32,6 +34,7 @@ const App = () => (
       <Sonner />
       <QueryPopup />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/package/:id" element={<PackageDetail />} />

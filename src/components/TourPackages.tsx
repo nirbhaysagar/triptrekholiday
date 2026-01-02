@@ -133,7 +133,13 @@ const TourPackages = () => {
                         <Link to={`/package/${pkg.id}`} className="flex-1 bg-gray-900 text-white hover:bg-gray-800 text-sm py-2 rounded-md text-center">
                           View Details
                         </Link>
-                        <Button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm py-2">
+                        <Button
+                          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm py-2"
+                          onClick={() => {
+                            const message = `Hi, I am interested in booking the *${pkg.name}* package.`;
+                            window.open(`https://wa.me/918178515133?text=${encodeURIComponent(message)}`, '_blank');
+                          }}
+                        >
                           Book
                         </Button>
                       </div>
