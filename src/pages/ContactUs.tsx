@@ -120,9 +120,9 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Office Address</h3>
-                      <p className="text-gray-600">Second Floor, H-187, Lohia Rd,</p>
-                      <p className="text-gray-600">H Block, Sector 63, Noida,</p>
-                      <p className="text-gray-600">Uttar Pradesh 201301</p>
+                      <p className="text-gray-600">Office No. 1536, Gaur City Mall, Sector 4,</p>
+                      <p className="text-gray-600">Greater Noida West - 201318,</p>
+                      <p className="text-gray-600">Uttar Pradesh</p>
                     </div>
                   </div>
 
