@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { ArrowLeft } from "lucide-react";
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Privacy Policy"
+        description="Read our Privacy Policy to understand how we collect, use, and protect your personal information at Trip Trek Holiday."
+      />
       <Navigation />
 
       {/* Hero Section */}

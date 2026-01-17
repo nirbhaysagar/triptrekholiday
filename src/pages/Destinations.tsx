@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import MajorDestinations from "@/components/MajorDestinations";
 import HillyAreasPackages from "@/components/HillyAreasPackages";
 import UttarakhandUSP from "@/components/UttarakhandUSP";
+import SEO from "@/components/SEO";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +11,10 @@ const Destinations = () => {
     const navigate = useNavigate();
     return (
         <div className="min-h-screen bg-white">
+            <SEO
+                title="Destinations"
+                description="Explore top destinations for your next trip. From Kashmir to Goa, find packages for every traveler."
+            />
             <Navigation />
 
             {/* Hero Section */}

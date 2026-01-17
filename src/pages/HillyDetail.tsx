@@ -11,6 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 // Import images from pophillpackage folder
 import shimla1 from "@/assets/pophillpackage/shimlamanali1.png";
@@ -234,6 +235,11 @@ const HillyDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
+      <SEO
+        title={item.name}
+        description={item.summary}
+        image={item.image}
+      />
       <Navigation />
 
       {/* 1. Header & Breadcrumb Area (Below Nav) */}

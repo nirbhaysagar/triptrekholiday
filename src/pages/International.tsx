@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import InternationalTours from "@/components/InternationalTours";
 import HoneymoonPackages from "@/components/HoneymoonPackages";
+import SEO from "@/components/SEO";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +10,10 @@ const International = () => {
     const navigate = useNavigate();
     return (
         <div className="min-h-screen bg-white">
+            <SEO
+                title="International Tour Packages"
+                description="Book premium international tour packages for your next holiday. Explore exotic destinations with Trip Trek Holiday."
+            />
             <Navigation />
 
             {/* Hero Section */}
