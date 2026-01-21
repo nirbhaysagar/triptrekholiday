@@ -53,7 +53,7 @@ const About = () => {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
                 {features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
@@ -67,12 +67,12 @@ const About = () => {
                             <Icon className="w-6 h-6 text-blue-600" />
                           </div>
                           <div>
-                            <h3 className="text-lg font-semibold text-gray-900 leading-tight">
+                            <h3 className="text-sm sm:text-lg font-semibold text-gray-900 leading-tight">
                               {feature.title}
                             </h3>
                           </div>
                         </div>
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                        <p className="text-gray-600 text-[10px] sm:text-sm leading-relaxed">
                           {feature.description}
                         </p>
                       </div>
@@ -83,7 +83,7 @@ const About = () => {
             </div>
 
             {/* Right Side - About Content */}
-            <div className="space-y-8 sticky top-24">
+            <div className="space-y-8 lg:sticky lg:top-24">
               <div>
                 <h3 className="text-3xl font-semibold text-gray-900 mb-6 tracking-tight">
                   Crafting Extraordinary Adventures
