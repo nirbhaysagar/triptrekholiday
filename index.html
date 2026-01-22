@@ -59,39 +59,99 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "TravelAgency",
-      "name": "Trip Trek Holiday",
-      "description": "Best Uttarakhand tour packages specializing in Chardham Yatra, Dodham Yatra, Kedarnath, Nainital, Rishikesh, Auli and more hill stations",
-      "url": "https://triptrekholiday.com",
-      "logo": "https://triptrekholiday.com/logo.png",
-      "image": "https://triptrekholiday.com/og-image.jpg",
-      "telephone": "+91-8178515133",
-      "email": "info@triptrekholiday.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Uttarakhand",
-        "addressCountry": "IN"
-      },
-      "priceRange": "₹8,000 - ₹55,000",
-      "openingHours": "Mo-Su 09:00-20:00",
-      "sameAs": [
-        "https://www.facebook.com/triptrekholiday",
-        "https://www.instagram.com/triptrekholiday",
-        "https://twitter.com/triptrekholiday"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "5000"
-      },
-      "offers": {
-        "@type": "Offer",
-        "name": "Uttarakhand Tour Packages",
-        "description": "Chardham Yatra, Dodham Yatra, Kedarnath, Nainital, Rishikesh, Auli and more",
-        "price": "8000",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock"
-      }
+      "@graph": [
+        {
+          "@type": "TravelAgency",
+          "@id": "https://triptrekholiday.com/#organization",
+          "name": "Trip Trek Holiday",
+          "description": "Best Uttarakhand tour packages specializing in Chardham Yatra, Dodham Yatra, Kedarnath, Nainital, Rishikesh, Auli and more hill stations",
+          "url": "https://triptrekholiday.com",
+          "logo": "https://triptrekholiday.com/logo.png",
+          "image": "https://triptrekholiday.com/og-image.jpg",
+          "telephone": "+91-8178515133",
+          "email": "info@triptrekholiday.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uttarakhand",
+            "addressCountry": "IN"
+          },
+          "priceRange": "₹8,000 - ₹55,000",
+          "openingHours": "Mo-Su 09:00-20:00",
+          "sameAs": [
+            "https://www.facebook.com/triptrekholiday",
+            "https://www.instagram.com/triptrekholiday",
+            "https://twitter.com/triptrekholiday"
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "5000"
+          },
+          "offers": {
+            "@type": "Offer",
+            "name": "Uttarakhand Tour Packages",
+            "description": "Chardham Yatra, Dodham Yatra, Kedarnath, Nainital, Rishikesh, Auli and more",
+            "price": "8000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://triptrekholiday.com/#website",
+          "url": "https://triptrekholiday.com/",
+          "name": "Trip Trek Holiday",
+          "description": "Plan your dream Uttarakhand trip with Trip Trek Holiday.",
+          "publisher": {
+            "@id": "https://triptrekholiday.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://triptrekholiday.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "SiteNavigationElement",
+              "position": 1,
+              "name": "Destinations",
+              "description": "Explore our wide range of travel destinations",
+              "url": "https://triptrekholiday.com/destinations"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "position": 2,
+              "name": "Tours",
+              "description": "View our curated tour packages",
+              "url": "https://triptrekholiday.com/tours"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "position": 3,
+              "name": "International",
+              "description": "International holiday packages",
+              "url": "https://triptrekholiday.com/international"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "position": 4,
+              "name": "About Us",
+              "description": "Learn more about Trip Trek Holiday",
+              "url": "https://triptrekholiday.com/about"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "position": 5,
+              "name": "Contact",
+              "description": "Get in touch with us",
+              "url": "https://triptrekholiday.com/contact"
+            }
+          ]
+        }
+      ]
     }
     </script>
   </head>

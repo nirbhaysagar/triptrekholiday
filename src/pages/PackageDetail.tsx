@@ -11,6 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 import { packages } from "@/data/packages";
 
@@ -24,6 +25,12 @@ const PackageDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
+      <SEO
+        title={`${pkg.name} - ${pkg.duration}`}
+        description={pkg.overview.substring(0, 160) + '...'}
+        image={pkg.image}
+        url={window.location.href}
+      />
       <Navigation />
 
       {/* 1. Header & Breadcrumb Area (Below Nav) */}

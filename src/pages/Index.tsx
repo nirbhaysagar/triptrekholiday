@@ -15,9 +15,16 @@ import TransportServices from "@/components/TransportServices";
 import Footer from "@/components/Footer";
 import DiscountsOffers from "@/components/DiscountsOffers";
 
+import SEO from "@/components/SEO";
+
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Best Uttarakhand Tour Packages | Chardham Yatra, Hill Stations & Adventure Tours"
+        description="Plan your dream Uttarakhand trip with Trip Trek Holiday. Specialized in Chardham Yatra, Dodham Yatra, Kedarnath, Nainital, Rishikesh, Auli & more."
+        url="https://triptrekholiday.com/"
+      />
       <Navigation />
       <Hero />
       <div className="h-32" /> {/* Spacer for Hero Search Overlap */}

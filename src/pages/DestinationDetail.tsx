@@ -3,6 +3,7 @@ import { ArrowLeft, MapPin, Calendar, Star, Package, TrendingUp } from "lucide-r
 import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import SEO from "@/components/SEO";
 
 // Import destination images
 import destination1 from "@/assets/destination-1.jpg";
@@ -464,6 +465,12 @@ const DestinationDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title={`${destination.title} Tourism & Tour Packages`}
+        description={destination.about.description}
+        image={destination.image}
+        url={window.location.href}
+      />
       <Navigation />
 
       {/* Hero Banner */}
