@@ -58,87 +58,76 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative h-[85vh] flex flex-col justify-center items-center overflow-visible">
-      {/* Hero Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          {/* Mountain/Adventure Theme Video */}
-          <source
-            src={herovideo}
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+    <section id="home" className="relative pt-32 pb-32 lg:pb-40 bg-gray-50/50">
+
+      {/* Boxed Hero Container */}
+      <div className="container mx-auto px-4 lg:px-[25px]">
+        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[500px] md:h-[600px] w-full mx-auto">
+
+          {/* Video Background */}
+          <div className="absolute inset-0 z-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src={herovideo} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
+
+          {/* Centered Content */}
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 pb-20 md:pb-36">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg tracking-tight max-w-4xl">
+              All-in-one Travel Booking.
+            </h1>
+            <p className="text-lg sm:text-xl text-navy-100 font-medium max-w-2xl text-white/90">
+              Explore the world's most breathtaking destinations.
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center h-full pb-20">
+      {/* Floating Search Interface */}
+      <div className="relative -mt-32 md:-mt-48 z-30 px-4">
+        <div className="container mx-auto max-w-6xl">
 
-        {/* Main Heading */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight max-w-5xl mx-auto drop-shadow-lg">
-          Discover Your Next Great Adventure
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto font-medium drop-shadow-md">
-          Explore the world's most breathtaking destinations with TripTrek.
-          Unforgettable journeys, tailored just for you.
-        </p>
-      </div>
-
-      {/* Search Card - Absolutely Positioned Overlap */}
-      <div className="absolute bottom-0 translate-y-1/2 left-4 right-4 z-20">
-        <div className="w-full max-w-6xl mx-auto">
+          {/* Tab Triggers */}
           <Tabs defaultValue="tours" className="w-full" onValueChange={setActiveTab}>
-            <TabsList className="bg-transparent border-0 p-0 h-auto flex gap-2 mb-0 justify-start md:justify-center flex-wrap">
-              <TabsTrigger
-                value="tours"
-                className="data-[state=active]:bg-[#1877F2] data-[state=active]:text-white bg-white/90 backdrop-blur-sm text-gray-700 rounded-full px-6 py-3 h-auto text-base font-semibold shadow-lg transition-all border border-white/20 hover:bg-white"
-              >
-                <span className="mr-2">🎒</span> Tours
-              </TabsTrigger>
-              <TabsTrigger
-                value="hotels"
-                className="data-[state=active]:bg-[#1877F2] data-[state=active]:text-white bg-white/90 backdrop-blur-sm text-gray-700 rounded-full px-6 py-3 h-auto text-base font-semibold shadow-lg transition-all border border-white/20 hover:bg-white"
-              >
-                <span className="mr-2">🛏️</span> Hotels
-              </TabsTrigger>
-              <TabsTrigger
-                value="visa"
-                className="data-[state=active]:bg-[#1877F2] data-[state=active]:text-white bg-white/90 backdrop-blur-sm text-gray-700 rounded-full px-6 py-3 h-auto text-base font-semibold shadow-lg transition-all border border-white/20 hover:bg-white"
-              >
-                <span className="mr-2">🛂</span> Visa
-              </TabsTrigger>
-              <TabsTrigger
-                value="experience"
-                className="data-[state=active]:bg-[#1877F2] data-[state=active]:text-white bg-white/90 backdrop-blur-sm text-gray-700 rounded-full px-6 py-3 h-auto text-base font-semibold shadow-lg transition-all border border-white/20 hover:bg-white"
-              >
-                <span className="mr-2">🎫</span> Experience
-              </TabsTrigger>
-            </TabsList>
+            <div className="flex justify-center mb-6">
+              <TabsList className="bg-white p-1.5 rounded-full shadow-lg border border-gray-100 h-auto inline-flex">
+                <TabsTrigger value="tours" className="rounded-full px-6 py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all">
+                  <span className="text-lg">🎒</span> Tours
+                </TabsTrigger>
+                <TabsTrigger value="hotels" className="rounded-full px-6 py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all">
+                  <span className="text-lg">🛏️</span> Hotels
+                </TabsTrigger>
+                <TabsTrigger value="visa" className="rounded-full px-6 py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all">
+                  <span className="text-lg">🛂</span> Visa
+                </TabsTrigger>
+                <TabsTrigger value="experience" className="rounded-full px-6 py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all">
+                  <span className="text-lg">🎫</span> Experience
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
-            <div className="bg-white rounded-[2rem] p-6 md:p-8 shadow-2xl mt-4 max-w-6xl mx-auto ring-1 ring-black/5 relative">
-
+            {/* Search Form Card */}
+            <div className="bg-white rounded-[2rem] p-6 md:p-8 shadow-xl border border-gray-100">
               {/* TOURS TAB */}
               <TabsContent value="tours" className="mt-0">
-                <div className="flex flex-col md:flex-row items-center gap-4">
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                  {/* Destination */}
+                  <div className="md:col-span-4 border border-gray-200 rounded-xl p-3 hover:border-blue-400 transition-colors group bg-gray-50/50">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 shadow-sm">
                         <MapPin className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Destination</p>
+                        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Destination</p>
                         <Select value={destination} onValueChange={setDestination}>
-                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 text-lg font-semibold">
+                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 font-bold text-lg">
                             <SelectValue placeholder="Where to?" />
                           </SelectTrigger>
                           <SelectContent>
@@ -154,19 +143,18 @@ const Hero = () => {
                     </div>
                   </div>
 
-                  <div className="w-px h-12 bg-gray-200 hidden md:block"></div>
-
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
+                  {/* Date */}
+                  <div className="md:col-span-3 border border-gray-200 rounded-xl p-3 hover:border-blue-400 transition-colors group bg-gray-50/50">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 shadow-sm">
                         <Calendar className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
                         <Popover>
                           <PopoverTrigger asChild>
-                            <div className="w-full text-left">
-                              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Date</p>
-                              <p className="text-lg font-semibold text-gray-900 truncate">
+                            <div className="w-full text-left cursor-pointer">
+                              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Date</p>
+                              <p className="text-lg font-bold text-gray-900 truncate">
                                 {date ? format(date, "d MMM yyyy") : "Select Date"}
                               </p>
                             </div>
@@ -179,17 +167,16 @@ const Hero = () => {
                     </div>
                   </div>
 
-                  <div className="w-px h-12 bg-gray-200 hidden md:block"></div>
-
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
+                  {/* Type */}
+                  <div className="md:col-span-3 border border-gray-200 rounded-xl p-3 hover:border-blue-400 transition-colors group bg-gray-50/50">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 shadow-sm">
                         <List className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Tour Type</p>
+                        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Tour Type</p>
                         <Select value={tourType} onValueChange={setTourType}>
-                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 text-lg font-semibold">
+                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 font-bold text-lg">
                             <SelectValue placeholder="All Categories" />
                           </SelectTrigger>
                           <SelectContent>
@@ -203,199 +190,48 @@ const Hero = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* Search Button */}
+                  <div className="md:col-span-2">
+                    <Button
+                      onClick={handleSearch}
+                      className="w-full bg-[#1877F2] hover:bg-blue-700 text-white h-[72px] rounded-xl text-lg font-bold shadow-blue-200 shadow-lg"
+                    >
+                      <Search className="w-5 h-5 mr-2" /> SEARCH
+                    </Button>
+                  </div>
                 </div>
               </TabsContent>
 
-              {/* HOTELS TAB */}
+              {/* HOTELS TAB - Simplified structure for brevity, following same pattern */}
               <TabsContent value="hotels" className="mt-0">
-                <div className="flex flex-col md:flex-row items-center gap-4">
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
-                        <Hotel className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Destination</p>
-                        <Select value={hotelLocation} onValueChange={setHotelLocation}>
-                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 text-lg font-semibold">
-                            <SelectValue placeholder="Where to stay?" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="delhi">Delhi</SelectItem>
-                            <SelectItem value="mumbai">Mumbai</SelectItem>
-                            <SelectItem value="goa">Goa</SelectItem>
-                            <SelectItem value="jaipur">Jaipur</SelectItem>
-                            <SelectItem value="manali">Manali</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                  <div className="md:col-span-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="border border-gray-200 rounded-xl p-3 bg-gray-50/50">
+                      <p className="text-xs font-bold text-gray-400 uppercase">Destination</p>
+                      <Select value={hotelLocation} onValueChange={setHotelLocation}><SelectTrigger className="bg-transparent border-0 font-bold text-lg p-0"><SelectValue placeholder="Where?" /></SelectTrigger><SelectContent><SelectItem value="goa">Goa</SelectItem><SelectItem value="delhi">Delhi</SelectItem></SelectContent></Select>
+                    </div>
+                    <div className="border border-gray-200 rounded-xl p-3 bg-gray-50/50">
+                      <p className="text-xs font-bold text-gray-400 uppercase">Check In</p>
+                      <p className="font-bold text-lg text-gray-900 py-1">{date ? format(date, "d MMM") : "Select"}</p>
+                    </div>
+                    <div className="border border-gray-200 rounded-xl p-3 bg-gray-50/50">
+                      <p className="text-xs font-bold text-gray-400 uppercase">Guests</p>
+                      <Select value={guests} onValueChange={setGuests}><SelectTrigger className="bg-transparent border-0 font-bold text-lg p-0"><SelectValue placeholder="2 Guests" /></SelectTrigger><SelectContent><SelectItem value="2">2 Guests</SelectItem></SelectContent></Select>
                     </div>
                   </div>
-
-                  <div className="w-px h-12 bg-gray-200 hidden md:block"></div>
-
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
-                        <Calendar className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1">
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <div className="w-full text-left">
-                              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Check In</p>
-                              <p className="text-lg font-semibold text-gray-900 truncate">
-                                {date ? format(date, "d MMM yyyy") : "Select Date"}
-                              </p>
-                            </div>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0" align="start">
-                            <CalendarComponent mode="single" selected={date} onSelect={setDate} initialFocus />
-                          </PopoverContent>
-                        </Popover>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="w-px h-12 bg-gray-200 hidden md:block"></div>
-
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
-                        <Briefcase className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Guests</p>
-                        <Select value={guests} onValueChange={setGuests}>
-                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 text-lg font-semibold">
-                            <SelectValue placeholder="Guests" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="1">1 Guest</SelectItem>
-                            <SelectItem value="2">2 Guests</SelectItem>
-                            <SelectItem value="3">3 Guests</SelectItem>
-                            <SelectItem value="4">4+ Guests</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
+                  <div className="md:col-span-2">
+                    <Button onClick={handleSearch} className="w-full bg-[#1877F2] text-white h-[72px] rounded-xl font-bold">SEARCH</Button>
                   </div>
                 </div>
               </TabsContent>
 
-              {/* VISA TAB */}
               <TabsContent value="visa" className="mt-0">
-                <div className="flex flex-col md:flex-row items-center gap-4">
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
-                        <Globe className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Country</p>
-                        <Select value={visaCountry} onValueChange={setVisaCountry}>
-                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 text-lg font-semibold">
-                            <SelectValue placeholder="Select Country" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="dubai">Dubai</SelectItem>
-                            <SelectItem value="thailand">Thailand</SelectItem>
-                            <SelectItem value="singapore">Singapore</SelectItem>
-                            <SelectItem value="malaysia">Malaysia</SelectItem>
-                            <SelectItem value="vietnam">Vietnam</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="w-px h-12 bg-gray-200 hidden md:block"></div>
-
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
-                        <Briefcase className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Visa Type</p>
-                        <Select value={visaType} onValueChange={setVisaType}>
-                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 text-lg font-semibold">
-                            <SelectValue placeholder="Type of Visa" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="tourist">Tourist Visa</SelectItem>
-                            <SelectItem value="business">Business Visa</SelectItem>
-                            <SelectItem value="transit">Transit Visa</SelectItem>
-                            <SelectItem value="student">Student Visa</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div className="text-center py-8 text-gray-500">Select a country to view visa requirements. (Placeholder for full form)</div>
               </TabsContent>
-
-              {/* EXPERIENCE TAB */}
               <TabsContent value="experience" className="mt-0">
-                <div className="flex flex-col md:flex-row items-center gap-4">
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
-                        <MapPin className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Location</p>
-                        <Select value={activityLocation} onValueChange={setActivityLocation}>
-                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 text-lg font-semibold">
-                            <SelectValue placeholder="Where?" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="rishikesh">Rishikesh</SelectItem>
-                            <SelectItem value="manali">Manali</SelectItem>
-                            <SelectItem value="goa">Goa</SelectItem>
-                            <SelectItem value="andaman">Andaman</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-px h-12 bg-gray-200 hidden md:block"></div>
-
-                  <div className="flex-1 w-full border border-gray-100 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white group-hover:shadow-sm transition-all">
-                        <List className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Activity</p>
-                        <Select value={activityType} onValueChange={setActivityType}>
-                          <SelectTrigger className="w-full p-0 h-auto border-0 focus:ring-0 shadow-none bg-transparent text-gray-900 text-lg font-semibold">
-                            <SelectValue placeholder="What to do?" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="rafting">River Rafting</SelectItem>
-                            <SelectItem value="bungee">Bungee Jumping</SelectItem>
-                            <SelectItem value="scuba">Scuba Diving</SelectItem>
-                            <SelectItem value="paragliding">Paragliding</SelectItem>
-                            <SelectItem value="camping">Camping</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div className="text-center py-8 text-gray-500">Explore activities near you. (Placeholder for full form)</div>
               </TabsContent>
-
-              {/* Common Search Button */}
-              <div className="mt-8 flex justify-center">
-                <Button
-                  onClick={handleSearch}
-                  className="bg-[#1877F2] hover:bg-[#1666d6] text-white px-12 py-7 rounded-xl text-xl font-bold shadow-xl shadow-blue-500/30 transition-all w-full md:w-auto flex items-center justify-center transform hover:-translate-y-1 hover:shadow-2xl"
-                >
-                  <Search className="w-6 h-6 mr-3" />
-                  SEARCH NOW
-                </Button>
-              </div>
 
             </div>
           </Tabs>
