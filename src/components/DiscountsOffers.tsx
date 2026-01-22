@@ -1,4 +1,5 @@
 import { ArrowUpRight, MousePointerClick, Percent, Award, MapPin } from "lucide-react";
+import chardhamImg from "@/assets/uttarakhand/chardham1.png";
 import dodhamImg from "@/assets/uttarakhand/dodham.png";
 import manaliImg from "@/assets/manali.jpg";
 
@@ -7,49 +8,81 @@ const DiscountsOffers = () => {
         <section className="py-16 bg-white">
             <div className="container px-4 sm:px-6 lg:px-8 mx-auto space-y-8">
 
-                {/* Top Row: Two Feature Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Section Heading */}
+                <div className="text-center mb-8">
+                    <p className="text-[#1877F2] font-handwriting text-2xl mb-2 font-bold">Deals & Offers</p>
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-[#1A1A1A]">
+                        Special Offers For You
+                    </h2>
+                </div>
 
-                    {/* Card 1: Blue - Chardham/Kedarnath */}
-                    <div className="relative h-[300px] sm:h-[350px] rounded-[2.5rem] overflow-hidden bg-gradient-to-r from-[#4CA1FF] to-[#1877F2] text-white p-8 flex flex-col justify-center group shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
-                        <div className="relative z-10 max-w-[60%]">
-                            <p className="font-handwriting text-2xl mb-1 opacity-90 italic">Spiritual Journey</p>
-                            <h3 className="text-3xl sm:text-5xl font-black mb-4 uppercase leading-none text-[#CDF0EA] drop-shadow-md">
+                {/* Top Row: Three Feature Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                    {/* Card 1: Blue - Chardham */}
+                    <div className="relative h-[280px] sm:h-[323px] rounded-[2rem] overflow-hidden bg-gradient-to-r from-[#4CA1FF] to-[#1877F2] text-white p-6 flex flex-col justify-center group shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
+                        <div className="relative z-10 max-w-[70%]">
+                            <p className="font-handwriting text-lg sm:text-xl mb-1 opacity-90 italic">Spiritual Journey</p>
+                            <h3 className="text-2xl sm:text-3xl font-black mb-3 uppercase leading-none text-[#CDF0EA] drop-shadow-md">
                                 Chardham <br /> Offer
                             </h3>
-                            <div className="inline-block bg-[#D1F2EB] text-[#1877F2] font-bold px-4 py-1.5 rounded-full mb-6">
+                            <div className="inline-block bg-[#D1F2EB] text-[#1877F2] font-bold px-3 py-1 rounded-full mb-4 text-sm">
                                 9D/8N Ex. Haridwar
                             </div>
 
-                            <div className="flex flex-col gap-1 border-l-4 border-white/30 pl-4">
-                                <span className="text-sm font-medium opacity-80 uppercase tracking-widest">Total Price</span>
-                                <span className="text-4xl font-extrabold text-[#FFE162] filter drop-shadow-sm">₹15,999</span>
-                                <span className="text-xs opacity-75">Per Person Only</span>
+                            <div className="flex flex-col gap-1 border-l-4 border-white/30 pl-3">
+                                <span className="text-xs font-medium opacity-80 uppercase tracking-widest">Total Price</span>
+                                <span className="text-3xl font-extrabold text-[#FFE162] filter drop-shadow-sm">₹15,999</span>
+                                <span className="text-[10px] opacity-75">Per Person Only</span>
                             </div>
                         </div>
 
                         {/* Image decoration */}
                         <div className="absolute right-[-20px] bottom-[-20px] w-1/2 h-full z-0">
-                            <img src={dodhamImg} alt="Kedarnath" className="w-full h-full object-cover rounded-tl-[3rem] shadow-[-10px_-10px_20px_rgba(0,0,0,0.2)] transform group-hover:scale-105 transition-transform duration-500" />
+                            <img src={chardhamImg} alt="Chardham" className="w-full h-full object-cover rounded-tl-[3rem] shadow-[-10px_-10px_20px_rgba(0,0,0,0.2)] transform group-hover:scale-105 transition-transform duration-500" />
                         </div>
                     </div>
 
-                    {/* Card 2: Orange - Egypt/Manali style */}
-                    <div className="relative h-[300px] sm:h-[350px] rounded-[2.5rem] overflow-hidden bg-gradient-to-r from-[#FFB300] to-[#FF8F00] text-white p-8 flex flex-col justify-center group shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
-                        <div className="relative z-10 max-w-[60%]">
-                            <p className="font-handwriting text-2xl mb-1 opacity-90 italic">Winter Offer</p>
-                            <h3 className="relative z-20 text-3xl sm:text-5xl font-black mb-4 uppercase leading-none !text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
+                    {/* Card 2: Green - DoDham */}
+                    <div className="relative h-[280px] sm:h-[323px] rounded-[2rem] overflow-hidden bg-gradient-to-r from-[#11998e] to-[#38ef7d] text-white p-6 flex flex-col justify-center group shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
+                        <div className="relative z-10 max-w-[70%]">
+                            <p className="font-handwriting text-lg sm:text-xl mb-1 opacity-90 italic">Divine Yatra</p>
+                            <h3 className="text-2xl sm:text-3xl font-black mb-3 uppercase leading-none text-white drop-shadow-md">
+                                DoDham <br /> Yatra
+                            </h3>
+                            <div className="inline-block bg-white text-[#11998e] font-bold px-3 py-1 rounded-full mb-4 text-sm">
+                                5D/4N Ex. Haridwar
+                            </div>
+
+                            <div className="flex flex-col gap-1 border-l-4 border-white/30 pl-3">
+                                <span className="text-xs font-medium opacity-80 uppercase tracking-widest">Total Price</span>
+                                <span className="text-3xl font-extrabold text-white filter drop-shadow-sm">₹11,500</span>
+                                <span className="text-[10px] opacity-75">Per Person Only</span>
+                            </div>
+                        </div>
+
+                        {/* Image decoration */}
+                        <div className="absolute right-[-20px] bottom-[-20px] w-1/2 h-full z-0">
+                            <img src={dodhamImg} alt="DoDham" className="w-full h-full object-cover rounded-tl-[3rem] shadow-[-10px_-10px_20px_rgba(0,0,0,0.2)] transform group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                    </div>
+
+                    {/* Card 3: Orange - Manali */}
+                    <div className="relative h-[280px] sm:h-[323px] rounded-[2rem] overflow-hidden bg-gradient-to-r from-[#FFB300] to-[#FF8F00] text-white p-6 flex flex-col justify-center group shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
+                        <div className="relative z-10 max-w-[70%]">
+                            <p className="font-handwriting text-lg sm:text-xl mb-1 opacity-90 italic">Winter Offer</p>
+                            <h3 className="relative z-20 text-2xl sm:text-3xl font-black mb-3 uppercase leading-none !text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
                                 Manali <br /> Hills
                             </h3>
-                            <div className="inline-block bg-white text-[#FF8F00] font-bold px-4 py-1.5 rounded-full mb-6 relative">
-                                <span className="absolute -top-3 -right-3 bg-red-500 text-white text-[10px] w-8 h-8 flex items-center justify-center rounded-full font-bold animate-pulse">Hot</span>
+                            <div className="inline-block bg-white text-[#FF8F00] font-bold px-3 py-1 rounded-full mb-4 relative text-sm">
+                                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[8px] w-6 h-6 flex items-center justify-center rounded-full font-bold animate-pulse">Hot</span>
                                 6D/5N Ex. Delhi
                             </div>
 
-                            <div className="flex flex-col gap-1 border-l-4 border-white/30 pl-4">
-                                <span className="text-sm font-medium opacity-80 uppercase tracking-widest">Total Price</span>
-                                <span className="text-4xl font-extrabold text-white filter drop-shadow-sm">₹5,500</span>
-                                <span className="text-xs opacity-75">Per Person Only</span>
+                            <div className="flex flex-col gap-1 border-l-4 border-white/30 pl-3">
+                                <span className="text-xs font-medium opacity-80 uppercase tracking-widest">Total Price</span>
+                                <span className="text-3xl font-extrabold text-white filter drop-shadow-sm">₹5,500</span>
+                                <span className="text-[10px] opacity-75">Per Person Only</span>
                             </div>
                         </div>
 

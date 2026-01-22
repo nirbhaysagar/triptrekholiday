@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 
-import herovideo from "@/assets/herovideo.mp4";
+import herovideo from "@/assets/newheadervideo.mp4";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ const Hero = () => {
 
       {/* Boxed Hero Container */}
       <div className="container mx-auto px-4 lg:px-[25px]">
-        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[500px] md:h-[600px] w-full mx-auto">
+        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] w-full mx-auto">
 
           {/* Video Background */}
           <div className="absolute inset-0 z-0">
@@ -80,7 +80,7 @@ const Hero = () => {
 
           {/* Centered Content */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 pb-20 md:pb-36">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg tracking-tight max-w-4xl">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg tracking-tight max-w-4xl">
               All-in-one Travel Booking.
             </h1>
             <p className="text-lg sm:text-xl text-navy-100 font-medium max-w-2xl text-white/90">
@@ -91,24 +91,24 @@ const Hero = () => {
       </div>
 
       {/* Floating Search Interface */}
-      <div className="relative -mt-32 md:-mt-48 z-30 px-4">
+      <div className="relative -mt-24 md:-mt-48 z-30 px-4">
         <div className="container mx-auto max-w-6xl">
 
           {/* Tab Triggers */}
           <Tabs defaultValue="tours" className="w-full" onValueChange={setActiveTab}>
-            <div className="flex justify-center mb-6">
-              <TabsList className="bg-white p-1.5 rounded-full shadow-lg border border-gray-100 h-auto inline-flex">
-                <TabsTrigger value="tours" className="rounded-full px-6 py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all">
-                  <span className="text-lg">🎒</span> Tours
+            <div className="flex justify-start md:justify-center mb-6 w-full overflow-x-auto no-scrollbar pb-2 px-2">
+              <TabsList className="bg-white p-1.5 rounded-full shadow-lg border border-gray-100 h-auto inline-flex min-w-max">
+                <TabsTrigger value="tours" className="rounded-full px-4 py-2 sm:px-6 sm:py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all text-sm sm:text-base">
+                  <span className="text-base sm:text-lg">🎒</span> Tours
                 </TabsTrigger>
-                <TabsTrigger value="hotels" className="rounded-full px-6 py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all">
-                  <span className="text-lg">🛏️</span> Hotels
+                <TabsTrigger value="hotels" className="rounded-full px-4 py-2 sm:px-6 sm:py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all text-sm sm:text-base">
+                  <span className="text-base sm:text-lg">🛏️</span> Hotels
                 </TabsTrigger>
-                <TabsTrigger value="visa" className="rounded-full px-6 py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all">
-                  <span className="text-lg">🛂</span> Visa
+                <TabsTrigger value="visa" className="rounded-full px-4 py-2 sm:px-6 sm:py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all text-sm sm:text-base">
+                  <span className="text-base sm:text-lg">🛂</span> Visa
                 </TabsTrigger>
-                <TabsTrigger value="experience" className="rounded-full px-6 py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all">
-                  <span className="text-lg">🎫</span> Experience
+                <TabsTrigger value="experience" className="rounded-full px-4 py-2 sm:px-6 sm:py-2.5 data-[state=active]:bg-[#1877F2] data-[state=active]:text-white text-gray-600 font-semibold gap-2 transition-all text-sm sm:text-base">
+                  <span className="text-base sm:text-lg">🎫</span> Experience
                 </TabsTrigger>
               </TabsList>
             </div>
