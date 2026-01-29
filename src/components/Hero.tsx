@@ -61,7 +61,7 @@ const Hero = () => {
     <section id="home" className="relative pt-32 pb-32 lg:pb-40 bg-gray-50/50">
 
       {/* Boxed Hero Container */}
-      <div className="container mx-auto px-4 lg:px-[25px]">
+      <div className="w-full px-[20px]">
         <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] w-full mx-auto">
 
           {/* Video Background */}

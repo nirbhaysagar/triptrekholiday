@@ -23,7 +23,7 @@ const DiscountsOffers = () => {
                     <div className="relative h-[280px] sm:h-[323px] rounded-[2rem] overflow-hidden bg-gradient-to-r from-[#4CA1FF] to-[#1877F2] text-white p-6 flex flex-col justify-center group shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
                         <div className="relative z-10 max-w-[70%]">
                             <p className="font-handwriting text-lg sm:text-xl mb-1 opacity-90 italic">Spiritual Journey</p>
-                            <h3 className="text-2xl sm:text-3xl font-black mb-3 uppercase leading-none text-[#CDF0EA] drop-shadow-md">
+                            <h3 className="text-2xl sm:text-3xl font-black mb-3 uppercase leading-none !text-white drop-shadow-md">
                                 Chardham <br /> Offer
                             </h3>
                             <div className="inline-block bg-[#D1F2EB] text-[#1877F2] font-bold px-3 py-1 rounded-full mb-4 text-sm">
@@ -32,7 +32,7 @@ const DiscountsOffers = () => {
 
                             <div className="flex flex-col gap-1 border-l-4 border-white/30 pl-3">
                                 <span className="text-xs font-medium opacity-80 uppercase tracking-widest">Total Price</span>
-                                <span className="text-3xl font-extrabold text-[#FFE162] filter drop-shadow-sm">₹15,999</span>
+                                <span className="text-3xl font-extrabold text-white filter drop-shadow-sm">₹15,999</span>
                                 <span className="text-[10px] opacity-75">Per Person Only</span>
                             </div>
                         </div>
@@ -47,7 +47,7 @@ const DiscountsOffers = () => {
                     <div className="relative h-[280px] sm:h-[323px] rounded-[2rem] overflow-hidden bg-gradient-to-r from-[#11998e] to-[#38ef7d] text-white p-6 flex flex-col justify-center group shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
                         <div className="relative z-10 max-w-[70%]">
                             <p className="font-handwriting text-lg sm:text-xl mb-1 opacity-90 italic">Divine Yatra</p>
-                            <h3 className="text-2xl sm:text-3xl font-black mb-3 uppercase leading-none text-white drop-shadow-md">
+                            <h3 className="text-2xl sm:text-3xl font-black mb-3 uppercase leading-none !text-white drop-shadow-md">
                                 DoDham <br /> Yatra
                             </h3>
                             <div className="inline-block bg-white text-[#11998e] font-bold px-3 py-1 rounded-full mb-4 text-sm">
